@@ -1,76 +1,76 @@
-<%@ page contentType="text/html; charset=EUC-KR" %>
-<%@ page pageEncoding="EUC-KR"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page pageEncoding="UTF-8"%>
 
 
 <!DOCTYPE html>
 
 <html lang="ko">
-	
+
 <head>
-	<meta charset="EUC-KR">
-	
-	<!-- ¬¸¡∂ : http://getbootstrap.com/css/   ¬¸¡∂ -->
+	<meta charset="UTF-8">
+
+	<!-- Ï∞∏Ï°∞ : http://getbootstrap.com/css/   Ï∞∏Ï°∞ -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	
+
 	<!--  ///////////////////////// Bootstrap, jQuery CDN ////////////////////////// -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
 	<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
-	
+
 	<!--  ///////////////////////// CSS ////////////////////////// -->
 	<style>
-    	 body >  div.container{ 
+    	 body >  div.container{
         	border: 3px solid #D6CDB7;
             margin-top: 10px;
         }
     </style>
-    
+
     <!--  ///////////////////////// JavaScript ////////////////////////// -->
 	<script type="text/javascript">
 
-		//============= "∑Œ±◊¿Œ"  Event ø¨∞· =============
+		//============= "Î°úÍ∑∏Ïù∏"  Event Ïó∞Í≤∞ =============
 		$( function() {
-			
+
 			$("#userId").focus();
-			
-			//==> DOM Object GET 3∞°¡ˆ πÊπ˝ ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+
+			//==> DOM Object GET 3Í∞ÄÏßÄ Î∞©Î≤ï ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
 			$("button").on("click" , function() {
 				var id=$("input:text").val();
 				var pw=$("input:password").val();
-				
+
 				if(id == null || id.length <1) {
-					alert('ID ∏¶ ¿‘∑¬«œ¡ˆ æ ¿∏ºÃΩ¿¥œ¥Ÿ.');
+					alert('ID Î•º ÏûÖÎ†•ÌïòÏßÄ ÏïäÏúºÏÖ®ÏäµÎãàÎã§.');
 					$("#userId").focus();
 					return;
 				}
-				
+
 				if(pw == null || pw.length <1) {
-					alert('∆–Ω∫øˆµÂ∏¶ ¿‘∑¬«œ¡ˆ æ ¿∏ºÃΩ¿¥œ¥Ÿ.');
+					alert('Ìå®Ïä§ÏõåÎìúÎ•º ÏûÖÎ†•ÌïòÏßÄ ÏïäÏúºÏÖ®ÏäµÎãàÎã§.');
 					$("#password").focus();
 					return;
 				}
-				
+
 				$("form").attr("method","POST").attr("action","/user/login").attr("target","_parent").submit();
 			});
-		});	
-		
-		
-		//============= »∏ø¯ø¯∞°¿‘»≠∏È¿Ãµø =============
+		});
+
+
+		//============= ÌöåÏõêÏõêÍ∞ÄÏûÖÌôîÎ©¥Ïù¥Îèô =============
 		$( function() {
-			//==> DOM Object GET 3∞°¡ˆ πÊπ˝ ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+			//==> DOM Object GET 3Í∞ÄÏßÄ Î∞©Î≤ï ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
 			$("a[href='#' ]").on("click" , function() {
 				self.location = "/user/addUser"
 			});
 		});
-		
-		//============= NaverIdLogin √ﬂ∞° ==============
-			
+
+		//============= NaverIdLogin Ï∂îÍ∞Ä ==============
+
 		function loginWithNaver() {
-			
-			alert("πˆ∆∞click");
-			
+
+			alert("Î≤ÑÌäºclick");
+
     		$.ajax({
         		url: '/naver/getNaverAuthUrl',
         		type: 'get',
@@ -79,12 +79,12 @@
         		location.href = res;
     		});
 		}
-		
-		
-		
-		
-	</script>		
-	
+
+
+
+
+	</script>
+
 </head>
 
 <body>
@@ -95,59 +95,59 @@
         	<a class="navbar-brand" href="/index.jsp">Model2 MVC Shop</a>
    		</div>
    	</div>
-   	<!-- ToolBar End /////////////////////////////////////-->	
-	
-	<!--  »≠∏È±∏º∫ div Start /////////////////////////////////////-->
+   	<!-- ToolBar End /////////////////////////////////////-->
+
+	<!--  ÌôîÎ©¥Íµ¨ÏÑ± div Start /////////////////////////////////////-->
 	<div class="container">
 		<!--  row Start /////////////////////////////////////-->
 		<div class="row">
-		
+
 			<div class="col-md-6">
 					<img src="/images/logo-spring.png" class="img-rounded" width="100%" />
 			</div>
-	   	 	
+
 	 	 	<div class="col-md-6">
-	 	 	
+
 		 	 	<br/><br/>
-				
-				<div class="jumbotron">	 	 	
-		 	 		<h1 class="text-center">∑Œ &nbsp;&nbsp;±◊ &nbsp;&nbsp;¿Œ</h1>
+
+				<div class="jumbotron">
+		 	 		<h1 class="text-center">Î°ú &nbsp;&nbsp;Í∑∏ &nbsp;&nbsp;Ïù∏</h1>
 
 			        <form class="form-horizontal">
-		  
+
 					  <div class="form-group">
-					    <label for="userId" class="col-sm-4 control-label">æ∆ ¿Ã µ</label>
+					    <label for="userId" class="col-sm-4 control-label">ÏïÑ Ïù¥ Îîî</label>
 					    <div class="col-sm-6">
-					      <input type="text" class="form-control" name="userId" id="userId"  placeholder="æ∆¿Ãµ" >
+					      <input type="text" class="form-control" name="userId" id="userId"  placeholder="ÏïÑÏù¥Îîî" >
 					    </div>
 					  </div>
-					  
+
 					  <div class="form-group">
-					    <label for="password" class="col-sm-4 control-label">∆– Ω∫ øˆ µÂ</label>
+					    <label for="password" class="col-sm-4 control-label">Ìå® Ïä§ Ïõå Îìú</label>
 					    <div class="col-sm-6">
-					      <input type="password" class="form-control" name="password" id="password" placeholder="∆–Ω∫øˆµÂ" >
+					      <input type="password" class="form-control" name="password" id="password" placeholder="Ìå®Ïä§ÏõåÎìú" >
 					    </div>
 					  </div>
-					 					  					  
+
 					  <div class="form-group">
-					  <input type="button" class="btn btn-info" onclick="loginWithNaver()" value="≥◊¿Ãπˆ ∑Œ±◊¿Œ">
+					  <input type="button" class="btn btn-info" onclick="loginWithNaver()" value="ÎÑ§Ïù¥Î≤Ñ Î°úÍ∑∏Ïù∏">
 					    <div class="col-sm-offset-4 col-sm-6 text-center">
-					      <button type="button" class="btn btn-primary"  >∑Œ &nbsp;±◊ &nbsp;¿Œ</button>
-					      <a class="btn btn-primary btn" href="#" role="button">»∏ &nbsp;ø¯ &nbsp;∞° &nbsp;¿‘</a>
+					      <button type="button" class="btn btn-primary"  >Î°ú &nbsp;Í∑∏ &nbsp;Ïù∏</button>
+					      <a class="btn btn-primary btn" href="#" role="button">Ìöå &nbsp;Ïõê &nbsp;Í∞Ä &nbsp;ÏûÖ</a>
 					    </div>
-					    
+
 					  </div>
-			
+
 					</form>
 			   	 </div>
-			
+
 			</div>
-			
+
   	 	</div>
   	 	<!--  row Start /////////////////////////////////////-->
-  	 	
+
  	</div>
- 	<!--  »≠∏È±∏º∫ div end /////////////////////////////////////-->
+ 	<!--  ÌôîÎ©¥Íµ¨ÏÑ± div end /////////////////////////////////////-->
 
 </body>
 

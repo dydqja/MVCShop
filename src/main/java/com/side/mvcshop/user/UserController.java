@@ -5,6 +5,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import ch.qos.logback.core.CoreConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -46,7 +47,7 @@ public class UserController {
 
 		System.out.println("/user/addUser : GET");
 
-		return "/user/addUserView";
+		return "/user/addUserView.jsp";
 	}
 
 	@RequestMapping( value="addUser", method=RequestMethod.POST )
@@ -56,7 +57,7 @@ public class UserController {
 		//Business Logic
 		userService.addUser(user);
 
-		return "redirect:/user/loginView.jsp";
+		return "/user/loginView.jsp";
 	}
 
 
@@ -69,7 +70,7 @@ public class UserController {
 		// Model �� View ����
 		model.addAttribute("user", user);
 
-		return "forward:/user/getUser.jsp";
+		return "user/getUser.jsp";
 	}
 
 
@@ -82,7 +83,7 @@ public class UserController {
 		// Model �� View ����
 		model.addAttribute("user", user);
 
-		return "forward:/user/updateUser.jsp";
+		return "/user/updateUser.jsp";
 	}
 
 	@RequestMapping( value="updateUser", method=RequestMethod.POST )
@@ -91,22 +92,24 @@ public class UserController {
 		System.out.println("/user/updateUser : POST");
 		//Business Logic
 		userService.updateUser(user);
+		User updateUser = userService.getUser(user.getUserId());
 
 		String sessionId=((User)session.getAttribute("user")).getUserId();
-		if(sessionId.equals(user.getUserId())){
-			session.setAttribute("user", user);
+		if(sessionId.equals(updateUser.getUserId())){
+			session.setAttribute("user", updateUser);
+			System.out.println("session에 담긴 user정보 = : [ "+updateUser+" ]");
 		}
 
-		return "redirect:/user/getUser?userId="+user.getUserId();
+		return "/user/getUser.jsp";
 	}
 
 
 	@RequestMapping( value="login", method=RequestMethod.GET )
 	public String login() throws Exception{
 
-		System.out.println("/user/logon : GET");
+		System.out.println("/user/login : GET");
 
-		return "redirect:/user/loginView.jsp";
+		return "user/loginView.jsp";
 	}
 
 	@RequestMapping( value="login", method=RequestMethod.POST )
@@ -118,9 +121,10 @@ public class UserController {
 
 		if( user.getPassword().equals(dbUser.getPassword())){
 			session.setAttribute("user", dbUser);
+			System.out.println("session에 담긴 user정보 = : [ "+dbUser+" ]");
 		}
 
-		return "redirect:/index.jsp";
+		return "/main.jsp";
 	}
 
 
@@ -131,7 +135,14 @@ public class UserController {
 
 		session.invalidate();
 
-		return "redirect:/index.jsp";
+		return "redirect:/";
+	}
+
+	@RequestMapping( value="checkDuplication", method=RequestMethod.GET)
+	public String checkDuplication() throws Exception {
+		System.out.println("/user/checkDuplication : GET");
+
+		return "/user/checkDuplication.jsp";
 	}
 
 
@@ -143,27 +154,28 @@ public class UserController {
 		boolean result=userService.checkDuplication(userId);
 		System.out.println("111111111111111111111111111111111111111111111111111111111");
 		// Model �� View ����
+		System.out.println(result);
 		model.addAttribute("result", new Boolean(result));
 		model.addAttribute("userId", userId);
 
-		return "/user/checkDuplication";
+		return "/user/checkDuplication.jsp";
 	}
 
 
 	@RequestMapping( value="listUser" )
-	public String listUser( @ModelAttribute("search") Search search , Model model , HttpServletRequest request) throws Exception{
+	public String listUser( @ModelAttribute("search") Search search , Model model , HttpServletRequest request) throws Exception {
 
 		System.out.println("/user/listUser : GET / POST");
 
-		if(search.getCurrentPage() ==0 ){
+		if (search.getCurrentPage() == 0) {
 			search.setCurrentPage(1);
 		}
 		search.setPageSize(pageSize);
 
 		// Business logic ����
-		Map<String , Object> map=userService.getList(search);
+		Map<String, Object> map = userService.getList(search);
 
-		Page resultPage = new Page( search.getCurrentPage(), ((Integer)map.get("totalCount")).intValue(), pageUnit, pageSize);
+		Page resultPage = new Page(search.getCurrentPage(), ((Integer) map.get("totalCount")).intValue(), pageUnit, pageSize);
 		System.out.println(resultPage);
 
 		// Model �� View ����
@@ -171,6 +183,12 @@ public class UserController {
 		model.addAttribute("resultPage", resultPage);
 		model.addAttribute("search", search);
 
-		return "forward:/user/listUser.jsp";
+		return "/user/listUser.jsp";
+	}
+
+	@RequestMapping( value="phCodeConfirm", method=RequestMethod.GET )
+	public String phCodeConfirm() throws Exception {
+
+		return "/user/phCodeConfirm.jsp";
 	}
 }

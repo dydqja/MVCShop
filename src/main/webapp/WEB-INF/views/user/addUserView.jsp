@@ -1,143 +1,143 @@
-<%@ page contentType="text/html; charset=EUC-KR" %>
-<%@ page pageEncoding="EUC-KR"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
 <!DOCTYPE html>
 
 <html lang="ko">
-	
+
 <head>
-	<meta charset="EUC-KR">
-	
-	<!-- ÂüÁ¶ : http://getbootstrap.com/css/   ÂüÁ¶ -->
+	<meta charset="UTF-8">
+
+	<!-- ì°¸ì¡° : http://getbootstrap.com/css/   ì°¸ì¡° -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	
+
 	<!--  ///////////////////////// Bootstrap, jQuery CDN ////////////////////////// -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
-	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>	
-	
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
 	<!--  ///////////////////////// CSS ////////////////////////// -->
 	<style>
        body > div.container{
         	border: 3px solid #D6CDB7;
-            margin-top: 10px;            
+            margin-top: 10px;
         }
     </style>
-    
+
      <!--  ///////////////////////// JavaScript ////////////////////////// -->
 	<script type="text/javascript">
-	
-		//============= "°¡ÀÔ"  Event ¿¬°á =============
+
+		//============= "ê°€ì…"  Event ì—°ê²° =============
 		 $(function() {
-			//==> DOM Object GET 3°¡Áö ¹æ¹ı ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+			//==> DOM Object GET 3ê°€ì§€ ë°©ë²• ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
 			$( "button.btn.btn-primary" ).on("click" , function() {
 				fncAddUser();
 			});
-		});	
-		
-		
-		//============= "Ãë¼Ò"  Event Ã³¸® ¹×  ¿¬°á =============
+		});
+
+
+		//============= "ì·¨ì†Œ"  Event ì²˜ë¦¬ ë°  ì—°ê²° =============
 		$(function() {
-			//==> DOM Object GET 3°¡Áö ¹æ¹ı ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+			//==> DOM Object GET 3ê°€ì§€ ë°©ë²• ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
 			$("a[href='#' ]").on("click" , function() {
 				$("form")[0].reset();
 			});
-		});	
-	
-		
+		});
+
+
 		function fncAddUser() {
-			
+
 			var id=$("input[name='userId']").val();
 			var pw=$("input[name='password']").val();
 			var pw_confirm=$("input[name='password2']").val();
 			var name=$("input[name='userName']").val();
 			var ph_confirm=$('#phCode').val();
-			
+
 			console.log( $('#phCode').val());
-			console.log('ÀÎÁõ¹øÈ£ Àü¼Û');
-			
-			
+			console.log('ì¸ì¦ë²ˆí˜¸ ì „ì†¡');
+
+
 			if(id == null || id.length <1){
-				alert("¾ÆÀÌµğ´Â ¹İµå½Ã ÀÔ·ÂÇÏ¼Å¾ß ÇÕ´Ï´Ù.");
+				alert("ì•„ì´ë””ëŠ” ë°˜ë“œì‹œ ì…ë ¥í•˜ì…”ì•¼ í•©ë‹ˆë‹¤.");
 				return;
 			}
 			if(pw == null || pw.length <1){
-				alert("ÆĞ½º¿öµå´Â  ¹İµå½Ã ÀÔ·ÂÇÏ¼Å¾ß ÇÕ´Ï´Ù.");
+				alert("íŒ¨ìŠ¤ì›Œë“œëŠ”  ë°˜ë“œì‹œ ì…ë ¥í•˜ì…”ì•¼ í•©ë‹ˆë‹¤.");
 				return;
 			}
 			if(pw_confirm == null || pw_confirm.length <1){
-				alert("ÆĞ½º¿öµå È®ÀÎÀº  ¹İµå½Ã ÀÔ·ÂÇÏ¼Å¾ß ÇÕ´Ï´Ù.");
+				alert("íŒ¨ìŠ¤ì›Œë“œ í™•ì¸ì€  ë°˜ë“œì‹œ ì…ë ¥í•˜ì…”ì•¼ í•©ë‹ˆë‹¤.");
 				return;
 			}
 			if(name == null || name.length <1){
-				alert("ÀÌ¸§Àº  ¹İµå½Ã ÀÔ·ÂÇÏ¼Å¾ß ÇÕ´Ï´Ù.");
+				alert("ì´ë¦„ì€  ë°˜ë“œì‹œ ì…ë ¥í•˜ì…”ì•¼ í•©ë‹ˆë‹¤.");
 				return;
 			}
-			
-			if( pw != pw_confirm ) {				
-				alert("ºñ¹Ğ¹øÈ£ È®ÀÎÀÌ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.");
+
+			if( pw != pw_confirm ) {
+				alert("ë¹„ë°€ë²ˆí˜¸ í™•ì¸ì´ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 				$("input:text[name='password2']").focus();
 				return;
 			}
-				
-			var value = "";	
+
+			var value = "";
 			if( $("input:text[name='phone2']").val() != ""  &&  $("input:text[name='phone3']").val() != "") {
-				var value = $("option:selected").val() + "-" 
-									+ $("input[name='phone2']").val() + "-" 
+				var value = $("option:selected").val() + "-"
+									+ $("input[name='phone2']").val() + "-"
 									+ $("input[name='phone3']").val();
 			}
 
 			$("input:hidden[name='phone']").val( value );
-			
-			if( ph_confirm == 'ÀÎÁõ¹øÈ£ Àü¼Û') {
-				alert("ÈŞ´ëÀüÈ­¹øÈ£ ÀÎÁõÀ» ¿Ï·áÇØÁÖ¼¼¿ä.")
+
+			if( ph_confirm == 'ì¸ì¦ë²ˆí˜¸ ì „ì†¡') {
+				alert("íœ´ëŒ€ì „í™”ë²ˆí˜¸ ì¸ì¦ì„ ì™„ë£Œí•´ì£¼ì„¸ìš”.")
 				return;
 			}
-			
+
 			$("form").attr("method" , "POST").attr("action" , "/user/addUser").submit();
 		}
-		
 
-		//==>"ÀÌ¸ŞÀÏ" À¯È¿¼ºCheck  Event Ã³¸® ¹× ¿¬°á
+
+		//==>"ì´ë©”ì¼" ìœ íš¨ì„±Check  Event ì²˜ë¦¬ ë° ì—°ê²°
 		 $(function() {
-			 
+
 			 $("input[name='email']").on("change" , function() {
-				
+
 				 var email=$("input[name='email']").val();
-			    
+
 				 if(email != "" && (email.indexOf('@') < 1 || email.indexOf('.') == -1) ){
-			    	alert("ÀÌ¸ŞÀÏ Çü½ÄÀÌ ¾Æ´Õ´Ï´Ù.");
+			    	alert("ì´ë©”ì¼ í˜•ì‹ì´ ì•„ë‹™ë‹ˆë‹¤.");
 			     }
 			});
-			 
-		});	
-		
-		
+
+		});
+
+
 	   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	   //==> ÁÖ¹Î¹øÈ£ À¯È¿¼º check ´Â ÀÌÇØÁ¤µµ·Î....
+	   //==> ì£¼ë¯¼ë²ˆí˜¸ ìœ íš¨ì„± check ëŠ” ì´í•´ì •ë„ë¡œ....
 		function checkSsn() {
-			var ssn1, ssn2; 
-			var nByear, nTyear; 
-			var today; 
-	
+			var ssn1, ssn2;
+			var nByear, nTyear;
+			var today;
+
 			ssn = document.detailForm.ssn.value;
-			// À¯È¿ÇÑ ÁÖ¹Î¹øÈ£ Çü½ÄÀÎ °æ¿ì¸¸ ³ªÀÌ °è»ê ÁøÇà, PortalJuminCheck ÇÔ¼ö´Â CommonScript.js ÀÇ °øÅë ÁÖ¹Î¹øÈ£ Ã¼Å© ÇÔ¼öÀÓ 
+			// ìœ íš¨í•œ ì£¼ë¯¼ë²ˆí˜¸ í˜•ì‹ì¸ ê²½ìš°ë§Œ ë‚˜ì´ ê³„ì‚° ì§„í–‰, PortalJuminCheck í•¨ìˆ˜ëŠ” CommonScript.js ì˜ ê³µí†µ ì£¼ë¯¼ë²ˆí˜¸ ì²´í¬ í•¨ìˆ˜ì„
 			if(!PortalJuminCheck(ssn)) {
-				alert("Àß¸øµÈ ÁÖ¹Î¹øÈ£ÀÔ´Ï´Ù.");
+				alert("ì˜ëª»ëœ ì£¼ë¯¼ë²ˆí˜¸ì…ë‹ˆë‹¤.");
 				return false;
 			}
 		}
-	
+
 		function PortalJuminCheck(fieldValue){
-		    var pattern = /^([0-9]{6})-?([0-9]{7})$/; 
+		    var pattern = /^([0-9]{6})-?([0-9]{7})$/;
 			var num = fieldValue;
-		    if (!pattern.test(num)) return false; 
+		    if (!pattern.test(num)) return false;
 		    num = RegExp.$1 + RegExp.$2;
-	
+
 			var sum = 0;
 			var last = num.charCodeAt(12) - 0x30;
 			var bases = "234567892345";
@@ -149,52 +149,52 @@
 			return ((11 - mod) % 10 == last) ? true : false;
 		}
 		 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
-		 
-		//==>"IDÁßº¹È®ÀÎ" Event Ã³¸® ¹× ¿¬°á
+
+
+		//==>"IDì¤‘ë³µí™•ì¸" Event ì²˜ë¦¬ ë° ì—°ê²°
 		 $(function() {
-			//==> DOM Object GET 3°¡Áö ¹æ¹ı ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-			 $("button.btn.btn-info").on("click" , function() {				 
-				popWin 
-				= window.open("/user/checkDuplication.jsp",
-											"popWin", 
+			//==> DOM Object GET 3ê°€ì§€ ë°©ë²• ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+			 $("#checkDuplication").on("click" , function() {
+				popwin
+				= window.open("/user/checkDuplication",
+											"popWin",
 											"left=300,top=200,width=780,height=130,marginwidth=0,marginheight=0,"+
 											"scrollbars=no,scrolling=no,menubar=no,resizable=no");
 			});
-		});	
-		
-		//==> "¿ìÆí¹øÈ£Ã£±â" Event Ã³¸® ¹× ¿¬°á
-		
+		});
+
+		//==> "ìš°í¸ë²ˆí˜¸ì°¾ê¸°" Event ì²˜ë¦¬ ë° ì—°ê²°
+
 		function sample4_execDaumPostcode() {
         new daum.Postcode({
             oncomplete: function(data) {
-                // ÆË¾÷¿¡¼­ °Ë»ö°á°ú Ç×¸ñÀ» Å¬¸¯ÇßÀ»¶§ ½ÇÇàÇÒ ÄÚµå¸¦ ÀÛ¼ºÇÏ´Â ºÎºĞ.
+                // íŒì—…ì—ì„œ ê²€ìƒ‰ê²°ê³¼ í•­ëª©ì„ í´ë¦­í–ˆì„ë•Œ ì‹¤í–‰í•  ì½”ë“œë¥¼ ì‘ì„±í•˜ëŠ” ë¶€ë¶„.
 
-                // µµ·Î¸í ÁÖ¼ÒÀÇ ³ëÃâ ±ÔÄ¢¿¡ µû¶ó ÁÖ¼Ò¸¦ Ç¥½ÃÇÑ´Ù.
-                // ³»·Á¿À´Â º¯¼ö°¡ °ªÀÌ ¾ø´Â °æ¿ì¿£ °ø¹é('')°ªÀ» °¡Áö¹Ç·Î, ÀÌ¸¦ Âü°íÇÏ¿© ºĞ±â ÇÑ´Ù.
-                var roadAddr = data.roadAddress; // µµ·Î¸í ÁÖ¼Ò º¯¼ö
-                var extraRoadAddr = ''; // Âü°í Ç×¸ñ º¯¼ö
+                // ë„ë¡œëª… ì£¼ì†Œì˜ ë…¸ì¶œ ê·œì¹™ì— ë”°ë¼ ì£¼ì†Œë¥¼ í‘œì‹œí•œë‹¤.
+                // ë‚´ë ¤ì˜¤ëŠ” ë³€ìˆ˜ê°€ ê°’ì´ ì—†ëŠ” ê²½ìš°ì—” ê³µë°±('')ê°’ì„ ê°€ì§€ë¯€ë¡œ, ì´ë¥¼ ì°¸ê³ í•˜ì—¬ ë¶„ê¸° í•œë‹¤.
+                var roadAddr = data.roadAddress; // ë„ë¡œëª… ì£¼ì†Œ ë³€ìˆ˜
+                var extraRoadAddr = ''; // ì°¸ê³  í•­ëª© ë³€ìˆ˜
 
-                // ¹ıÁ¤µ¿¸íÀÌ ÀÖÀ» °æ¿ì Ãß°¡ÇÑ´Ù. (¹ıÁ¤¸®´Â Á¦¿Ü)
-                // ¹ıÁ¤µ¿ÀÇ °æ¿ì ¸¶Áö¸· ¹®ÀÚ°¡ "µ¿/·Î/°¡"·Î ³¡³­´Ù.
-                if(data.bname !== '' && /[µ¿|·Î|°¡]$/g.test(data.bname)){
+                // ë²•ì •ë™ëª…ì´ ìˆì„ ê²½ìš° ì¶”ê°€í•œë‹¤. (ë²•ì •ë¦¬ëŠ” ì œì™¸)
+                // ë²•ì •ë™ì˜ ê²½ìš° ë§ˆì§€ë§‰ ë¬¸ìê°€ "ë™/ë¡œ/ê°€"ë¡œ ëë‚œë‹¤.
+                if(data.bname !== '' && /[ë™|ë¡œ|ê°€]$/g.test(data.bname)){
                     extraRoadAddr += data.bname;
                 }
-                // °Ç¹°¸íÀÌ ÀÖ°í, °øµ¿ÁÖÅÃÀÏ °æ¿ì Ãß°¡ÇÑ´Ù.
+                // ê±´ë¬¼ëª…ì´ ìˆê³ , ê³µë™ì£¼íƒì¼ ê²½ìš° ì¶”ê°€í•œë‹¤.
                 if(data.buildingName !== '' && data.apartment === 'Y'){
                    extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
                 }
-                // Ç¥½ÃÇÒ Âü°íÇ×¸ñÀÌ ÀÖÀ» °æ¿ì, °ıÈ£±îÁö Ãß°¡ÇÑ ÃÖÁ¾ ¹®ÀÚ¿­À» ¸¸µç´Ù.
+                // í‘œì‹œí•  ì°¸ê³ í•­ëª©ì´ ìˆì„ ê²½ìš°, ê´„í˜¸ê¹Œì§€ ì¶”ê°€í•œ ìµœì¢… ë¬¸ìì—´ì„ ë§Œë“ ë‹¤.
                 if(extraRoadAddr !== ''){
                     extraRoadAddr = ' (' + extraRoadAddr + ')';
                 }
 
-                // ¿ìÆí¹øÈ£¿Í ÁÖ¼Ò Á¤º¸¸¦ ÇØ´ç ÇÊµå¿¡ ³Ö´Â´Ù.
+                // ìš°í¸ë²ˆí˜¸ì™€ ì£¼ì†Œ ì •ë³´ë¥¼ í•´ë‹¹ í•„ë“œì— ë„£ëŠ”ë‹¤.
                 //document.getElementById('sample4_postcode').value = data.zonecode;
                 document.getElementById("sample4_roadAddress").value = roadAddr;
                 //document.getElementById("sample4_jibunAddress").value = data.jibunAddress;
-                
-                // Âü°íÇ×¸ñ ¹®ÀÚ¿­ÀÌ ÀÖÀ» °æ¿ì ÇØ´ç ÇÊµå¿¡ ³Ö´Â´Ù.
+
+                // ì°¸ê³ í•­ëª© ë¬¸ìì—´ì´ ìˆì„ ê²½ìš° í•´ë‹¹ í•„ë“œì— ë„£ëŠ”ë‹¤.
                 //if(roadAddr !== ''){
                 //    document.getElementById("sample4_extraAddress").value = extraRoadAddr;
                 //} else {
@@ -202,15 +202,15 @@
                 //}
 
                 var guideTextBox = document.getElementById("guide");
-                // »ç¿ëÀÚ°¡ '¼±ÅÃ ¾ÈÇÔ'À» Å¬¸¯ÇÑ °æ¿ì, ¿¹»ó ÁÖ¼Ò¶ó´Â Ç¥½Ã¸¦ ÇØÁØ´Ù.
+                // ì‚¬ìš©ìê°€ 'ì„ íƒ ì•ˆí•¨'ì„ í´ë¦­í•œ ê²½ìš°, ì˜ˆìƒ ì£¼ì†Œë¼ëŠ” í‘œì‹œë¥¼ í•´ì¤€ë‹¤.
                 if(data.autoRoadAddress) {
                     var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
-                    guideTextBox.innerHTML = '(¿¹»ó µµ·Î¸í ÁÖ¼Ò : ' + expRoadAddr + ')';
+                    guideTextBox.innerHTML = '(ì˜ˆìƒ ë„ë¡œëª… ì£¼ì†Œ : ' + expRoadAddr + ')';
                     guideTextBox.style.display = 'block';
 
                 } else if(data.autoJibunAddress) {
                     var expJibunAddr = data.autoJibunAddress;
-                    guideTextBox.innerHTML = '(¿¹»ó Áö¹ø ÁÖ¼Ò : ' + expJibunAddr + ')';
+                    guideTextBox.innerHTML = '(ì˜ˆìƒ ì§€ë²ˆ ì£¼ì†Œ : ' + expJibunAddr + ')';
                     guideTextBox.style.display = 'block';
                 } else {
                     guideTextBox.innerHTML = '';
@@ -219,82 +219,82 @@
             }
         }).open();
 		}
-		
-		//==> "ÀÎÁõ¹øÈ£Àü¼Û" Event Ã³¸® ¹× ¿¬°á
-		
+
+		//==> "ì¸ì¦ë²ˆí˜¸ì „ì†¡" Event ì²˜ë¦¬ ë° ì—°ê²°
+
 		$(function() {
-			//==> DOM Object GET 3°¡Áö ¹æ¹ı ==> 1. $(tagName) : 2.(#id) : 3.$(.className)		
-			$( "#phCode" ).on("click", function() {				
-				
+			//==> DOM Object GET 3ê°€ì§€ ë°©ë²• ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+			$( "#phCode" ).on("click", function() {
+
 				var messageDto = ($('#phone1').val()+$('#phone2').val()+$('#phone3').val())
-				console.log(messageDto);									
-				
-				$.ajax({			
-										
-					url: "/sms/send",
-		            type: "POST",		            
+				console.log(messageDto);
+
+				$.ajax({
+
+					url: "/user/send",
+		            type: "POST",
 		            contentType: "application/json; charset=utf-8",
 		            data: JSON.stringify(messageDto),
 		            dataType: "json",
-		            success: function(response) {		            	
-		            	
-		            	popWin 
-						= window.open("/sms/phCodeConfirm.jsp",
-													"popWin", 
+		            success: function(response) {
+
+		            	popWin
+						= window.open("/user/phCodeConfirm",
+													"popWin",
 													"left=300,top=200,width=780,height=130,marginwidth=0,marginheight=0,"+
 													"scrollbars=no,scrolling=no,menubar=no,resizable=no");
 		            	popWin.phCode = this;
-		            	
-		            	// ÆË¾÷ Ã¢ÀÌ ·Îµå µÈ ÈÄ¿¡ Àü¿ª º¯¼ö¿¡ °ªÀ» ÇÒ´ç.
+
+		            	// íŒì—… ì°½ì´ ë¡œë“œ ëœ í›„ì— ì „ì—­ ë³€ìˆ˜ì— ê°’ì„ í• ë‹¹.
 		            	popWin.onload = function() {
 		            		popWin.smsConfirmNum = response.smsConfirmNum;
 		            	}
-		            	
-		            },		            
+
+		            },
 		            error: function(error) {
-		                
-		            	alert("½ÇÆĞ");
-		            	
-		            }					
-				});				
+
+		            	alert("ì‹¤íŒ¨");
+
+		            }
+				});
 			});
 		});
-		
-		//==> "ÀÎÁõ¹øÈ£Àü¼Û" Event ÀçÀü¼Û ÇÔ¼ö
+
+		//==> "ì¸ì¦ë²ˆí˜¸ì „ì†¡" Event ì¬ì „ì†¡ í•¨ìˆ˜
 		function resendSmsConfirmNum() {
-			
+
 			var messageDto = ($('#phone1').val()+$('#phone2').val()+$('#phone3').val())
-			console.log(messageDto);			
-								
+			console.log(messageDto);
+
 			return new Promise(function(resolve) {
-				
-			$.ajax({			
-									
-				url: "/sms/send",
-	            type: "POST",		            
+
+			$.ajax({
+
+				url: "/user/send",
+	            type: "POST",
 	            contentType: "application/json; charset=utf-8",
 	            data: JSON.stringify(messageDto),
 	            dataType: "json",
 	            success: function(response) {
-	            	
-	            	var resendData = response.smsConfirmNum;
-	            	
-	            	resolve(resendData);
-	            	
-	            },		            
-	            error: function(error) {
-	                
-	            	alert("½ÇÆĞ");
-	            	
-	            }				
-			});	//ajax close		
-			}); //Promise close
-			
-		}
-    
 
-	</script>		
-    
+	            	var resendData = response.smsConfirmNum;
+
+	            	resolve(resendData);
+
+	            },
+	            error: function(error) {
+
+	            	alert("ì‹¤íŒ¨");
+
+	            }
+			});	//ajax close
+			}); //Promise close
+
+		}
+
+
+	</script>
+
 </head>
 
 <body>
@@ -307,73 +307,73 @@
    	</div>
    	<!-- ToolBar End /////////////////////////////////////-->
 
-	<!--  È­¸é±¸¼º div Start /////////////////////////////////////-->
+	<!--  í™”ë©´êµ¬ì„± div Start /////////////////////////////////////-->
 	<div class="container">
-	
-		<h1 class="bg-primary text-center">È¸ ¿ø °¡ ÀÔ</h1>
-		
+
+		<h1 class="bg-primary text-center">íšŒ ì› ê°€ ì…</h1>
+
 		<!-- form Start /////////////////////////////////////-->
 		<form class="form-horizontal">
-		
+
 		  <div class="form-group">
-		    <label for="userId" class="col-sm-offset-1 col-sm-3 control-label">¾Æ ÀÌ µğ</label>
+		    <label for="userId" class="col-sm-offset-1 col-sm-3 control-label">ì•„ ì´ ë””</label>
 		    <div class="col-sm-4">
-		      <input type="text" class="form-control" id="userId" name="userId" placeholder="Áßº¹È®ÀÎÇÏ¼¼¿ä"  readonly>
-		       <span id="helpBlock" class="help-block">
-		      	<strong class="text-danger">ÀÔ·ÂÀü Áßº¹È®ÀÎ ºÎÅÍ..</strong>
+		      <input type="text" class="form-control" id="userId" name="userId" placeholder="ì¤‘ë³µí™•ì¸í•˜ì„¸ìš”"  readonly>
+		       <span id="help-block" class="help-block">
+		      	<strong class="text-danger">ì…ë ¥ì „ ì¤‘ë³µí™•ì¸ ë¶€í„°..</strong>
 		      </span>
 		    </div>
 		    <div class="col-sm-3">
-		      <button type="button" class="btn btn-info">Áßº¹È®ÀÎ</button>
+		      <button type="button" class="btn btn-info" id="checkDuplication">ì¤‘ë³µí™•ì¸</button>
 		    </div>
 		  </div>
-		  
+
 		  <div class="form-group">
-		    <label for="password" class="col-sm-offset-1 col-sm-3 control-label">ºñ¹Ğ¹øÈ£</label>
+		    <label for="password" class="col-sm-offset-1 col-sm-3 control-label">ë¹„ë°€ë²ˆí˜¸</label>
 		    <div class="col-sm-4">
-		      <input type="password" class="form-control" id="password" name="password" placeholder="ºñ¹Ğ¹øÈ£">
+		      <input type="password" class="form-control" id="password" name="password" placeholder="ë¹„ë°€ë²ˆí˜¸">
 		    </div>
 		  </div>
-		  
+
 		  <div class="form-group">
-		    <label for="password2" class="col-sm-offset-1 col-sm-3 control-label">ºñ¹Ğ¹øÈ£ È®ÀÎ</label>
+		    <label for="password2" class="col-sm-offset-1 col-sm-3 control-label">ë¹„ë°€ë²ˆí˜¸ í™•ì¸</label>
 		    <div class="col-sm-4">
-		      <input type="password" class="form-control" id="password2" name="password2" placeholder="ºñ¹Ğ¹øÈ£ È®ÀÎ">
+		      <input type="password" class="form-control" id="password2" name="password2" placeholder="ë¹„ë°€ë²ˆí˜¸ í™•ì¸">
 		    </div>
 		  </div>
-		  
+
 		  <div class="form-group">
-		    <label for="userName" class="col-sm-offset-1 col-sm-3 control-label">ÀÌ¸§</label>
+		    <label for="userName" class="col-sm-offset-1 col-sm-3 control-label">ì´ë¦„</label>
 		    <div class="col-sm-4">
-		      <input type="text" class="form-control" id="userName" name="userName" placeholder="È¸¿øÀÌ¸§">
+		      <input type="text" class="form-control" id="userName" name="userName" placeholder="íšŒì›ì´ë¦„">
 		    </div>
 		  </div>
-		  
+
 		  <div class="form-group">
-		    <label for="ssn" class="col-sm-offset-1 col-sm-3 control-label">ÁÖ¹Î¹øÈ£</label>
+		    <label for="ssn" class="col-sm-offset-1 col-sm-3 control-label">ì£¼ë¯¼ë²ˆí˜¸</label>
 		    <div class="col-sm-4">
-		      <input type="text" class="form-control" id="ssn" name="ssn" placeholder="ÁÖ¹Î¹øÈ£">
+		      <input type="text" class="form-control" id="ssn" name="ssn" placeholder="ì£¼ë¯¼ë²ˆí˜¸">
 		      <span id="helpBlock" class="help-block">
-		      	 <strong class="text-danger">" -  " Á¦¿Ü 13ÀÚ¸®ÀÔ·ÂÇÏ¼¼¿ä</strong>
+		      	 <strong class="text-danger">" -  " ì œì™¸ 13ìë¦¬ì…ë ¥í•˜ì„¸ìš”</strong>
 		      </span>
 		    </div>
 		  </div>
-		  
-		  <div class="form-group">		  	
-		    <label for="addr" id="postcode" class="col-sm-offset-1 col-sm-3 control-label">ÁÖ¼Ò</label>
+
+		  <div class="form-group">
+		    <label for="sample4_detailAddress" id="postcode" class="col-sm-offset-1 col-sm-3 control-label">ì£¼ì†Œ</label>
 		    <div class="col-sm-4">
-		    <input type="text" class="form-control" id="sample4_roadAddress" name="addr" placeholder="µµ·Î¸íÁÖ¼Ò" >
-		    <input type="text" class="form-control" id="sample4_detailAddress" name="addrDetail" placeholder="»ó¼¼ÁÖ¼Ò">
-		    </div>		    
+		    <input type="text" class="form-control" id="sample4_roadAddress" name="addr" placeholder="ë„ë¡œëª…ì£¼ì†Œ" >
+		    <input type="text" class="form-control" id="sample4_detailAddress" name="addrDetail" placeholder="ìƒì„¸ì£¼ì†Œ">
+		    </div>
 		    <div class="col-sm-2">
-			<input type="button" class="btn btn-info" onclick="sample4_execDaumPostcode()" value="¿ìÆí¹øÈ£ Ã£±â">
+			<input type="button" class="btn btn-info" onclick="sample4_execDaumPostcode()" value="ìš°í¸ë²ˆí˜¸ ì°¾ê¸°">
 			</div>
 			<br/><br/>
-			<span id="guide" style="color:#999;display:none"></span>									
-		  </div>		  
-		  
+			<span id="guide" style="color:#999;display:none"></span>
+		  </div>
+
 		  <div class="form-group">
-		    <label for="ssn" class="col-sm-offset-1 col-sm-3 control-label">ÈŞ´ëÀüÈ­¹øÈ£</label>		    
+		    <label for="ssn" class="col-sm-offset-1 col-sm-3 control-label">íœ´ëŒ€ì „í™”ë²ˆí˜¸</label>
 		     <div class="col-sm-2">
 		      <select class="form-control" name="phone1" id="phone1">
 				  	<option value="010" >010</option>
@@ -381,45 +381,45 @@
 					<option value="016" >016</option>
 					<option value="018" >018</option>
 					<option value="019" >019</option>
-				</select>				
+				</select>
 		   </div>
-		   
+
 		    <div class="col-sm-2">
-		      <input type="text" class="form-control" id="phone2" name="phone2" placeholder="¹øÈ£">			
+		      <input type="text" class="form-control" id="phone2" name="phone2" placeholder="ë²ˆí˜¸">
 		    </div>
-		    
+
 		    <div class="col-sm-2">
-		      <input type="text" class="form-control" id="phone3" name="phone3" placeholder="¹øÈ£">
-		    </div>		    
+		      <input type="text" class="form-control" id="phone3" name="phone3" placeholder="ë²ˆí˜¸">
+		    </div>
 		    <input type="hidden" name="phone"  />
-		    
-		    <input type="button" class="btn btn-info" id="phCode" value="ÀÎÁõ¹øÈ£ Àü¼Û">
-			<span id="phCodeText" style="display: none; align-items : center;">ÀÎÁõ ¿Ï·á</span>		    
-		    
+
+		    <input type="button" class="btn btn-info" id="phCode" value="ì¸ì¦ë²ˆí˜¸ ì „ì†¡">
+			<span id="phCodeText" style="display: none; align-items : center;">ì¸ì¦ ì™„ë£Œ</span>
+
 		   </div>
-		   
-					  
-					  
-		  
+
+
+
+
 		   <div class="form-group">
-		    <label for="ssn" class="col-sm-offset-1 col-sm-3 control-label">ÀÌ¸ŞÀÏ</label>
+		    <label for="ssn" class="col-sm-offset-1 col-sm-3 control-label">ì´ë©”ì¼</label>
 		    <div class="col-sm-4">
-		      <input type="text" class="form-control" id="email" name="email" placeholder="ÀÌ¸ŞÀÏ">
+		      <input type="text" class="form-control" id="email" name="email" placeholder="ì´ë©”ì¼">
 		    </div>
 		  </div>
-		  
+
 		  <div class="form-group">
 		    <div class="col-sm-offset-4  col-sm-4 text-center">
-		      <button type="button" class="btn btn-primary"  >°¡ &nbsp;ÀÔ</button>		      
-			  <a class="btn btn-primary btn" href="#" role="button">Ãë&nbsp;¼Ò</a>
+		      <button type="button" class="btn btn-primary"  >ê°€ &nbsp;ì…</button>
+			  <a class="btn btn-primary btn" href="#" role="button">ì·¨&nbsp;ì†Œ</a>
 		    </div>
 		  </div>
 		</form>
 		<!-- form Start /////////////////////////////////////-->
-		
+
  	</div>
-	<!--  È­¸é±¸¼º div end /////////////////////////////////////-->
-	
+	<!--  í™”ë©´êµ¬ì„± div end /////////////////////////////////////-->
+
 </body>
 
 </html>

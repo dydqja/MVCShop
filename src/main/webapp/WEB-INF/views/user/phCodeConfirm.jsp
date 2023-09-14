@@ -10,7 +10,7 @@
 <html lang="ko">
 
 <head>
-	<meta charset="UTF-8">
+	<meta charset="EUC-KR">
 
 	<!-- 참조 : http://getbootstrap.com/css/   참조 -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,41 +27,69 @@
      <!--  ///////////////////////// JavaScript ////////////////////////// -->
 	<script type="text/javascript">
 
-		//=============  "중복확인"  Event 처리 =============
+		var smsConfirmNum; // smsConfirmNum 값을 사용하기 위한 전역변수 선언
+
+		//=============  "확인"  Event 처리 =============
 		$(function() {
 
-			$("#userId").focus();
+			$("#phCodeConfirm").focus();
 
 			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-			$("button.btn.btn-info").on("click" , function() {
+			$(".btn-action-1").on("click" , function() {
 
-				// Form 유효성 검증
-				if( $("#userId").val() != null && $("#userId").val().length >0) {
-					$("form").attr("method" , "POST");
-				    $("form").attr("action" , "/user/checkDuplication");
-				    $("form").submit();
-				}else {
-					alert('아이디는 반드시 입력하셔야 합니다.');
-				}
-				$("#userId").focus();
+				var phCodeConfirm = $("#phCodeConfirm").val();
+
+				console.log("smsConfirmNum"+smsConfirmNum);
+				console.log("smsConfirmNum"+phCodeConfirm);
+
+				$.ajax({
+				    url: "/user/phCodeConfirm",
+				    type: "POST",
+				    contentType: "application/json; charset=utf-8",
+				    data: JSON.stringify({
+				        smsConfirmNum: smsConfirmNum,
+				        phCodeConfirm: phCodeConfirm
+				    }),
+				    dataType: "json",
+				    success: function(response) {
+
+				    	if(response.result) {
+
+				    		var phCode = window.opener.$('#phCode');
+				    		phCode.val("인증완료");
+				    		phCode.prop("disabled", true);
+
+				    		window.close();
+
+				    	}else if($('#phCodeConfirm').val() == ''){
+				    		alert('인증번호를 입력해주세요.');
+				    	}else{
+				    		alert('인증번호가 일치하지 않습니다.');
+				    	}
+
+				    },
+				    error: function(error) {
+
+				    	alert("실패");
+
+				    }
+				});
 			});
 		});
 
 
-		//=============  "사용"  Event 처리 =============
+		//=============  "재전송"  Event 처리 =============
 		$(function() {
 			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-			$("button.btn.btn-success").on("click" , function() {
+			$(".btn-action-2").on("click" , function() {
 
-				if(opener) {
-					opener.$("input[name='userId']").val("${userId}");
-					opener.$("input[name='password']").focus();
-				}
+				window.opener.resendSmsConfirmNum().then(function(newSmsConfirmNum) {
 
-				window.close();
+				smsConfirmNum = newSmsConfirmNum;
+
+				});
 			});
-		});
-
+		})
 
 		//=============   "닫기"  Event  처리 =============
 		$(function() {
@@ -86,32 +114,16 @@
 		<form class="form-inline">
 
 		  <div class="form-group">
-		    <label for="userId">아 이 디</label>
-		    <input type="text" class="form-control" name="userId" id="userId"  placeholder="아이디"
-		    																		value="${ ! empty result && result ? userId : '' }" >
+		    <label for="phcode"></label>
+		    <input type="text" class="form-control" name="phCodeConfirm" id="phCodeConfirm"  placeholder="인증번호를입력해주세요">
 		  </div>
-		  <button type="button" class="btn btn-info">중복확인</button>
+		  <button type="button" class="btn btn-info btn-action-1">확 인</button>
 
-		  <c:if test="${ ! empty result }">
-		  	<c:if test="${ result =='true' }">
-		  		<button type="button" class="btn btn-success">사 용</button>
-		  	</c:if>
-		  </c:if>
+		  <button type="button" class="btn btn-info btn-action-2">재전송</button>
 
 		  <button type="button" class="btn btn-primary">닫 기</button>
 
-		  <c:if test="${ empty result }">
-		  	<span class="text-info glyphicon glyphicon-ok">입력후중복확인</span>
-		  </c:if>
 
-		  <c:if test="${ ! empty result }">
-		  	<c:if test="${ result =='true' }">
-				<span class="text-success glyphicon glyphicon-ok">사용가능 &nbsp;</span>
-			</c:if>
-			<c:if test="${ result=='false' }">
-		 		<span class="text-danger glyphicon glyphicon-remove">사용불가능</span>
-			</c:if>
-		  </c:if>
 
 		</form>
 		<!-- form Start /////////////////////////////////////-->

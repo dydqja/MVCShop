@@ -16,6 +16,9 @@ public class Search {
 	private int endRowNum;
 	private int startRowNum;
 
+	private int startNum;
+	private int endNum;
+
 	///Constructor
 	public Search() {
 	}
@@ -56,6 +59,12 @@ public class Search {
 	//==> Select Query �� ROWNUM ���� ��
 	public int getStartRowNum() {
 		return (getCurrentPage()-1)*getPageSize()+1;
+	}
+	public int getStartNum() {
+		return (getCurrentPage()*5-5);
+	}
+	public int getEndNum() {
+		return (getStartNum()+5);
 	}
 
 	@Override

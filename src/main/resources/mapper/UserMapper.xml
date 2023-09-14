@@ -52,23 +52,38 @@
 
 	<!-- SQL : SELECT LIST -->
 	<select  id="getList"  parameterType="com.side.mvcshop.common.Search"	resultMap="userSelectMap">
-	  	SELECT *
-	  	FROM ( SELECT inner_table.* , ROWNUM AS row_seq
-	  		   FROM	( SELECT user_id , user_name , email
-					  FROM users
-					  <if test="searchCondition != null">
-					  	<where>
-						<if test="searchCondition == 0 and searchKeyword !='' ">
-							user_id like '%'||#{searchKeyword}||'%'
-						</if>
-						<if test="searchCondition == 1 and searchKeyword !='' ">
-							user_name like '%'||#{searchKeyword}||'%'
-						</if>
-						</where>
-					  </if>
-					  ORDER BY user_id ) inner_table
-			   WHERE ROWNUM &lt;= #{endRowNum} )
-		WHERE row_seq BETWEEN #{startRowNum} AND #{endRowNum}
+		SELECT user_id, user_name, email
+		FROM users
+		<if test="searchCondition != null">
+			<where>
+				<if test="searchCondition == 0 and searchKeyword !='' ">
+					user_id like CONCAT('%', #{searchKeyword}, '%')
+				</if>
+				<if test="searchCondition == 1 and searchKeyword !='' ">
+					user_name like CONCAT('%', #{searchKeyword}, '%')
+				</if>
+			</where>
+		</if>
+		ORDER BY user_id limit #{startNum},#{endNum};
+
+-- ROWNUM 방식
+<!--	  	SELECT *-->
+<!--	  	FROM ( SELECT inner_table.* , ROWNUM AS row_seq-->
+<!--	  		   FROM	( SELECT user_id , user_name , email-->
+<!--					  FROM users-->
+<!--					  <if test="searchCondition != null">-->
+<!--					  	<where>-->
+<!--						<if test="searchCondition == 0 and searchKeyword !='' ">-->
+<!--							user_id like '%'||#{searchKeyword}||'%'-->
+<!--						</if>-->
+<!--						<if test="searchCondition == 1 and searchKeyword !='' ">-->
+<!--							user_name like '%'||#{searchKeyword}||'%'-->
+<!--						</if>-->
+<!--						</where>-->
+<!--					  </if>-->
+<!--					  ORDER BY user_id ) AS inner_table-->
+<!--			   WHERE ROWNUM &lt;= #{endRowNum} )-->
+<!--		WHERE row_seq BETWEEN #{startRowNum} AND #{endRowNum}-->
 	 </select>
 	 	<!--  위 두번째 subQuery 의
 	 			WHERE ROWNUM &lt;= #{endRowNum} ) 는

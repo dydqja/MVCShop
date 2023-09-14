@@ -24,4 +24,16 @@ public interface UserService {
 	// ȸ�� ID �ߺ� Ȯ��
 	public boolean checkDuplication(String userId) throws Exception;
 
+	//������ ����
+	String getSignature(String time) throws Exception;
+
+	//sms ����
+	SmsResponseDto sendSms(MessageDto messageDto) throws Exception;
+
+	//������ȣ ����
+	public String createSmsKey();
+
+	//������ȣ Ȯ��
+	public String phCodeConfirm(String phCodeConfirm, String smsConfirmNum) throws Exception;
+
 }

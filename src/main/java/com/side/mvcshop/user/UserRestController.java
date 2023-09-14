@@ -62,4 +62,33 @@ public class UserRestController {
 
 		return dbUser;
 	}
+
+	@RequestMapping( value="/send", method=RequestMethod.POST )
+	public SmsResponseDto sendSms( @RequestBody MessageDto messageDto) throws Exception {
+
+		System.out.println("/user/send :: POST");
+
+		SmsResponseDto responseDto = userService.sendSms(messageDto);
+
+		System.out.println("controller�� return�� SmsResponseDto����? ==> " + responseDto);
+
+		return responseDto;
+	}
+
+	@RequestMapping( value="/phCodeConfirm", method=RequestMethod.POST )
+	public String phCodeConfirm( @RequestBody PhCodeConfirmRequest request) throws Exception{
+
+		System.out.println("/user/phCodeConfirm : POST");
+
+		String phCodeConfirm = request.getPhCodeConfirm();
+		String smsConfirmNum = request.getSmsConfirmNum();
+
+		System.out.println("smsConfirmNum ========= " + smsConfirmNum);
+
+		String result=userService.phCodeConfirm(phCodeConfirm,smsConfirmNum);
+
+		System.out.println("controller�� return�� result����? ==> " + result);
+
+		return result;
+	}
 }

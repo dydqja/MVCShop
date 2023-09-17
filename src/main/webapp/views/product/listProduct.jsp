@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--    
+<%--
 <%@ page import="java.util.*"  %>
 
 <%@ page import="com.model2.mvc.service.domain.Product" %>
@@ -10,37 +10,37 @@
 <%@ page import="com.model2.mvc.common.util.CommonUtil"%>
 <%@ page import="com.model2.mvc.service.domain.Product"%>
 
-	
-	
+
+
 
 <%
 	List<Product> list= (List<Product>)request.getAttribute("list");
 	Page resultPage=(Page)request.getAttribute("resultPage");
 
 	Search search = (Search)request.getAttribute("search");
-	//==> null À» ""(nullString)À¸·Î º¯°æ
+	//==> null ì„ ""(nullString)ìœ¼ë¡œ ë³€ê²½
 	String searchCondition = CommonUtil.null2str(search.getSearchCondition());
 	String searchKeyword = CommonUtil.null2str(search.getSearchKeyword());
 
 /*	HashMap<String,Object> map=(HashMap<String,Object>)request.getAttribute("map");
 	Search search=(Search)request.getAttribute("search");
-	
+
 	int total=0;
 	ArrayList<Product> list=null;
 	if(map != null){
 		total=((Integer)map.get("count")).intValue();
 		list=(ArrayList<Product>)map.get("list");
 	}
-	
+
 	int currentPage=search.getCurrentPage();
-	
+
 	int totalPage=0;
 	if(total > 0) {
 		totalPage= total / search.getPageSize() ;
 		if(total%search.getPageSize() >0)
 			totalPage += 1;
 	} */
-	
+
 %> --%>
 
 <!DOCTYPE html>
@@ -48,20 +48,20 @@
 <html>
 
 <head>
-	<meta charset="EUC-KR">
-	<title>»óÇ° ¸ñ·ÏÁ¶È¸</title>
+	<meta charset="UTF-8">
+	<title>ìƒí’ˆ ëª©ë¡ì¡°íšŒ</title>
 
 <link rel="stylesheet" href="/css/admin.css" type="text/css">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> <!-- autocomplete Ãß°¡ -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> <!-- autocomplete ì¶”ê°€ -->
 
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>	<!-- autocomplete Ãß°¡ -->
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>	<!-- autocomplete Ãß°¡ -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>	<!-- autocomplete ì¶”ê°€ -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>	<!-- autocomplete ì¶”ê°€ -->
 
 <script type="text/javascript">
 
-	//=====±âÁ¸Code ÁÖ¼® Ã³¸® ÈÄ  jQuery º¯°æ ======//
-	// °Ë»ö / page µÎ°¡Áö °æ¿ì ¸ğµÎ Form Àü¼ÛÀ» À§ÇØ JavaScrpt ÀÌ¿ë
+	//=====ê¸°ì¡´Code ì£¼ì„ ì²˜ë¦¬ í›„  jQuery ë³€ê²½ ======//
+	// ê²€ìƒ‰ / page ë‘ê°€ì§€ ê²½ìš° ëª¨ë‘ Form ì „ì†¡ì„ ìœ„í•´ JavaScrpt ì´ìš©
 	function fncGetList(currentPage) {
 		//document.getElementById("currentPage").value = currentPage;
 		$("#currentPage").val(currentPage)
@@ -69,57 +69,57 @@
 		$("form").attr("method" , "POST").attr("action" , "/product/listProduct?menu=${menu}").submit();
 	}
 	//===========================================//
-	//==> Ãß°¡µÈºÎºĞ : "°Ë»ö" ,  userId link  Event ¿¬°á ¹× Ã³¸®
+	//==> ì¶”ê°€ëœë¶€ë¶„ : "ê²€ìƒ‰" ,  userId link  Event ì—°ê²° ë° ì²˜ë¦¬
 	 $(function() {
-			 
-			//==> °Ë»ö Event ¿¬°áÃ³¸®ºÎºĞ
-			//==> DOM Object GET 3°¡Áö ¹æ¹ı ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-			//==> 1 °ú 3 ¹æ¹ı Á¶ÇÕ : $("tagName.className:filterÇÔ¼ö") »ç¿ëÇÔ. 
-			$( "td.ct_btn01:contains('°Ë»ö')" ).on("click", function() {
+
+			//==> ê²€ìƒ‰ Event ì—°ê²°ì²˜ë¦¬ë¶€ë¶„
+			//==> DOM Object GET 3ê°€ì§€ ë°©ë²• ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+			//==> 1 ê³¼ 3 ë°©ë²• ì¡°í•© : $("tagName.className:filterí•¨ìˆ˜") ì‚¬ìš©í•¨.
+			$( "td.ct_btn01:contains('ê²€ìƒ‰')" ).on("click", function() {
 					//Debug..
-					//alert(  $( "td.ct_btn01:contains('°Ë»ö')" ).html() );
-					
-					fncGetList(${ search.currentPage })		
+					//alert(  $( "td.ct_btn01:contains('ê²€ìƒ‰')" ).html() );
+
+					fncGetList(${ search.currentPage })
 			});
-			
+
 			$("#searchBox").on("keydown", function(e) {
 				  if (e.keyCode == 13) {
 					    e.preventDefault();
-					    fncGetList(${ search.currentPage })		
+					    fncGetList(${ search.currentPage })
 					  };
 			});
-	 
-			
-			//==> prodName LINK Event ¿¬°áÃ³¸®
-			//==> DOM Object GET 3°¡Áö ¹æ¹ı ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-			//==> 3 °ú 1 ¹æ¹ı Á¶ÇÕ : $(".className tagName:filterÇÔ¼ö") »ç¿ëÇÔ.
-			$( ".ct_list_pop td:nth-child(3)" ).on("click", function() {					
-				//Debug..				
-				//console.log( $(this) ); // <== ÀÌ °ªÀ» ÀÌ¿ëÇØ¼­, ÀÚ½Ä¿¡°Ô Á¢±Ù?
-										  // <== this·Î Á¢±ÙÇÏ´Â°Ô ¾Æ´Ñ, ÇØ´ç ÅÂ±×·Î ¹Ù·Î
-										  //	 Á¢±ÙÇÏ¸é ³Ñ¹ö°ªÀÌ °íÁ¤µÅ¹ö¸².										  
-				//alert( $(this).children('input').val()); // this·Î Á¢±Ù. prodNo Á¤»óÃâ·Â				
-				//alert( $(this).children('input').attr('value')); // this·Î Á¢±Ù. prodNo Á¤»óÃâ·Â
-																   // .val() == .attr('value') ??? 
-				//alert( $('#input[name="product"]').val()); // undefined ³ª¿È. Á¢±ÙÅÂ±× Àß¸ø¾´°Í°°À½.
-				//alert( $('input[name="product"]').attr('value')); // ÇØ´ç ÅÂ±×·Î ¹Ù·Î Á¢±Ù
-					  	/*										    // prodNo´Â Ãâ·ÂµÇ³ª, °íÁ¤µÅ¹ö¸².
-						if(${menu=='manage'}) {					
-							self.location ="/product/updateProductView?prodNo="+$(this).children('input').val()+"&menu="+$($(this).children('input')[1]).val()					
-											
-						}else{					
-							self.location ="/product/getProduct?prodNo="+$(this).children('input').val()+"&menu="+$($(this).children('input')[1]).val()				
-					
+
+
+			//==> prodName LINK Event ì—°ê²°ì²˜ë¦¬
+			//==> DOM Object GET 3ê°€ì§€ ë°©ë²• ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+			//==> 3 ê³¼ 1 ë°©ë²• ì¡°í•© : $(".className tagName:filterí•¨ìˆ˜") ì‚¬ìš©í•¨.
+			$( ".ct_list_pop td:nth-child(3)" ).on("click", function() {
+				//Debug..
+				//console.log( $(this) ); // <== ì´ ê°’ì„ ì´ìš©í•´ì„œ, ìì‹ì—ê²Œ ì ‘ê·¼?
+										  // <== thisë¡œ ì ‘ê·¼í•˜ëŠ”ê²Œ ì•„ë‹Œ, í•´ë‹¹ íƒœê·¸ë¡œ ë°”ë¡œ
+										  //	 ì ‘ê·¼í•˜ë©´ ë„˜ë²„ê°’ì´ ê³ ì •ë¼ë²„ë¦¼.
+				//alert( $(this).children('input').val()); // thisë¡œ ì ‘ê·¼. prodNo ì •ìƒì¶œë ¥
+				//alert( $(this).children('input').attr('value')); // thisë¡œ ì ‘ê·¼. prodNo ì •ìƒì¶œë ¥
+																   // .val() == .attr('value') ???
+				//alert( $('#input[name="product"]').val()); // undefined ë‚˜ì˜´. ì ‘ê·¼íƒœê·¸ ì˜ëª»ì“´ê²ƒê°™ìŒ.
+				//alert( $('input[name="product"]').attr('value')); // í•´ë‹¹ íƒœê·¸ë¡œ ë°”ë¡œ ì ‘ê·¼
+					  	/*										    // prodNoëŠ” ì¶œë ¥ë˜ë‚˜, ê³ ì •ë¼ë²„ë¦¼.
+						if(${menu=='manage'}) {
+							self.location ="/product/updateProductView?prodNo="+$(this).children('input').val()+"&menu="+$($(this).children('input')[1]).val()
+
+						}else{
+							self.location ="/product/getProduct?prodNo="+$(this).children('input').val()+"&menu="+$($(this).children('input')[1]).val()
+
 						}
 			});
 						*/
-						
+
 						var prodNo = $(this).children('input').val();
 						var menu = $($(this).children('input')[1]).val();
 						var prodName = $($(this).children('input')[2]).val();
-					
+
 						//alert
-						if(${menu=='manage'}) {							
+						if(${menu=='manage'}) {
 							self.location ="/product/updateProduct?prodNo="+$(this).children('input').val()+"&menu="+$($(this).children('input')[1]).val()
 						}else{
 							$.ajax(
@@ -132,80 +132,80 @@
 											"Content-Type" : "application/json"
 										} ,
 										success : function(JSONData , status) {
-											
+
 											//Debug...
 											//alert(status);
 											//Debug...
 											//alert("JSONData : \n"+JSONData);
-																						
+
 											var displayValue = "<h3>"
-																	+"»óÇ°¹øÈ£ :"+JSONData.prodNo+"<br/>"
-																	+"»óÇ°¸í : "+JSONData.prodName+"<br/>"
-																	+"»óÇ°ÀÌ¹ÌÁö : "+JSONData.fileName+"<br/>"
-																	+"»óÇ°»ó¼¼Á¤º¸ : "+JSONData.prodDetail+"<br/>"
-																	+"Á¦Á¶ÀÏÀÚ : "+JSONData.manuDate+"<br/>"
-																	+"°¡°İ : "+JSONData.price+"<br/>"
-																	+"µî·ÏÀÏÀÚ : "+JSONData.regDateString+"<br/>"
+																	+"ìƒí’ˆë²ˆí˜¸ :"+JSONData.prodNo+"<br/>"
+																	+"ìƒí’ˆëª… : "+JSONData.prodName+"<br/>"
+																	+"ìƒí’ˆì´ë¯¸ì§€ : "+JSONData.fileName+"<br/>"
+																	+"ìƒí’ˆìƒì„¸ì •ë³´ : "+JSONData.prodDetail+"<br/>"
+																	+"ì œì¡°ì¼ì : "+JSONData.manuDate+"<br/>"
+																	+"ê°€ê²© : "+JSONData.price+"<br/>"
+																	+"ë“±ë¡ì¼ì : "+JSONData.regDateString+"<br/>"
 															  +"</h3>";
-											//Debug...									
-											//alert(displayValue);																		
+											//Debug...
+											//alert(displayValue);
 											$("h3").remove();
 											$("#"+prodName+"").html(displayValue);
 											//$("#"+product.prodName+"").html(displayValue);
-											
+
 										}
 									});
 						}
-			
+
 			});
-			
-	 
-			//==> UI ¼öÁ¤ Ãß°¡ºÎºĞ  :  userId LINK Event End User ¿¡°Ô º¸ÀÏ¼ö ÀÖµµ·Ï 
+
+
+			//==> UI ìˆ˜ì • ì¶”ê°€ë¶€ë¶„  :  userId LINK Event End User ì—ê²Œ ë³´ì¼ìˆ˜ ìˆë„ë¡
 			$( ".ct_list_pop td:nth-child(3)" ).css("color" , "red");
 			$("h7").css("color" , "red");
-			
+
 			$(".ct_list_pop:nth-child(4n+6)" ).css("background-color" , "whitesmoke");
 		});
-			
-			
-		//AutoComplete Ãß°¡ºÎºĞ
+
+
+		//AutoComplete ì¶”ê°€ë¶€ë¶„
 		$(function() {
-			
-			$('#searchBox').autocomplete({				
-				source : function(request, response) { //source: searchBox¿¡ º¸ÀÏ ¸ñ·Ï
+
+			$('#searchBox').autocomplete({
+				source : function(request, response) { //source: searchBoxì— ë³´ì¼ ëª©ë¡
 					$.ajax({
 						url : "/product/json/autoComplete/" ,
 						type : "POST" ,
 						dataType : "JSON" ,
-						data : {value: request.term} , //ÀÔ·ÂÇÑ °ªÀÌ value·Î ³Ñ¾î°¨. Controller ¿¡¼­ request.getParameter("value")
-						success : function(data) {	   //¶Ç´Â @RequestParam("value") String value·Î °ªÀ» ²¨³¾ ¼ö ÀÖÀ½.							
+						data : {value: request.term} , //ì…ë ¥í•œ ê°’ì´ valueë¡œ ë„˜ì–´ê°. Controller ì—ì„œ request.getParameter("value")
+						success : function(data) {	   //ë˜ëŠ” @RequestParam("value") String valueë¡œ ê°’ì„ êº¼ë‚¼ ìˆ˜ ìˆìŒ.
 							response(
-								$.map(data.acList, function(item) { //acList ==> Business Logic ÀÌÈÄ return°ª ´ã´Â º¯¼ö. Controller¿¡¼­ ¼±¾ğ
+								$.map(data.acList, function(item) { //acList ==> Business Logic ì´í›„ returnê°’ ë‹´ëŠ” ë³€ìˆ˜. Controllerì—ì„œ ì„ ì–¸
 									return {
-										label : item.PROD_NAME , // ¸ñ·Ï¿¡ Ç¥½ÃµÇ´Â °ª.
-										value : item.PROD_NAME   // ¼±ÅÃ½Ã valueÃ¢¿¡ Ç¥½ÃµÇ´Â °ª
+										label : item.PROD_NAME , // ëª©ë¡ì— í‘œì‹œë˜ëŠ” ê°’.
+										value : item.PROD_NAME   // ì„ íƒì‹œ valueì°½ì— í‘œì‹œë˜ëŠ” ê°’
 										//idx : item.SEQ // index
 									};
-								})									
+								})
 							);
 						}
 						,error : function(){
 							alert("error");
 						}
-					});					
+					});
 				}
-				,focus : function(event, ui) { // ¹æÇâÅ°·Î ÀÚµ¿¿Ï¼º´Ü¾î ¼±ÅÃÇÏ´Â ±â´É
+				,focus : function(event, ui) { // ë°©í–¥í‚¤ë¡œ ìë™ì™„ì„±ë‹¨ì–´ ì„ íƒí•˜ëŠ” ê¸°ëŠ¥
 					return false;
 				}
-				,minLength : 1 //ÃÖ¼Ò ±ÛÀÚ¼ö
-				,autoFocus : true // true => Ã¹¹øÂ° Ç×¸ñ¿¡ ÀÚµ¿À¸·Î ÃÊÁ¡ ¸ÂÃçÁü
-				,delay : 100 // autocomplete µô·¹ÀÌ ½Ã°£(ms)
-				,select : function(evt, ui) { // ¾ÆÀÌÅÛ ¼±ÅÃ½Ã ½ÇÇà. ui.item ÀÌ ¼±ÅÃµÈ Ç×¸ñÀ» ³ªÅ¸³»´Â °´Ã¼,
-											  // lavel,value,idx¸¦ °¡Áü.
-				}			
+				,minLength : 1 //ìµœì†Œ ê¸€ììˆ˜
+				,autoFocus : true // true => ì²«ë²ˆì§¸ í•­ëª©ì— ìë™ìœ¼ë¡œ ì´ˆì  ë§ì¶°ì§
+				,delay : 100 // autocomplete ë”œë ˆì´ ì‹œê°„(ms)
+				,select : function(evt, ui) { // ì•„ì´í…œ ì„ íƒì‹œ ì‹¤í–‰. ui.item ì´ ì„ íƒëœ í•­ëª©ì„ ë‚˜íƒ€ë‚´ëŠ” ê°ì²´,
+											  // lavel,value,idxë¥¼ ê°€ì§.
+				}
 			});
 		});
-	 
+
 
 </script>
 </head>
@@ -224,20 +224,20 @@
 		<td background="/images/ct_ttl_img02.gif" width="100%" style="padding-left:10px;">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
-				<%--<% if(menu.equals("manage")) {%>				
-					<td width="93%" class="ct_ttl01">»óÇ° °ü¸®</td>
+				<%--<% if(menu.equals("manage")) {%>
+					<td width="93%" class="ct_ttl01">ìƒí’ˆ ê´€ë¦¬</td>
 					<%}else{ %>
-					<td width="93%" class="ct_ttl01">»óÇ° ¸ñ·ÏÁ¶È¸</td>
+					<td width="93%" class="ct_ttl01">ìƒí’ˆ ëª©ë¡ì¡°íšŒ</td>
 					<%} %> --%>
-					
+
 					<c:choose>
 						<c:when test = "${menu=='manage' }">
-						<td width="93%" class="ct_ttl01">»óÇ° °ü¸®</td>
+						<td width="93%" class="ct_ttl01">ìƒí’ˆ ê´€ë¦¬</td>
 						</c:when>
 						<c:otherwise>
-						<td width="93%" class="ct_ttl01">»óÇ° ¸ñ·ÏÁ¶È¸</td>
+						<td width="93%" class="ct_ttl01">ìƒí’ˆ ëª©ë¡ì¡°íšŒ</td>
 						</c:otherwise>
-					</c:choose>					
+					</c:choose>
 				</tr>
 			</table>
 		</td>
@@ -249,28 +249,28 @@
 
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:10px;">
-	<tr>	
+	<tr>
 		<td align="right">
-			<select name="searchCondition" class="ct_input_g" style="width:80px">		
-			<%--<option value="0" <%= (searchCondition.equals("0") ? "selected" : "") %>>»óÇ°¸í</option>
-				<option value="0" <%= (searchCondition.equals("1") ? "selected" : "") %>>»óÇ°ÄÚµå</option> --%>
-				
-				<option value="0" ${ ! empty searchCondition && search.searchCondition==0 ? "selected" : "" }>»óÇ°¸í</option>
-				<option value="1" ${ ! empty searchCondition && search.searchCondition==1 ? "selected" : "" }>»óÇ°ÄÚµå</option>				
+			<select name="searchCondition" class="ct_input_g" style="width:80px">
+			<%--<option value="0" <%= (searchCondition.equals("0") ? "selected" : "") %>>ìƒí’ˆëª…</option>
+				<option value="0" <%= (searchCondition.equals("1") ? "selected" : "") %>>ìƒí’ˆì½”ë“œ</option> --%>
+
+				<option value="0" ${ ! empty searchCondition && search.searchCondition==0 ? "selected" : "" }>ìƒí’ˆëª…</option>
+				<option value="1" ${ ! empty searchCondition && search.searchCondition==1 ? "selected" : "" }>ìƒí’ˆì½”ë“œ</option>
 			</select>
-		<%--<input 	type="text" name="searchKeyword"  value="<%= searchKeyword %>" --%> 
-			<input id="searchBox"	type="text" name="searchKeyword" 
+		<%--<input 	type="text" name="searchKeyword"  value="<%= searchKeyword %>" --%>
+			<input id="searchBox"	type="text" name="searchKeyword"
 					value="${ ! empty search.searchKeyword ? search.searchKeyword :""}"
 							class="ct_input_g" style="width:200px; height:19px" >
-		</td>	
+		</td>
 		<td align="right" width="70">
 			<table border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td width="17" height="23"><img src="/images/ct_btnbg01.gif" width="17" height="23"></td>
 					<td background="/images/ct_btnbg02.gif" class="ct_btn01" style="padding-top:3px;">
-					<%--<a href="javascript:fncGetProductList('<%=search.getCurrentPage()%>');">°Ë»ö</a> --%>
-					<!--	<a href="javascript:fncGetList('${ search.currentPage }');">°Ë»ö</a> -->
-					°Ë»ö
+					<%--<a href="javascript:fncGetProductList('<%=search.getCurrentPage()%>');">ê²€ìƒ‰</a> --%>
+					<!--	<a href="javascript:fncGetList('${ search.currentPage }');">ê²€ìƒ‰</a> -->
+					ê²€ìƒ‰
 					</td>
 					<td width="14" height="23">
 						<img src="/images/ct_btnbg03.gif" width="14" height="23">
@@ -283,49 +283,49 @@
 
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:10px;">
-	<tr>		
-		<%--ÀüÃ¼  <%= resultPage.getTotalCount() %> °Ç¼ö, ÇöÀç <%= resultPage.getCurrentPage() %> ÆäÀÌÁö --%>
+	<tr>
+		<%--ì „ì²´  <%= resultPage.getTotalCount() %> ê±´ìˆ˜, í˜„ì¬ <%= resultPage.getCurrentPage() %> í˜ì´ì§€ --%>
 		<td colspan="11" >
-			ÀüÃ¼  ${resultPage.totalCount} °Ç¼ö, ÇöÀç ${resultPage.currentPage} ÆäÀÌÁö
+			ì „ì²´  ${resultPage.totalCount} ê±´ìˆ˜, í˜„ì¬ ${resultPage.currentPage} í˜ì´ì§€
 		</td>
 	</tr>
 	<tr>
 		<td class="ct_list_b" width="100">No</td>
 		<td class="ct_line02"></td>
-		<td class="ct_list_b" width="150">»óÇ°¸í<br>
+		<td class="ct_list_b" width="150">ìƒí’ˆëª…<br>
 		<c:choose>
 			<c:when test = "${menu=='manage'}">
-				<h7 >(»óÇ°¸í click<br>:»óÇ°¼öÁ¤)</h7>
+				<h7 >(ìƒí’ˆëª… click<br>:ìƒí’ˆìˆ˜ì •)</h7>
 			</c:when>
 			<c:otherwise>
-				<h7 >(»óÇ°¸í click<br>:»ó¼¼Á¤º¸)</h7>
+				<h7 >(ìƒí’ˆëª… click<br>:ìƒì„¸ì •ë³´)</h7>
 			</c:otherwise>
 		</c:choose>
 		</td>
 		<td class="ct_line02"></td>
-		<td class="ct_list_b" width="150">°¡°İ</td>
+		<td class="ct_list_b" width="150">ê°€ê²©</td>
 		<td class="ct_line02"></td>
-		<td class="ct_list_b" width="150">µî·ÏÀÏ</td>
+		<td class="ct_list_b" width="150">ë“±ë¡ì¼</td>
 		<td class="ct_line02"></td>
-		<td class="ct_list_b" width="150">ÇöÀç»óÅÂ</td>	
+		<td class="ct_list_b" width="150">í˜„ì¬ìƒíƒœ</td>
 	</tr>
 	<tr>
 		<td colspan="11" bgcolor="808285" height="1"></td>
 	</tr>
-	
-	
-<%--<% 	
+
+
+<%--<%
 		for(int i=0; i<list.size(); i++) {
 			Product vo = list.get(i);
-	%>		
+	%>
 	<tr class="ct_list_pop">
 		<td align="center"><%= i + 1 %></td>
 		<td></td>
 		<td align="left">
 	<% if(menu.equals("manage")) {%>
-		<a href="/updateProductView.do?prodNo=<%=vo.getProdNo() %>&menu=<%= menu %>"><%=vo.getProdName() %></a>		
-	<%}else{ %>		
-		<a href="/getProduct.do?prodNo=<%=vo.getProdNo() %>&menu=<%= menu %>"><%=vo.getProdName() %></a>			
+		<a href="/updateProductView.do?prodNo=<%=vo.getProdNo() %>&menu=<%= menu %>"><%=vo.getProdName() %></a>
+	<%}else{ %>
+		<a href="/getProduct.do?prodNo=<%=vo.getProdNo() %>&menu=<%= menu %>"><%=vo.getProdName() %></a>
 		</td>
 	<%} %>
 		<td></td>
@@ -333,33 +333,33 @@
 		<td></td>
 		<td align="left"><%= vo.getManuDate() %></td>
 		<td></td>
-		<td align="left"><%= vo.getProTranCode() %>		
-		</td>	
+		<td align="left"><%= vo.getProTranCode() %>
+		</td>
 	</tr>
 	<tr>
 		<td colspan="11" bgcolor="D6D7D6" height="1"></td>
 	</tr>
-	<% } %> --%>	
-	
+	<% } %> --%>
+
 	<c:set var="i" value="0" />
 	<c:forEach var="product" items="${list}" >
-		
+
 		<c:set var="i" value="${ i+1 }" />
 		<tr class="ct_list_pop">
 			<td align="center">${ i }</td>
 			<td></td>
 			<td align="left">
-			<input type="hidden" id="product" name="product" value="${product.prodNo}"/>			
+			<input type="hidden" id="product" name="product" value="${product.prodNo}"/>
 			<input type="hidden" id="menu" name="menu" value="${param.menu}"/>
 			<input type="hidden" id="product" name="product" value="${product.prodName}"/>
-			
-			<!--			
+
+			<!--
 	 		<c:choose>
 				<c:when test = "${menu=='manage'}">
 				<td align="left"><a href="/product/updateProductView?prodNo=${ product.prodNo }&menu=${ menu }">${ product.prodName }</a></td>
 				</c:when>
 				<c:otherwise>
-				
+
 				<td align="left"><a href="/product/getProduct?prodNo=${ product.prodNo }&menu=${ menu }">${ product.prodName }</a></td>
 				</c:otherwise>
 			</c:choose>
@@ -371,13 +371,13 @@
 		<td></td>
 		<td align="left">${ product.manuDate }</td>
 		<td></td>
-		<td align="left">${ product.proTranCode }		
+		<td align="left">${ product.proTranCode }
 		</td>
 	</tr>
 	<tr>
 	<td id="${product.prodName}" colspan="11" bgcolor="D6D7D6" height="1"></td>
 	</tr>
-	</c:forEach>	
+	</c:forEach>
 </table>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:10px;">
@@ -385,23 +385,23 @@
 		<td align="center">
 		 <input type="hidden" id="currentPage" name="currentPage" value=""/>
 		<%--<% if( resultPage.getCurrentPage() <= resultPage.getPageUnit() ){ %>
-					¢¸ ÀÌÀü
+					â—€ ì´ì „
 			<% }else{ %>
-					<a href="javascript:fncGetProductList('<%=resultPage.getCurrentPage()-1%>')">¢¸ ÀÌÀü</a>
+					<a href="javascript:fncGetProductList('<%=resultPage.getCurrentPage()-1%>')">â—€ ì´ì „</a>
 			<% } %>
 
 			<%	for(int i=resultPage.getBeginUnitPage();i<= resultPage.getEndUnitPage() ;i++){	%>
 					<a href="javascript:fncGetProductList('<%=i %>');"><%=i %></a>
 			<% 	}  %>
-	
+
 			<% if( resultPage.getEndUnitPage() >= resultPage.getMaxPage() ){ %>
-					ÀÌÈÄ ¢º
+					ì´í›„ â–¶
 			<% }else{ %>
-					<a href="javascript:fncGetProductList('<%=resultPage.getEndUnitPage()+1%>')">ÀÌÈÄ ¢º</a>
+					<a href="javascript:fncGetProductList('<%=resultPage.getEndUnitPage()+1%>')">ì´í›„ â–¶</a>
 			<% } %> --%>
-		<%--###### pageNavigator if¹® µ¹·Áº¸±â ½ÇÆĞ ######
+		<%--###### pageNavigator ifë¬¸ ëŒë ¤ë³´ê¸° ì‹¤íŒ¨ ######
  		<jsp:include page="../common/pageNavigator.jsp?uri=${ uri }"/>
-		--%>	
+		--%>
 		<jsp:include page="../common/pageNavigator_new.jsp"/>
     	</td>
 	</tr>
@@ -412,4 +412,3 @@
 </div>
 </body>
 </html>
-    

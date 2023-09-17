@@ -17,16 +17,16 @@
 		<result property="phone" 			column="cell_phone" 		jdbcType="VARCHAR" />
 		<result property="addr" 			column="addr" 				jdbcType="VARCHAR" />
 		<result property="email" 			column="email" 				jdbcType="NUMERIC"  />
-		<result property="regDate" 			column="reg_date" 			jdbcType="DATE" />
+		<result property="regDate" 			column="reg_date" 			jdbcType="TIMESTAMP" />
 		<result property="addrDetail"		column="addr_detail"		jdbcType="VARCHAR" />
 	</resultMap>
 
 	<!-- SQL : INSERT -->
 	<insert 	id="addUser"		parameterType="com.side.mvcshop.user.User" >
 	 	INSERT
-		INTO users( user_id , user_name , password , role , ssn, cell_phone, addr, email , reg_date , addr_detail)
+		INTO users( user_id , user_name , password , role , ssn, cell_phone, addr, email , addr_detail)
 		VALUES	 (	#{userId} , #{userName} , #{password} , 'user' , #{ssn:VARCHAR} ,
-							#{phone:VARCHAR} , #{addr:VARCHAR} , #{email:VARCHAR} , SYSDATE , #{addrDetail:VARCHAR} )
+							#{phone:VARCHAR} , #{addr:VARCHAR} , #{email:VARCHAR} , #{addrDetail:VARCHAR} )
 	 </insert>
 
 	 <!-- SQL : SELECT ONE -->

@@ -55,7 +55,7 @@
 <body>
 
 	<!-- ToolBar Start /////////////////////////////////////-->
-	<jsp:include page="/WEB-INF/views/layout/toolbar.jsp" />
+	<jsp:include page="/views/layout/toolbar.jsp" />
    	<!-- ToolBar End /////////////////////////////////////-->
 
 	<!--  화면구성 div Start /////////////////////////////////////-->

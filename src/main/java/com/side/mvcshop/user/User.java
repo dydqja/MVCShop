@@ -1,6 +1,7 @@
 package com.side.mvcshop.user;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 
 //==>ȸ�������� �𵨸�(�߻�ȭ/ĸ��ȭ)�� Bean
@@ -15,7 +16,7 @@ public class User {
 	private String phone;
 	private String addr;
 	private String email;
-	private Date regDate;
+	private Timestamp regDate;
 	/////////////// EL ���� ���� �߰��� Field ///////////
 	private String phone1;
 	private String phone2;
@@ -88,12 +89,12 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Date getRegDate() {
+	public Timestamp getRegDate() {
 		return regDate;
 	}
 	//////////////////////////////////////////////////////////////////////////////////////////////
 	// JSON ==> Domain Object  Binding�� ���� �߰��� �κ�
-	public void setRegDate(Date regDate) {
+	public void setRegDate(Timestamp regDate) {
 		this.regDate = regDate;
 
 		if(regDate !=null) {

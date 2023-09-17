@@ -1,29 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
 
 <head>
-	<meta charset="EUC-KR">
-	
+	<meta charset="UTF-8">
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<title>»óÇ°µî·Ï</title>
+	<title>ìƒí’ˆë“±ë¡</title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
 
-	<script type="text/javascript" src="../javascript/calendar.js"></script>
+	<script type="text/javascript" src="../views/javascript/calendar.js"></script>
 	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
-	
+
 	<!--  ///////////////////////// CSS ////////////////////////// -->
 	<style>
        body > div.container{
         	border: 3px solid #D6CDB7;
-            margin-top: 10px;            
+            margin-top: 10px;
         }
         .header_div {
         	width: 100%;
@@ -35,60 +35,60 @@
         	flex-direction: column;
         	align-items: flex-start;
         	width: auto;
-        	height: 20px;        	
+        	height: 20px;
         }
         .form-group label {
         	margin-bottom: 5px
         }
-        
+
         .manuDate {
         	width: auto;
-        	height: 50px;        	
+        	height: 50px;
         }
-        
+
         form {
         	display: flex;
         	flex-direction: column;
-        	align-items: center;        	
-        }       
+        	align-items: center;
+        }
         .submit, .cancle {
         	margin: 5px
         }
-        
+
     </style>
-    
+
 	<!--  ///////////////////////// JavaScript ////////////////////////// -->
 	<script type="text/javascript">
-	
-		//=====±âÁ¸Code ÁÖ¼® Ã³¸® ÈÄ  jQuery º¯°æ ======//
+
+		//=====ê¸°ì¡´Code ì£¼ì„ ì²˜ë¦¬ í›„  jQuery ë³€ê²½ ======//
 		function fncAddProduct(){
-			//Form À¯È¿¼º °ËÁõ
+			//Form ìœ íš¨ì„± ê²€ì¦
  			//var name = document.detailForm.prodName.value;
 			//var detail = document.detailForm.prodDetail.value;
 			//var manuDate = document.detailForm.manuDate.value;
 			//var price = document.detailForm.price.value;
-			
+
 			var name=$("input[name='prodName']").val();
 			var detail=$("input[name='prodDetail']").val();
 			var manuDate=$("input[name='manuDate']").val();
 			var price=$("input[name='price']").val();
-			
+
 
 			if(name == null || name.length<1){
-				alert("»óÇ°¸íÀº ¹İµå½Ã ÀÔ·ÂÇÏ¿©¾ß ÇÕ´Ï´Ù.");
+				alert("ìƒí’ˆëª…ì€ ë°˜ë“œì‹œ ì…ë ¥í•˜ì—¬ì•¼ í•©ë‹ˆë‹¤.");
 				return;
 			}
 			if(detail == null || detail.length<1){
-				alert("»óÇ°»ó¼¼Á¤º¸´Â ¹İµå½Ã ÀÔ·ÂÇÏ¿©¾ß ÇÕ´Ï´Ù.");
+				alert("ìƒí’ˆìƒì„¸ì •ë³´ëŠ” ë°˜ë“œì‹œ ì…ë ¥í•˜ì—¬ì•¼ í•©ë‹ˆë‹¤.");
 				return;
 			}
-			
+
 			if(manuDate == null || manuDate.length<1){
-				alert("Á¦Á¶ÀÏÀÚ´Â ¹İµå½Ã ÀÔ·ÂÇÏ¼Å¾ß ÇÕ´Ï´Ù.");
+				alert("ì œì¡°ì¼ìëŠ” ë°˜ë“œì‹œ ì…ë ¥í•˜ì…”ì•¼ í•©ë‹ˆë‹¤.");
 				return;
 			}
 			if(price == null || price.length<1){
-				alert("°¡°İÀº ¹İµå½Ã ÀÔ·ÂÇÏ¼Å¾ß ÇÕ´Ï´Ù.");
+				alert("ê°€ê²©ì€ ë°˜ë“œì‹œ ì…ë ¥í•˜ì…”ì•¼ í•©ë‹ˆë‹¤.");
 				return;
 			}
 
@@ -97,83 +97,83 @@
 			$("form").attr("method","POST").attr("enctype","multipart/form-data").attr("action","/product/addProduct").submit();
 		}
 		//===========================================//
-		//==> Ãß°¡µÈºÎºĞ : "»óÇ°µî·Ï"  Event ¿¬°á
+		//==> ì¶”ê°€ëœë¶€ë¶„ : "ìƒí’ˆë“±ë¡"  Event ì—°ê²°
 		 $(function() {
-			//==> DOM Object GET 3°¡Áö ¹æ¹ı ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-			//==> 1 °ú 3 ¹æ¹ı Á¶ÇÕ : $("tagName.className:filterÇÔ¼ö") »ç¿ëÇÔ.	
+			//==> DOM Object GET 3ê°€ì§€ ë°©ë²• ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+			//==> 1 ê³¼ 3 ë°©ë²• ì¡°í•© : $("tagName.className:filterí•¨ìˆ˜") ì‚¬ìš©í•¨.
 			 $( ".submit" ).on("click" , function() {
 				//Debug..
-				//alert(  $( "td.ct_btn01:contains('µî·Ï')" ).html() );
+				//alert(  $( "td.ct_btn01:contains('ë“±ë¡')" ).html() );
 				fncAddProduct();
 			});
-		//==> Ãß°¡µÈºÎºĞ : "Ãë¼Ò"  Event Ã³¸® ¹×  ¿¬°á
+		//==> ì¶”ê°€ëœë¶€ë¶„ : "ì·¨ì†Œ"  Event ì²˜ë¦¬ ë°  ì—°ê²°
 			 $( ".cancel" ).on("click" , function() {
 				 $("form")[0].reset();
-			
+
 		 		});
 			 });
-			
-		
-		
-		/*============= jQuery º¯°æ ÁÖ¼®Ã³¸® =============
+
+
+
+		/*============= jQuery ë³€ê²½ ì£¼ì„ì²˜ë¦¬ =============
 		function resetData(){
 			document.detailForm.reset();
 		}========================================	*/
-	
+
 	</script>
-	
+
 </head>
 
 <body bgcolor="#ffffff" text="#000000">
 
 
 <form class="form-inline" name="detailForm">
-<!-- div ¼öÁ¤°ø°£ -->
+<!-- div ìˆ˜ì •ê³µê°„ -->
 
 
 <div class="header_div" >
-	<img src="/images/ct_ttl_img01.gif" dwith="15" height="37"/>»óÇ°µî·Ï		
+	<img src="/views/images/ct_ttl_img01.gif" dwith="15" height="37"/>ìƒí’ˆë“±ë¡
 </div>
 <br/><br/>
- 
+
 <div class="form-group ct_write">
-	<label for="prodName">»óÇ°¸í&nbsp;<img src="/images/ct_icon_red.gif"></label>
+	<label for="prodName">ìƒí’ˆëª…&nbsp;<img src="/views/images/ct_icon_red.gif"></label>
 	<input type="text" class="form-control ct_input_g" id="prodName" name="prodName" >
 </div>
 <br/><br/>
 
 <div class="form-group ct_write">
-	<label for="prodDetail">»óÇ°»ó¼¼Á¤º¸&nbsp;<img src="/images/ct_icon_red.gif"></label>
+	<label for="prodDetail">ìƒí’ˆìƒì„¸ì •ë³´&nbsp;<img src="/views/images/ct_icon_red.gif"></label>
 	<input type="text" class="form-control ct_input_g" id="prodDetail" name="prodDetail" >
 </div>
 <br/><br/>
- 
+
 <div class="form-group ct_write manuDate">
-	<label>Á¦Á¶ÀÏÀÚ &nbsp;<img src="../images/ct_icon_date.gif" width="15" height="15"
+	<label>ì œì¡°ì¼ì &nbsp;<img src="/views/images/ct_icon_date.gif" width="15" height="15"
 							   onclick="show_calendar('document.detailForm.manuDate', document.detailForm.manuDate.value)"/>&nbsp;
-						  <img src="/images/ct_icon_red.gif">
+						  <img src="/views/images/ct_icon_red.gif">
 	</label>
-	<input type="text" class="form-control ct_input_g" id="manuDate" name="manuDate" placeholder="´Ş·ÂÀ» Å¬¸¯ÇØ ÀÔ·Â.." readonly>	
+	<input type="text" class="form-control ct_input_g" id="manuDate" name="manuDate" placeholder="ë‹¬ë ¥ì„ í´ë¦­í•´ ì…ë ¥.." readonly>
 </div>
 <br/><br/>
 
 <div class="form-group ct_write">
-	<label for="price">°¡°İ&nbsp;<img src="/images/ct_icon_red.gif"></label>
+	<label for="price">ê°€ê²©&nbsp;<img src="/views/images/ct_icon_red.gif"></label>
 	<input type="text" class="form-control ct_input_g" id="price" name="price" >
 </div>
 <br/><br/>
- 
+
 <div class="form-group ct_write">
-    <label for="uploadFiles">»óÇ°ÀÌ¹ÌÁö</label>
+    <label for="uploadFiles">ìƒí’ˆì´ë¯¸ì§€</label>
     <input type="file" id="uploadFiles" name="uploadFiles" multiple="multiple">
-    <p class="help-block">ÃÖ´ë¿ë·® ¾îÂ¼±¸</p>
+    <p class="help-block">ìµœëŒ€ìš©ëŸ‰ ì–´ì©Œêµ¬</p>
 </div>
 <br/><br/>
 <br/><br/>
 
 <div>
-<button class="btn btn-primary submit" >µî·Ï</button>
-<button class="btn btn-danger cancel" >Ãë¼Ò</button>
+<button class="btn btn-primary submit" >ë“±ë¡</button>
+<button class="btn btn-danger cancel" >ì·¨ì†Œ</button>
 </div>
 
 
@@ -181,7 +181,7 @@
 
 
 
-<!-- div ¼öÁ¤°ø°£ ³¡ -->
+<!-- div ìˆ˜ì •ê³µê°„ ë -->
 
 
 

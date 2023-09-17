@@ -127,6 +127,6 @@
 	 	//=============  판매상품등록 Event  처리 =============
 		$( "a:contains('판매상품등록')" ).on("click" , function() {
 			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-			$(self.location).attr("method","POST").attr("href","../product/addProductView.jsp;");
+			$(self.location).attr("method","GET").attr("href","/product/addProduct");
 		});
 	</script>

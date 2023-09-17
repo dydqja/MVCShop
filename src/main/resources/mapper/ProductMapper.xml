@@ -9,21 +9,21 @@
 
 
 	<resultMap id="productSelectMap" type="com.side.mvcshop.product.Product">
-		<result property="prodNo" 		column="PROD_NO"			jdbcType="NUMERIC" />
+		<result property="prodNo" 		column="PROD_NO"			jdbcType="INTEGER" />
 		<result property="prodName"		column="PROD_NAME" 			jdbcType="VARCHAR"/>
 		<result property="prodDetail" 	column="PROD_DETAIL" 		jdbcType="VARCHAR"/>
 		<result property="manuDate"		column="MANUFACTURE_DAY" 	jdbcType="VARCHAR"/>
-		<result property="price" 		column="PRICE" 				jdbcType="NUMERIC" />
+		<result property="price" 		column="PRICE" 				jdbcType="INTEGER" />
 		<result property="fileName"		column="IMAGE_FILE" 		jdbcType="VARCHAR"/>
-		<result property="regDate" 		column="REG_DATE" 			jdbcType="DATE"   />
+		<result property="regDate" 		column="REG_DATE" 			jdbcType="TIMESTAMP"/>
 	</resultMap>
 
 	<!-- SQL : INSERT -->
 	<insert 	id="addProduct"	parameterType="com.side.mvcshop.product.Product" >
 	 	INSERT
-		INTO product ( PROD_NO, PROD_NAME, PROD_DETAIL, MANUFACTURE_DAY,
+		INTO product ( PROD_NAME, PROD_DETAIL, MANUFACTURE_DAY,
 					   PRICE, IMAGE_FILE, REG_DATE)
-		VALUES		 ( seq_product_prod_no.nextval, #{prodName}, #{prodDetail}, #{manuDate},
+		VALUES		 ( #{prodName}, #{prodDetail}, #{manuDate},
 				       #{price}, #{fileName}, sysdate )
 	 </insert>
 

@@ -41,7 +41,7 @@
 <body>
 
 	<!-- ToolBar Start /////////////////////////////////////-->
-	<jsp:include page="/WEB-INF/views/layout/toolbar.jsp" />
+    <jsp:include page="/views/layout/toolbar.jsp" />
    	<!-- ToolBar End /////////////////////////////////////-->
 
 	<!--  아래의 내용은 http://getbootstrap.com/getting-started/  참조 -->

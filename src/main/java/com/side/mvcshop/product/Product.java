@@ -1,6 +1,7 @@
 package com.side.mvcshop.product;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -17,7 +18,7 @@ public class Product {
 	private String prodDetail;
 	private String prodName;
 	private String proTranCode;
-	private Date regDate;
+	private Timestamp regDate;
 	// JSON ==> Domain Object  Binding�� ���� �߰��� �κ�
 	private String regDateString;
 	// fileUpload �߰� �κ�(����)
@@ -73,19 +74,19 @@ public class Product {
 	public void setProdNo(int prodNo) {
 		this.prodNo = prodNo;
 	}
-	public Date getRegDate() {
+	public Timestamp getRegDate() {
 		return regDate;
 	}
 	// JSON ==> Domain Object  Binding�� ���� �߰�
-	public void setRegDate(Date regDate) {
+	public void setRegDate(Timestamp regDate) {
 		this.regDate = regDate;
 
-		if(regDate !=null) {
-			// JSON ==> Domain Object  Binding�� ���� �߰��� �κ�
-			this.setRegDateString( regDate.toString().split("-")[0]
-													+"-"+ regDate.toString().split("-")[1]
-													+"-"+ regDate.toString().split("-")[2] );
-		}
+//		if(regDate !=null) {
+//			// JSON ==> Domain Object  Binding�� ���� �߰��� �κ�
+//			this.setRegDateString( regDate.toString().split("-")[0]
+//													+"-"+ regDate.toString().split("-")[1]
+//													+"-"+ regDate.toString().split("-")[2] );
+//		}
 	}
 	public String getRegDateString() {
 		return regDateString;

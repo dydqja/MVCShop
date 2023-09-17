@@ -39,10 +39,20 @@ public class ProductController {
 	@Value("${pageSize}")
 	int pageSize;
 
+	@RequestMapping(value="addProduct", method=RequestMethod.GET)
+	public String addProduct() throws Exception {
+
+		System.out.println("/product/addProduct :: GET");
+
+		return "product/addProductView.jsp";
+	}
+
 	@RequestMapping( value="addProduct", method=RequestMethod.POST, consumes="multipart/form-data")
 	public String addProduct( @ModelAttribute Product product, Model model, HttpServletRequest request ) throws Exception {
 
 		System.out.println("/product/addProduct :: POST");
+
+		System.out.println("client에서 입력받은 product :: [ "+product.toString()+" ]");
 
 		//file upload
 		String fileName = null;
@@ -55,7 +65,7 @@ public class ProductController {
 
 			List<Map<String,String>> fileList = new ArrayList<>();
 			// file ������ġ ����
-			String filePath = "C:\\Projects\\MVCShop\\src\\main\\webapp\\WEB-INF\\views\\images\\uploadFiles";
+			String filePath = "C:\\Projects\\MVCShop\\src\\main\\webapp\\views\\images\\uploadFiles";
 
 			for(int i = 0; i<uploadFiles.size(); i++) {
 
@@ -89,7 +99,7 @@ public class ProductController {
 		model.addAttribute("product",product);
 		model.addAttribute("menu",request.getParameter("menu"));
 
-		return "forward:/product/readProduct.jsp";
+		return "/product/readProduct.jsp";
 	}
 
 	@RequestMapping( value="getProduct", method=RequestMethod.POST)
@@ -104,7 +114,7 @@ public class ProductController {
 		model.addAttribute("product",product);
 		model.addAttribute("menu",request.getParameter("menu"));
 
-		return "forward:/product/updateProduct.jsp";
+		return "/product/updateProduct.jsp";
 	}
 
 	@RequestMapping( value="listProduct")
@@ -130,7 +140,7 @@ public class ProductController {
 		model.addAttribute("menu",request.getParameter("menu"));
 //		model.addAttribute("uri",request.getRequestURI());	==> pageNavigator if�� �������� ����
 
-		return "forward:/product/listProduct.jsp";
+		return "/product/listProduct.jsp";
 	}
 
 	@RequestMapping( value="updateProduct", method=RequestMethod.POST)

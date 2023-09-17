@@ -1,32 +1,32 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    
+
 
 <%--
 <%
 	Product product=(Product)request.getAttribute("product");
-%> 
+%>
  --%>
  <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="EUC-KR">
-	<title>»óÇ°»ó¼¼Á¶È¸</title>
+	<meta charset="UTF-8">
+	<title>ìƒí’ˆìƒì„¸ì¡°íšŒ</title>
 
 <link rel="stylesheet" href="/css/admin.css" type="text/css">
 
-<!-- CDN(Content Delivery Network) È£½ºÆ® »ç¿ë -->
+<!-- CDN(Content Delivery Network) í˜¸ìŠ¤íŠ¸ ì‚¬ìš© -->
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script type="text/javascript">
 
-	//==> Ãß°¡µÈºÎºĞ : "È®ÀÎ"  Event ¿¬°á ¹× Ã³¸®
+	//==> ì¶”ê°€ëœë¶€ë¶„ : "í™•ì¸"  Event ì—°ê²° ë° ì²˜ë¦¬
 	$(function() {
-		//==> DOM Object GET 3°¡Áö ¹æ¹ı ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-		//==> 1 °ú 3 ¹æ¹ı Á¶ÇÕ : $("tagName.className:filterÇÔ¼ö") »ç¿ëÇÔ.	
-	 	$( "td.ct_btn01:contains('È®ÀÎ')" ).on("click" , function() {
+		//==> DOM Object GET 3ê°€ì§€ ë°©ë²• ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+		//==> 1 ê³¼ 3 ë°©ë²• ì¡°í•© : $("tagName.className:filterí•¨ìˆ˜") ì‚¬ìš©í•¨.
+	 	$( "td.ct_btn01:contains('í™•ì¸')" ).on("click" , function() {
 			//Debug..
-			//alert(  $( "td.ct_btn01:contains('È®ÀÎ')" ).html() );
+			//alert(  $( "td.ct_btn01:contains('í™•ì¸')" ).html() );
 	 		self.location = "/product/listProduct?menu=manage"
 		});
 	});
@@ -44,7 +44,7 @@
 		<td background="/images/ct_ttl_img02.gif" width="100%" style="padding-left: 10px;">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
-					<td width="93%" class="ct_ttl01">»óÇ°»ó¼¼Á¶È¸</td>
+					<td width="93%" class="ct_ttl01">ìƒí’ˆìƒì„¸ì¡°íšŒ</td>
 					<td width="20%" align="right">&nbsp;</td>
 				</tr>
 			</table>
@@ -61,7 +61,7 @@
 	</tr>
 	<tr>
 		<td width="104" class="ct_write">
-			»óÇ°¹øÈ£ <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
+			ìƒí’ˆë²ˆí˜¸ <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
@@ -78,7 +78,7 @@
 	</tr>
 	<tr>
 		<td width="104" class="ct_write">
-			»óÇ°¸í <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
+			ìƒí’ˆëª… <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<%--<td class="ct_write01"><%= product.getProdName() %></td> --%>
@@ -89,22 +89,22 @@
 	</tr>
 	<tr>
 		<td width="104" class="ct_write">
-			»óÇ°ÀÌ¹ÌÁö <img 	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
+			ìƒí’ˆì´ë¯¸ì§€ <img 	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
-				
+
 		<td bgcolor="D6D6D6" width="1"></td>
-		
+
 		<%--<td class="ct_write01"><%= product.getFileName() %></td> --%>
 		<td class="ct_write01">${ product.fileName }</td>
-			
-		
+
+
 	</tr>
 	<tr>
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 	</tr>
 	<tr>
 		<td width="104" class="ct_write">
-			»óÇ°»ó¼¼Á¤º¸ <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
+			ìƒí’ˆìƒì„¸ì •ë³´ <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<%--<td class="ct_write01"><%= product.getProdDetail() %></td> --%>
@@ -114,7 +114,7 @@
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 	</tr>
 	<tr>
-		<td width="104" class="ct_write">Á¦Á¶ÀÏÀÚ</td>
+		<td width="104" class="ct_write">ì œì¡°ì¼ì</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<%--<td class="ct_write01"><%= product.getManuDate() %></td> --%>
 		<td class="ct_write01">${ product.manuDate }</td>
@@ -123,7 +123,7 @@
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 	</tr>
 	<tr>
-		<td width="104" class="ct_write">°¡°İ</td>
+		<td width="104" class="ct_write">ê°€ê²©</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<%--<td class="ct_write01"><%= product.getPrice() %></td> --%>
 		<td class="ct_write01">${ product.price }</td>
@@ -132,7 +132,7 @@
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 	</tr>
 	<tr>
-		<td width="104" class="ct_write">µî·ÏÀÏÀÚ</td>
+		<td width="104" class="ct_write">ë“±ë¡ì¼ì</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<%--<td class="ct_write01"><%= product.getRegDate() %></td> --%>
 		<td class="ct_write01">${ product.regDate }</td>
@@ -150,16 +150,16 @@
 		<table border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td width="14" height="23"><img src="/images/ct_btnbg03.gif" width="14" height="23"></td>
-				<td width="30"></td>					
+				<td width="30"></td>
 				<td width="17" height="23"><img src="/images/ct_btnbg01.gif" width="17" height="23"></td>
 				<td background="/images/ct_btnbg02.gif" class="ct_btn01" style="padding-top:3px;">
-				<!-- ////////////////// jQuery Event Ã³¸®·Î º¯°æµÊ /////////////////////////
-					<a href="/product/listProduct?menu=manage">È®ÀÎ</a>
+				<!-- ////////////////// jQuery Event ì²˜ë¦¬ë¡œ ë³€ê²½ë¨ /////////////////////////
+					<a href="/product/listProduct?menu=manage">í™•ì¸</a>
 					////////////////////////////////////////////////////////////////////////////////////////////////// -->
-					È®ÀÎ
+					í™•ì¸
 				</td>
 				<td width="14" height="23"><img src="/images/ct_btnbg03.gif" width="14" height="23"></td>
-				
+
 			</tr>
 		</table>
 

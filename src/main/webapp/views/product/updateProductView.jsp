@@ -1,35 +1,35 @@
-<%@ page contentType="text/html; charset=euc-kr" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
 <%
 
-	System.out.println("¿©±â´Â return updateProductView.jsp ³»ºÎ");
+	System.out.println("ì—¬ê¸°ëŠ” return updateProductView.jsp ë‚´ë¶€");
 
 	Product product=(Product)request.getAttribute("product");
-	
-	System.out.println("menu°ª?=================");
+
+	System.out.println("menuê°’?=================");
 	System.out.println(request.getParameter("menu"));
-	System.out.println("prodNo°ª?=================");
+	System.out.println("prodNoê°’?=================");
 	System.out.println(request.getParameter("prodNo"));
-	
+
 %>
  --%>
 
 <html>
 
 <head>
-	<meta charset="EUC-KR">
-	<title>»óÇ°¼öÁ¤</title>
+	<meta charset="UTF-8">
+	<title>ìƒí’ˆìˆ˜ì •</title>
 
 	<link rel="stylesheet" href="/css/admin.css" type="text/css">
 
 	<script type="text/javascript" src="../javascript/calendar.js"></script>
 	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript">
-		
-		//=====±âÁ¸Code ÁÖ¼® Ã³¸® ÈÄ  jQuery º¯°æ ======//
+
+		//=====ê¸°ì¡´Code ì£¼ì„ ì²˜ë¦¬ í›„  jQuery ë³€ê²½ ======//
 		function fncAddProduct(){
-			//Form À¯È¿¼º °ËÁõ
+			//Form ìœ íš¨ì„± ê²€ì¦
  			//var name = document.detailForm.prodName.value;
 			var name = $("input[name='prodName']").val();
 			//var detail = document.detailForm.prodDetail.value;
@@ -40,41 +40,41 @@
 			var price = $("input[name='price']").val();
 
 			if(name == null || name.length<1){
-				alert("»óÇ°¸íÀº ¹İµå½Ã ÀÔ·ÂÇÏ¿©¾ß ÇÕ´Ï´Ù.");
+				alert("ìƒí’ˆëª…ì€ ë°˜ë“œì‹œ ì…ë ¥í•˜ì—¬ì•¼ í•©ë‹ˆë‹¤.");
 				return;
 			}
 			if(detail == null || detail.length<1){
-				alert("»óÇ°»ó¼¼Á¤º¸´Â ¹İµå½Ã ÀÔ·ÂÇÏ¿©¾ß ÇÕ´Ï´Ù.");
+				alert("ìƒí’ˆìƒì„¸ì •ë³´ëŠ” ë°˜ë“œì‹œ ì…ë ¥í•˜ì—¬ì•¼ í•©ë‹ˆë‹¤.");
 				return;
 			}
 			if(manuDate == null || manuDate.length<1){
-				alert("Á¦Á¶ÀÏÀÚ´Â ¹İµå½Ã ÀÔ·ÂÇÏ¼Å¾ß ÇÕ´Ï´Ù.");
+				alert("ì œì¡°ì¼ìëŠ” ë°˜ë“œì‹œ ì…ë ¥í•˜ì…”ì•¼ í•©ë‹ˆë‹¤.");
 				return;
 			}
 			if(price == null || price.length<1){
-				alert("°¡°İÀº ¹İµå½Ã ÀÔ·ÂÇÏ¼Å¾ß ÇÕ´Ï´Ù.");
+				alert("ê°€ê²©ì€ ë°˜ë“œì‹œ ì…ë ¥í•˜ì…”ì•¼ í•©ë‹ˆë‹¤.");
 				return;
 			}
-		
+
 			//document.detailForm.action='/product/updateProduct';
 			//document.detailForm.submit();
 			$("form").attr("method","POST").attr("enctype","multipart/form-data").attr("action","/product/updateProduct").submit();
-	
+
 		}
-		//==> Ãß°¡µÈºÎºĞ : "¼öÁ¤,Ãë¼Ò"  Event ¿¬°á
+		//==> ì¶”ê°€ëœë¶€ë¶„ : "ìˆ˜ì •,ì·¨ì†Œ"  Event ì—°ê²°
 		$(function() {
-			//==> DOM Object GET 3°¡Áö ¹æ¹ı ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-			//==> 1 °ú 3 ¹æ¹ı Á¶ÇÕ : $("tagName.className:filterÇÔ¼ö") »ç¿ëÇÔ.	
-			 $( "td.ct_btn01:contains('¼öÁ¤')" ).on("click" , function() {
+			//==> DOM Object GET 3ê°€ì§€ ë°©ë²• ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+			//==> 1 ê³¼ 3 ë°©ë²• ì¡°í•© : $("tagName.className:filterí•¨ìˆ˜") ì‚¬ìš©í•¨.
+			 $( "td.ct_btn01:contains('ìˆ˜ì •')" ).on("click" , function() {
 				//Debug..
-				//alert(  $( "td.ct_btn01:contains('¼öÁ¤')" ).html() );
+				//alert(  $( "td.ct_btn01:contains('ìˆ˜ì •')" ).html() );
 				fncAddProduct();
 			});
-			
-			 $( "td.ct_btn01:contains('Ãë¼Ò')" ).on("click" , function() {
-					
+
+			 $( "td.ct_btn01:contains('ì·¨ì†Œ')" ).on("click" , function() {
+
 				history.go(-1)
-			});			
+			});
 		});
 
 </script>
@@ -88,7 +88,7 @@
 <input type="hidden" name="prodNo" value="<%=product.getProdNo() %>" >
 <input type="hidden" name="menu" value="<%=request.getParameter("menu") %>" >
  --%>
-  
+
 <input type="hidden" name="prodNo" value="${product.prodNo}" >
 <input type="hidden" name="menu" value="${request.param.menu}" >
 
@@ -100,7 +100,7 @@
 		<td background="/images/ct_ttl_img02.gif" width="100%" style="padding-left:10px;">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
-					<td width="93%" class="ct_ttl01">»óÇ°¼öÁ¤</td>
+					<td width="93%" class="ct_ttl01">ìƒí’ˆìˆ˜ì •</td>
 					<td width="20%" align="right">&nbsp;</td>
 				</tr>
 			</table>
@@ -115,14 +115,14 @@
 	</tr>
 	<tr>
 		<td width="104" class="ct_write">
-			»óÇ°¸í <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
+			ìƒí’ˆëª… <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td width="105">
-						<input 	type="text" name="prodName" class="ct_input_g" 
+						<input 	type="text" name="prodName" class="ct_input_g"
 								<%--	style="width: 100px; height: 19px" maxLength="20" value="<%=product.getProdName() %>"> --%>
 										style="width: 100px; height: 19px" maxLength="20" value="${product.prodName}">
 					</td>
@@ -135,11 +135,11 @@
 	</tr>
 	<tr>
 		<td width="104" class="ct_write">
-			»óÇ°»ó¼¼Á¤º¸ <img	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
+			ìƒí’ˆìƒì„¸ì •ë³´ <img	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
-		<%--<input type="text" name="prodDetail" value="<%=product.getProdDetail() %>" class="ct_input_g" --%> 
+		<%--<input type="text" name="prodDetail" value="<%=product.getProdDetail() %>" class="ct_input_g" --%>
 			<input type="text" name="prodDetail" value="${product.prodDetail}" class="ct_input_g"
 						style="width: 100px; height: 19px" maxLength="10"	minLength="6">
 		</td>
@@ -149,14 +149,14 @@
 	</tr>
 	<tr>
 		<td width="104" class="ct_write">
-			Á¦Á¶ÀÏÀÚ <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
+			ì œì¡°ì¼ì <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 		<%--<input type="text" readonly="readonly" name="manuDate" value="<%=product.getManuDate() %>" --%>
-			<input type="text" readonly="readonly" name="manuDate" value="${product.manuDate}"	
+			<input type="text" readonly="readonly" name="manuDate" value="${product.manuDate}"
 						class="ct_input_g" style="width: 100px; height: 19px" maxLength="10" minLength="6">&nbsp;
-						<img 	src="../images/ct_icon_date.gif" width="15" height="15" 
+						<img 	src="../images/ct_icon_date.gif" width="15" height="15"
 									onclick="show_calendar('document.detailForm.manuDate', document.detailForm.manuDate.value)" />
 		</td>
 	</tr>
@@ -165,26 +165,26 @@
 	</tr>
 	<tr>
 		<td width="104" class="ct_write">
-			°¡°İ <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
+			ê°€ê²© <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 		<%--<input type="text" name="price" value="<%=product.getPrice() %>" --%>
 			<input type="text" name="price" value="${product.price}"
-						class="ct_input_g" style="width: 100px; height: 19px" maxLength="50"/>&nbsp;¿ø
+						class="ct_input_g" style="width: 100px; height: 19px" maxLength="50"/>&nbsp;ì›
 		</td>
 	</tr>
 	<tr>
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 	</tr>
 	<tr>
-		<td width="104" class="ct_write">»óÇ°ÀÌ¹ÌÁö</td>
+		<td width="104" class="ct_write">ìƒí’ˆì´ë¯¸ì§€</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 			<input	type="file" name="uploadFiles" class="ct_input_g" multiple="multiple"
 						style="width: 200px; height: 19px" maxLength="13" value="${product.fileName}"/>
 		</td>
-	</tr>	
+	</tr>
 	<tr>
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 	</tr>
@@ -198,12 +198,12 @@
 				<tr>
 					<td width="17" height="23">
 						<img src="/images/ct_btnbg01.gif" width="17" height="23"/>
-					</td>					
+					</td>
 					<td background="/images/ct_btnbg02.gif" class="ct_btn01"	style="padding-top: 3px;">
-					<!-- ////////////////// jQuery Event Ã³¸®·Î º¯°æµÊ /////////////////////////
-						<a href="javascript:fncAddProduct();">¼öÁ¤</a>
+					<!-- ////////////////// jQuery Event ì²˜ë¦¬ë¡œ ë³€ê²½ë¨ /////////////////////////
+						<a href="javascript:fncAddProduct();">ìˆ˜ì •</a>
 						////////////////////////////////////////////////////////////////////////////////////////////////// -->
-						¼öÁ¤
+						ìˆ˜ì •
 					</td>
 					<td width="14" height="23">
 						<img src="/images/ct_btnbg03.gif" width="14" height="23"/>
@@ -213,14 +213,14 @@
 						<img src="/images/ct_btnbg01.gif"width="17" height="23"/>
 					</td>
 					<td background="/images/ct_btnbg02.gif" class="ct_btn01" style="padding-top: 3px;">
-					<!-- ////////////////// jQuery Event Ã³¸®·Î º¯°æµÊ /////////////////////////
-						<a href="javascript:history.go(-1)">Ãë¼Ò</a>
+					<!-- ////////////////// jQuery Event ì²˜ë¦¬ë¡œ ë³€ê²½ë¨ /////////////////////////
+						<a href="javascript:history.go(-1)">ì·¨ì†Œ</a>
 						////////////////////////////////////////////////////////////////////////////////////////////////// -->
-						Ãë¼Ò
+						ì·¨ì†Œ
 					</td>
 					<td width="14" height="23">
 						<img src="/images/ct_btnbg03.gif" width="14" height="23"/>
-					</td>					
+					</td>
 				</tr>
 			</table>
 		</td>

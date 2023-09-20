@@ -219,9 +219,9 @@
 <table width="100%" height="37" border="0" cellpadding="0"	cellspacing="0">
 	<tr>
 		<td width="15" height="37">
-			<img src="/images/ct_ttl_img01.gif" width="15" height="37"/>
+			<img src="/views/images/ct_ttl_img01.gif" width="15" height="37"/>
 		</td>
-		<td background="/images/ct_ttl_img02.gif" width="100%" style="padding-left:10px;">
+		<td background="/views/images/ct_ttl_img02.gif" width="100%" style="padding-left:10px;">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 				<%--<% if(menu.equals("manage")) {%>
@@ -242,7 +242,7 @@
 			</table>
 		</td>
 		<td width="12" height="37">
-			<img src="/images/ct_ttl_img03.gif" width="12" height="37"/>
+			<img src="/views/images/ct_ttl_img03.gif" width="12" height="37"/>
 		</td>
 	</tr>
 </table>
@@ -266,14 +266,14 @@
 		<td align="right" width="70">
 			<table border="0" cellspacing="0" cellpadding="0">
 				<tr>
-					<td width="17" height="23"><img src="/images/ct_btnbg01.gif" width="17" height="23"></td>
-					<td background="/images/ct_btnbg02.gif" class="ct_btn01" style="padding-top:3px;">
+					<td width="17" height="23"><img src="/views/images/ct_btnbg01.gif" width="17" height="23"></td>
+					<td background="/views/images/ct_btnbg02.gif" class="ct_btn01" style="padding-top:3px;">
 					<%--<a href="javascript:fncGetProductList('<%=search.getCurrentPage()%>');">검색</a> --%>
 					<!--	<a href="javascript:fncGetList('${ search.currentPage }');">검색</a> -->
 					검색
 					</td>
 					<td width="14" height="23">
-						<img src="/images/ct_btnbg03.gif" width="14" height="23">
+						<img src="/views/images/ct_btnbg03.gif" width="14" height="23">
 					</td>
 				</tr>
 			</table>
@@ -402,7 +402,7 @@
 		<%--###### pageNavigator if문 돌려보기 실패 ######
  		<jsp:include page="../common/pageNavigator.jsp?uri=${ uri }"/>
 		--%>
-		<jsp:include page="../common/pageNavigator_new.jsp"/>
+		<jsp:include page="/views/common/pageNavigator_new.jsp"/>
     	</td>
 	</tr>
 </table>

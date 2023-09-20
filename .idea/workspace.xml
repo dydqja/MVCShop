@@ -4,125 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d0bda2-333f-4a0d-8f3f-7ef6b0f153b9" name="Changes" comment="23.09.14 smsAPI,주소찾기API,checkDuplication 체크 완료">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/javascript/CommonScript.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/javascript/bootstrap-dropdownhover.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/javascript/calendar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/javascript/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="b2d0bda2-333f-4a0d-8f3f-7ef6b0f153b9" name="Changes" comment="23.09.17 addProduct 검토중">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ProductMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ProductMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/common/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/common/error.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/common/nullError.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/common/nullError.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/common/numberFormatError.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/common/numberFormatError.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/common/pageNavigator_new.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/common/pageNavigator_new.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/BHlbAAAAvetFNwAA.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/BHlbAAAAvetFNwAA.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/arrow.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/arrow.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/bg01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/bg01.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/bg02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/bg02.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/bg03.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/bg03.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/btn_add.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/btn_add.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/btn_login.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/btn_login.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/btn_logout.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/btn_logout.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/ct_bot_ttl01.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/ct_bot_ttl01.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/ct_btn_list.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/ct_btn_list.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/ct_btn_next.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/ct_btn_next.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/ct_btn_next01.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/ct_btn_next01.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/ct_btn_pre.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/ct_btn_pre.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/ct_btn_pre01.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/ct_btn_pre01.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/ct_btn_search.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/ct_btn_search.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/ct_btnbg01.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/ct_btnbg01.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/ct_btnbg02.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/ct_btnbg02.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/ct_btnbg03.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/ct_btnbg03.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/ct_btng01.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/ct_btng01.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/ct_btng02.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/ct_btng02.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/ct_btng03.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/ct_btng03.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/ct_icon_date.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/ct_icon_date.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/ct_icon_house.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/ct_icon_house.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/ct_icon_mail.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/ct_icon_mail.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/ct_icon_red.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/ct_icon_red.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/ct_line.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/ct_line.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/ct_line_bg.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/ct_line_bg.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/ct_line_blue.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/ct_line_blue.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/ct_line_left.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/ct_line_left.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/ct_line_ttl.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/ct_line_ttl.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/ct_location_bg.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/ct_location_bg.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/ct_ttl_img01.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/ct_ttl_img01.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/ct_ttl_img02.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/ct_ttl_img02.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/ct_ttl_img03.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/ct_ttl_img03.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/empty.GIF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/empty.GIF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/fail.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/fail.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/file5205239323989512416naver.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/file5205239323989512416naver.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/file9016966759173076757naver.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/file9016966759173076757naver.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/hi.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/hi.bmp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/imgLeftBg.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/imgLeftBg.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/img_bg.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/img_bg.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/img_top.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/img_top.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/img_wel.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/img_wel.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/left/imgLeftBg.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/left/imgLeftBg.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/left/imgLeftBg_s.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/left/imgLeftBg_s.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/left/leftLine.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/left/leftLine.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/left/leftLine1.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/left/leftLine1.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/left/leftLiness1.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/left/leftLiness1.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/left/leftMenuDep01Bg.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/left/leftMenuDep01Bg.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/left/leftMenuDep02_off.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/left/leftMenuDep02_off.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/left/leftMenuDep02_on.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/left/leftMenuDep02_on.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/left/leftMenuDep03Bg.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/left/leftMenuDep03Bg.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/left/left_line.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/left/left_line.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/left/menu11off.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/left/menu11off.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/left/menuBg.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/left/menuBg.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/left/menuLayerBg.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/left/menuLayerBg.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/left/menuSubbg.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/left/menuSubbg.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/left/space_line.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/left/space_line.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/left/top.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/left/top.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/left/top_lone.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/left/top_lone.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/left/validation_sample.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/left/validation_sample.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/logo-spring.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/logo-spring.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/others/ct_diary_bg.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/others/ct_diary_bg.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/others/ct_diary_bg2.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/others/ct_diary_bg2.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/others/ct_diary_btn1.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/others/ct_diary_btn1.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/others/ct_diary_btn2.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/others/ct_diary_btn2.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/others/ct_diary_title.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/others/ct_diary_title.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/others/login02.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/others/login02.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/popup_tab_a.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/popup_tab_a.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/popup_tab_b.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/popup_tab_b.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/popup_tab_c.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/popup_tab_c.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/t_login.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/t_login.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/text_id.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/text_id.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/text_login.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/text_login.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/text_pas.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/text_pas.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/text_v.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/text_v.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/uploadFiles/AHlbAAAAtBqyWAAA.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/uploadFiles/AHlbAAAAtBqyWAAA.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/uploadFiles/AHlbAAAAtDPSiQAA.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/uploadFiles/AHlbAAAAtDPSiQAA.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/uploadFiles/AHlbAAAAtENWVgAB.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/uploadFiles/AHlbAAAAtENWVgAB.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/uploadFiles/AHlbAAAAug1vsgAA.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/uploadFiles/AHlbAAAAug1vsgAA.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/uploadFiles/AHlbAAAAvWs@GwAA.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/uploadFiles/AHlbAAAAvWs@GwAA.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/uploadFiles/AHlbAAAAve1WwgAC.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/uploadFiles/AHlbAAAAve1WwgAC.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/uploadFiles/AHlbAAAAve37LwAD.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/uploadFiles/AHlbAAAAve37LwAD.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/uploadFiles/AHlbAAAAvetFNwAA.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/uploadFiles/AHlbAAAAvetFNwAA.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/uploadFiles/AHlbAAAAvewfegAB.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/uploadFiles/AHlbAAAAvewfegAB.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/uploadFiles/BHlbAAAAvetFNwAA.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/images/uploadFiles/BHlbAAAAvetFNwAA.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/layout/toolbar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/layout/toolbar.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/main.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/product/addProductView.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/product/addProductView.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/product/getProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/product/getProduct.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/product/listProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/product/listProduct.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/product/readProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/product/readProduct.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/product/updateProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/product/updateProduct.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/product/updateProductView.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/product/updateProductView.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/addUserView.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/addUserView.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/checkDuplication.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/checkDuplication.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/getUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/getUser.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/listUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/listUser.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/loginView.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/loginView.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/phCodeConfirm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/phCodeConfirm.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/updateUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/updateUser.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/layout/toolbar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/layout/toolbar.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/product/getProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/product/getProduct.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/product/listProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/product/listProduct.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/product/readProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/product/readProduct.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/user/listUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/listUser.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,33 +41,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Projects/MVCShop/src/main/webapp/views",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
-    "spring.configuration.checksum": "78d0632202a47e174b396425b109b1f7",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Projects/MVCShop/src/main/webapp/views&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;78d0632202a47e174b396425b109b1f7&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Projects\MVCShop\src\main\webapp\views" />
@@ -227,6 +116,7 @@
         <item itemvalue="Spring Boot.MVCShopApplication" />
         <item itemvalue="Spring Boot.MVCShopApplication" />
         <item itemvalue="Spring Boot.MVCShopApplication" />
+        <item itemvalue="Spring Boot.MVCShopApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -247,6 +137,7 @@
       <workItem from="1694684271192" duration="7519000" />
       <workItem from="1694849852928" duration="1163000" />
       <workItem from="1694930737077" duration="9945000" />
+      <workItem from="1695177983183" duration="7612000" />
     </task>
     <task id="LOCAL-00001" summary="23.09.12 first commit">
       <created>1694498002655</created>
@@ -286,6 +177,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="23.09.12 first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="23.09.12 first commit" />
+    <MESSAGE value="23.09.17 addProduct 검토중" />
+    <option name="LAST_COMMIT_MESSAGE" value="23.09.17 addProduct 검토중" />
   </component>
 </project>

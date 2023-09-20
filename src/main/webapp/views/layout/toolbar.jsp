@@ -57,7 +57,7 @@
 		                     </a>
 		                     <ul class="dropdown-menu">
 		                         <li><a href="#">판매상품등록</a></li>
-		                         <li><a href="#">판매상품관리</a></li>
+		                         <li><a href="#" id="product-manage">판매상품관리</a></li>
 		                         <li class="divider"></li>
 		                         <li><a href="#">etc..</a></li>
 		                     </ul>
@@ -128,5 +128,11 @@
 		$( "a:contains('판매상품등록')" ).on("click" , function() {
 			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
 			$(self.location).attr("method","GET").attr("href","/product/addProduct");
+		});
+
+		//=============  판매상품관리 Event  처리 =============
+		$( "#product-manage" ).on("click" , function() {
+			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+			$(self.location).attr("method","GET").attr("href","/product/listProduct?menu=manage");
 		});
 	</script>

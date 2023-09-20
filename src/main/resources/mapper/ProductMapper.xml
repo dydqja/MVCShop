@@ -22,9 +22,9 @@
 	<insert 	id="addProduct"	parameterType="com.side.mvcshop.product.Product" >
 	 	INSERT
 		INTO product ( PROD_NAME, PROD_DETAIL, MANUFACTURE_DAY,
-					   PRICE, IMAGE_FILE, REG_DATE)
+					   PRICE, IMAGE_FILE )
 		VALUES		 ( #{prodName}, #{prodDetail}, #{manuDate},
-				       #{price}, #{fileName}, sysdate )
+				       #{price}, #{fileName} )
 	 </insert>
 
 	 <!-- SQL : SELECT ONE -->
@@ -52,22 +52,20 @@
 
 	<select  id="getList"  parameterType="com.side.mvcshop.common.Search"	resultMap="productSelectMap">
 	  	SELECT *
-	  	FROM ( SELECT inner_table.*, ROWNUM AS row_seq
-			   FROM ( SELECT PROD_NO, PROD_NAME, IMAGE_FILE, PROD_DETAIL,
-					  MANUFACTURE_DAY, PRICE, REG_DATE
-					  FROM product
-						<if test="searchCondition != null">
-							<where>
-								<if test="searchCondition == 0 and searchKeyword !='' ">
-									prod_name like '%'||#{searchKeyword}||'%'
-								</if>
-								<if test="searchCondition == 1 and searchKeyword !='' ">
-									prod_no like '%'||#{searchKeyword}||'%'
-								</if>
-							</where>
-						</if>
-							ORDER BY prod_no ) inner_table
-							WHERE ROWNUM &lt;= #{endRowNum} )
+	  	FROM ( SELECT PROD_NO, prod_name, IMAGE_FILE, PROD_DETAIL, MANUFACTURE_DAY, PRICE, REG_DATE,
+	  	              ROW_NUMBER() OVER (ORDER BY prod_no) AS row_seq
+	  	       FROM product
+			       <if test="searchCondition != null">
+					   <where>
+						   <if test="searchCondition == 0 and searchKeyword !='' ">
+	  	           			   prod_name like '%'||#{searchKeyword}||'%'
+						   </if>
+						   <if test="searchCondition == 1 and searchKeyword !='' ">
+							   prod_no like '%'||#{searchKeyword}||'%'
+						   </if>
+					   </where>
+				   </if>
+			 ) AS inner_table
 		WHERE row_seq BETWEEN #{startRowNum} AND #{endRowNum}
 	 </select>
 	 	<!--  위 두번째 subQuery 의

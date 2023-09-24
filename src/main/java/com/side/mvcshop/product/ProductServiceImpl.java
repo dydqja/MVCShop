@@ -38,7 +38,7 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	public Product getProduct(int prodNo) throws Exception {
-		System.out.println("ProductServiceImpl���� getProduct �����");
+		System.out.println("ProductServiceImpl 에서 getProduct 실행됨");
 //		System.out.println("prodNo ���� = "+ prodNo);
 		return productDao.getProduct(prodNo);
 	}

@@ -51,7 +51,7 @@
 	<meta charset="UTF-8">
 	<title>상품 목록조회</title>
 
-<link rel="stylesheet" href="/css/admin.css" type="text/css">
+<link rel="stylesheet" href="/views/css/admin.css" type="text/css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> <!-- autocomplete 추가 -->
 
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -121,6 +121,7 @@
 						//alert
 						if(${menu=='manage'}) {
 							self.location ="/product/updateProduct?prodNo="+$(this).children('input').val()+"&menu="+$($(this).children('input')[1]).val()
+							console.log($($(this).children('input')[1]).val());
 						}else{
 							$.ajax(
 									{
@@ -141,7 +142,8 @@
 											var displayValue = "<h3>"
 																	+"상품번호 :"+JSONData.prodNo+"<br/>"
 																	+"상품명 : "+JSONData.prodName+"<br/>"
-																	+"상품이미지 : "+JSONData.fileName+"<br/>"
+																	+"상품이미지 : "+"<br/>"
+																	+"<img src='/views/images/uploadFiles/" + JSONData.fileName + "' width='100' height='100'/><br/>"
 																	+"상품상세정보 : "+JSONData.prodDetail+"<br/>"
 																	+"제조일자 : "+JSONData.manuDate+"<br/>"
 																	+"가격 : "+JSONData.price+"<br/>"

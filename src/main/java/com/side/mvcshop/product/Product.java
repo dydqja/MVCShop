@@ -81,12 +81,12 @@ public class Product {
 	public void setRegDate(Timestamp regDate) {
 		this.regDate = regDate;
 
-//		if(regDate !=null) {
-//			// JSON ==> Domain Object  Binding�� ���� �߰��� �κ�
-//			this.setRegDateString( regDate.toString().split("-")[0]
-//													+"-"+ regDate.toString().split("-")[1]
-//													+"-"+ regDate.toString().split("-")[2] );
-//		}
+		if(regDate !=null) {
+			// JSON ==> Domain Object  Binding�� ���� �߰��� �κ�
+			this.setRegDateString( regDate.toString().split("-")[0]
+													+"-"+ regDate.toString().split("-")[1]
+													+"-"+ regDate.toString().split("-")[2] );
+		}
 	}
 	public String getRegDateString() {
 		return regDateString;
@@ -100,7 +100,7 @@ public class Product {
 	public String toString() {
 		return "Product : [fileName]" + fileName
 				+ "[manuDate]" + manuDate+ "[price]" + price + "[prodDetail]" + prodDetail
-				+ "[prodName]" + prodName + "[prodNo]" + prodNo;
+				+ "[prodName]" + prodName + "[prodNo]" + prodNo + "[regDateString]" + regDateString;
 	}
 
 	//fileUpload �߰��κ�(����)

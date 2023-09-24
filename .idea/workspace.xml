@@ -4,14 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d0bda2-333f-4a0d-8f3f-7ef6b0f153b9" name="Changes" comment="23.09.17 addProduct 검토중">
+    <list default="true" id="b2d0bda2-333f-4a0d-8f3f-7ef6b0f153b9" name="Changes" comment="23.09.20 listProduct 검토중">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/css/admin.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/css/animate.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/css/bootstrap-dropdownhover.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/css/common.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/css/cover.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/css/left.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/css/pageNavigator.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/ProductServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ProductMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ProductMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/common/pageNavigator_new.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/common/pageNavigator_new.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/layout/toolbar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/layout/toolbar.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/product/getProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/product/getProduct.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/product/listProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/product/listProduct.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/product/readProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/product/readProduct.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/user/listUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/listUser.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/product/updateProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/product/updateProduct.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/product/updateProductView.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/product/updateProductView.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,6 +129,7 @@
         <item itemvalue="Spring Boot.MVCShopApplication" />
         <item itemvalue="Spring Boot.MVCShopApplication" />
         <item itemvalue="Spring Boot.MVCShopApplication" />
+        <item itemvalue="Spring Boot.MVCShopApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -138,6 +151,8 @@
       <workItem from="1694849852928" duration="1163000" />
       <workItem from="1694930737077" duration="9945000" />
       <workItem from="1695177983183" duration="7612000" />
+      <workItem from="1695456776415" duration="2363000" />
+      <workItem from="1695538529061" duration="14399000" />
     </task>
     <task id="LOCAL-00001" summary="23.09.12 first commit">
       <created>1694498002655</created>

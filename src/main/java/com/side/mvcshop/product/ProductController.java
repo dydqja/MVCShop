@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.swing.*;
 import java.io.File;
 import java.util.*;
 
@@ -111,6 +112,8 @@ public class ProductController {
 		//Model �� View ����
 		System.out.println("----------------");
 		System.out.println(product);
+		System.out.println("menu값은? : [ "+request.getParameter("menu")+" ]");
+
 		model.addAttribute("product",product);
 		model.addAttribute("menu",request.getParameter("menu"));
 
@@ -147,6 +150,8 @@ public class ProductController {
 	public String updateProduct( @ModelAttribute("product") Product product, HttpServletRequest request) throws Exception {
 
 		System.out.println("/product/updateProduct :: POST");
+		System.out.println("updateProduct에서의 prodNo 값은? [ "+request.getParameter("prodNo")+" ]");
+		System.out.println("updateProduct에서의 menu 값은? [ "+request.getParameter("menu")+" ]");
 
 		//file upload
 		String fileName = null;
@@ -195,13 +200,15 @@ public class ProductController {
 	public String updateProduct( @RequestParam("prodNo") int prodNo, Model model, HttpServletRequest request ) throws Exception {
 
 		System.out.println("/product/updateProduct :: GET");
+		System.out.println("prodNo = "+prodNo);
+		System.out.println("menu = "+request.getParameter("menu"));
 		//Business logic
 		Product product = productService.getProduct(prodNo);
 		//Model �� View ����
 		model.addAttribute("product",product);
 		model.addAttribute("menu",request.getParameter("menu"));
 
-		return "forward:/product/updateProductView.jsp";
+		return "/product/updateProductView.jsp";
 	}
 
 }

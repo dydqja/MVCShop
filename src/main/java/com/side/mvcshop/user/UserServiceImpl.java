@@ -55,6 +55,9 @@ public class UserServiceImpl implements UserService{
 	@Value("${naver-cloud-sms.senderPhone}")
 	private String phone;
 
+	@Value("${pageSize}")
+	int pageSize;
+
 	///Method
 	public void addUser(User user) throws Exception {
 		userDao.addUser(user);
@@ -68,11 +71,15 @@ public class UserServiceImpl implements UserService{
 
 		List<User> list= userDao.getList(search);
 		int totalCount = userDao.getTotalCount(search);
+		//총 페이지 수 = 전체 아이템 수 / 페이지당 아이템 수
+		int totalPage = totalCount / pageSize;
+
 		System.out.println(list);
 
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list", list );
 		map.put("totalCount", new Integer(totalCount));
+		map.put("totalPage", totalPage);
 
 		return map;
 	}
@@ -243,5 +250,15 @@ public class UserServiceImpl implements UserService{
 
 		return jsonObject.toString();
 
+	}
+
+	public int getTotalPage(Search search) throws Exception {
+
+		int totalItem = userDao.getTotalCount(search);
+		//총 페이지 수 = 전체 아이템 수 / 페이지당 아이템 수
+		int totalPage = totalItem / pageSize;
+
+
+		return totalPage;
 	}
 }

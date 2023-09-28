@@ -36,4 +36,6 @@ public interface UserService {
 	//������ȣ Ȯ��
 	public String phCodeConfirm(String phCodeConfirm, String smsConfirmNum) throws Exception;
 
+	public int getTotalPage(Search search) throws Exception;
+
 }

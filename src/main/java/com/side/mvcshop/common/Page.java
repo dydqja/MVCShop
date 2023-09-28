@@ -7,6 +7,7 @@ public class Page {
 	///Field
 	private int currentPage;		// ����������
 	private int totalCount;			// �� �Խù� ��
+	private int totalPage;
 	private int pageUnit;			// �ϴ� ������ ��ȣ ȭ�鿡 �������� ��
 	private int pageSize;			// �� �������� �������� �Խù���
 	private int maxPage;			// �ִ� ������ ��ȣ(��ü ������)
@@ -16,7 +17,8 @@ public class Page {
 	///Constructor
 	public Page() {
 	}
-	public Page( int currentPage, int totalCount,	int pageUnit, int pageSize ) {
+	public Page( int currentPage, int totalPage, int totalCount, int pageUnit, int pageSize ) {
+		this.totalPage = totalPage;
 		this.totalCount = totalCount;
 		this.pageUnit = pageUnit;
 		this.pageSize = pageSize;
@@ -45,6 +47,12 @@ public class Page {
 	}
 	public int getTotalCount() {
 		return totalCount;
+	}
+	public int getTotalPage() {
+		return totalPage;
+	}
+	public void setTotalPage(int totalPage) {
+		this.totalPage = totalPage;
 	}
 	public void setTotalCount(int totalCount) {
 		this.totalCount = totalCount;
@@ -81,9 +89,13 @@ public class Page {
 	}
 	@Override
 	public String toString() {
-		return "Page [currentPage=" + currentPage + ", totalCount="
-				+ totalCount + ", pageUnit=" + pageUnit + ", pageSize="
-				+ pageSize + ", maxPage=" + maxPage + ", beginUnitPage="
-				+ beginUnitPage + ", endUnitPage=" + endUnitPage + "]";
+		return "Page [currentPage=" + currentPage + ", " +
+					  "totalPage=" + totalPage + ", " +
+					  "totalCount="	+ totalCount + ", " +
+				      "pageUnit=" + pageUnit + ", " +
+				      "pageSize=" + pageSize + ", " +
+				      "maxPage=" + maxPage + ", " +
+				      "beginUnitPage=" + beginUnitPage + ", " +
+					  "endUnitPage=" + endUnitPage + "]";
 	}
 }

@@ -122,7 +122,7 @@ public class ProductController {
 
 	@RequestMapping( value="listProduct")
 	public String listProduct( @ModelAttribute("search") Search search, HttpServletRequest request, Model model) throws Exception {
-		System.out.println("-------------------------------------");
+		System.out.println("/product/listProduct :: GET/POST");
 		System.out.println(request.getParameter("menu"));
 
 		if(search.getCurrentPage() == 0) {
@@ -132,9 +132,11 @@ public class ProductController {
 
 		//Business logic ����
 		Map<String, Object> map=productService.getList(search);
+		System.out.println("map = "+map);
 
-		Page resultPage	= new Page( search.getCurrentPage(), ((Integer)map.get("totalCount")).intValue(), pageUnit, pageSize);
-		System.out.println(resultPage);
+		Page resultPage	= new Page( search.getCurrentPage(), (Integer) map.get("totalPage"), ((Integer)map.get("totalCount")).intValue(), pageUnit, pageSize);
+		System.out.println("resultPage = ["+resultPage+" ]");
+		System.out.println(map.get("list"));
 
 		//Model �� View ����
 		model.addAttribute("list", map.get("list"));
@@ -200,15 +202,27 @@ public class ProductController {
 	public String updateProduct( @RequestParam("prodNo") int prodNo, Model model, HttpServletRequest request ) throws Exception {
 
 		System.out.println("/product/updateProduct :: GET");
-		System.out.println("prodNo = "+prodNo);
-		System.out.println("menu = "+request.getParameter("menu"));
+		System.out.println("prodNo = " + prodNo);
+		System.out.println("menu = " + request.getParameter("menu"));
 		//Business logic
 		Product product = productService.getProduct(prodNo);
 		//Model �� View ����
-		model.addAttribute("product",product);
-		model.addAttribute("menu",request.getParameter("menu"));
+		model.addAttribute("product", product);
+		model.addAttribute("menu", request.getParameter("menu"));
 
-		return "/product/updateProductView.jsp";
+		String menu = request.getParameter("menu");
+
+		if (menu.equals("manage")) {
+			System.out.println("manage if문 내부");
+			return "/product/updateProductView.jsp";
+
+		} else if (menu.equals("search")) {
+			System.out.println("search if문 내부");
+			return "/product/updateProduct.jsp";
+
+		}
+
+		return null;
 	}
 
 }

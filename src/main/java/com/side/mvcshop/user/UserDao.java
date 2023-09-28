@@ -26,4 +26,5 @@ public interface UserDao {
 	// �Խ��� Page ó���� ���� ��üRow(totalCount)  return
 	public int getTotalCount(Search search) throws Exception ;
 
+
 }

@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.side.mvcshop.common.Search;
@@ -30,6 +31,9 @@ public class ProductServiceImpl implements ProductService{
 		this.productDao = productDao;
 	}
 
+	@Value("${pageSize}")
+	int pageSize;
+
 	///Method
 	public void addProduct(Product product) throws Exception {
 		System.out.println("ProductServiceImpl���� addProduct �����");
@@ -49,9 +53,17 @@ public class ProductServiceImpl implements ProductService{
 		List<Product> list= productDao.getList(search);
 		int totalCount = productDao.getTotalCount(search);
 
+		//총 페이지 수 = 전체 아이템 수 / 페이지당 아이템 수
+		int totalPage = totalCount / pageSize;
+
+		if(totalCount%9 != 0) {
+			totalPage++;
+		}
+
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list", list );
 		map.put("totalCount", new Integer(totalCount));
+		map.put("totalPage", totalPage);
 
 		return map;
 	}
@@ -78,6 +90,7 @@ public class ProductServiceImpl implements ProductService{
 		return result;
 	}
 	########################################################### */
+
 
 
 

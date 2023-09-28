@@ -6,6 +6,7 @@ public class Search {
 
 	///Field
 	private int currentPage;
+	private int totalPage; // 무한스크롤로 인한 추가
 	private String searchCondition;
 	private String searchKeyword;
 	private int pageSize;
@@ -36,6 +37,13 @@ public class Search {
 	}
 	public void setCurrentPage(int currentPage) {
 		this.currentPage = currentPage;
+	}
+
+	public int getTotalPage() {
+		return totalPage;
+	}
+	public void setTotalPage(int totalPage) {
+		this.totalPage = totalPage;
 	}
 
 	public String getSearchCondition() {

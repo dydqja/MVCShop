@@ -4,26 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d0bda2-333f-4a0d-8f3f-7ef6b0f153b9" name="Changes" comment="23.09.20 listProduct 검토중">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/css/admin.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/css/animate.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/css/bootstrap-dropdownhover.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/css/common.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/css/cover.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/css/left.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/css/pageNavigator.jsp" afterDir="false" />
+    <list default="true" id="b2d0bda2-333f-4a0d-8f3f-7ef6b0f153b9" name="Changes" comment="23.09.24 admin 검토 완료 / user 검토중 (AutoComplete 완료)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/common/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/common/Page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/common/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/common/Search.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/ProductDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/ProductRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/ProductRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/ProductService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/ProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/user/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/user/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/user/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/user/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/user/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/user/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ProductMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ProductMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/common/pageNavigator_new.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/common/pageNavigator_new.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/layout/toolbar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/layout/toolbar.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/product/listProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/product/listProduct.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/product/updateProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/product/updateProduct.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/product/updateProductView.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/product/updateProductView.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +88,7 @@
       <recent name="C:\Projects\MVCShop\.mvn\wrapper" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.side.mvcshop.common" />
       <recent name="com.side.mvcshop" />
       <recent name="com.side" />
     </key>
@@ -153,6 +150,10 @@
       <workItem from="1695177983183" duration="7612000" />
       <workItem from="1695456776415" duration="2363000" />
       <workItem from="1695538529061" duration="14399000" />
+      <workItem from="1695621519856" duration="1413000" />
+      <workItem from="1695720971029" duration="4764000" />
+      <workItem from="1695802194112" duration="12239000" />
+      <workItem from="1695886413638" duration="12251000" />
     </task>
     <task id="LOCAL-00001" summary="23.09.12 first commit">
       <created>1694498002655</created>
@@ -193,6 +194,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="23.09.12 first commit" />
     <MESSAGE value="23.09.17 addProduct 검토중" />
-    <option name="LAST_COMMIT_MESSAGE" value="23.09.17 addProduct 검토중" />
+    <MESSAGE value="23.09.24 admin 검토 완료 / user 검토중 (AutoComplete 완료)" />
+    <option name="LAST_COMMIT_MESSAGE" value="23.09.24 admin 검토 완료 / user 검토중 (AutoComplete 완료)" />
   </component>
 </project>

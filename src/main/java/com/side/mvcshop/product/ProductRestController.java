@@ -1,5 +1,7 @@
 package com.side.mvcshop.product;
 
+import com.side.mvcshop.common.Page;
+import com.side.mvcshop.common.Search;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ui.Model;
@@ -77,57 +79,33 @@ public class ProductRestController {
 		return paramMap;
 	}
 
-	/*
-	@RequestMapping("listProduct")
-	public String listProduct( @ModelAttribute("search") Search search, HttpServletRequest request, Model model) throws Exception {
-		System.out.println("-------------------------------------");
-		System.out.println(request.getParameter("menu"));
+	//InfiniteScroll 추가
+	@RequestMapping( value="/json/listProduct", method=RequestMethod.GET)
+	public List<Product> listProduct( @ModelAttribute("currentPage") int currentPage, Search search, Model model) throws Exception {
+		System.out.println("/product/json/listProduct :: GET");
+		System.out.println("currentPage 값은? [ "+currentPage+" ]");
 
-		if(search.getCurrentPage() == 0) {
+		if(currentPage == 0) {
+			System.out.println("currentPage 값이 0이라 1로 바꿈.");
 			search.setCurrentPage(1);
 		}
+		search.setCurrentPage(currentPage);
 		search.setPageSize(pageSize);
 
-		//Business logic ����
-		Map<String, Object> map=productService.getList(search);
+		//Business logic
+		Map<String, Object> map = productService.getList(search);
 
-		Page resultPage	= new Page( search.getCurrentPage(), ((Integer)map.get("totalCount")).intValue(), pageUnit, pageSize);
+		Page resultPage	= new Page( search.getCurrentPage(), (Integer) map.get("totalPage"), ((Integer)map.get("totalCount")).intValue(), pageUnit, pageSize);
 		System.out.println(resultPage);
+		System.out.println(map.get("list"));
 
-		//Model �� View ����
 		model.addAttribute("list", map.get("list"));
 		model.addAttribute("resultPage", resultPage);
 		model.addAttribute("search", search);
-		model.addAttribute("menu",request.getParameter("menu"));
-//		model.addAttribute("uri",request.getRequestURI());	==> pageNavigator if�� �������� ����
 
-		return "forward:/product/listProduct.jsp";
-	}
-	*/
-	/*
-	@RequestMapping("updateProduct")
-	public String updateProduct( @ModelAttribute("product") Product product, HttpServletRequest request) throws Exception {
+		return (List<Product>) map.get("list");
 
-		System.out.println("/product/updateProduct");
-		//Business logic
-		productService.updateProduct(product);
-
-//		model.addAttribute("product", product);
-
-		return "forward:/product/getProduct";
 	}
 
-	@RequestMapping("updateProductView")
-	public String updateProductView( @RequestParam("prodNo") int prodNo, Model model, HttpServletRequest request ) throws Exception {
 
-		System.out.println("/product/updateProductView");
-		//Business logic
-		Product product = productService.getProduct(prodNo);
-		//Model �� View ����
-		model.addAttribute("product",product);
-		model.addAttribute("menu",request.getParameter("menu"));
-
-		return "forward:/product/updateProductView.jsp";
-	}
-	*/
 }

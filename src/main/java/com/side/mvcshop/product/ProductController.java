@@ -60,36 +60,45 @@ public class ProductController {
 		//upload �� file�� �̸��� �����´�.
 		System.out.println(product);
 		List<MultipartFile> uploadFiles = product.getUploadFiles();
+		System.out.println("product객체의 uploadFiles 이름은? [ "+uploadFiles+" ]");
 		//upload �� file�� �̸��� empty�� �ƴ϶�� true / empty��� false
 
-		if (!uploadFiles.isEmpty()) {
+		for (MultipartFile file : uploadFiles) {
+			if (!file.isEmpty()) {
+				System.out.println("이미지파일 삽입시 실행");
 
-			List<Map<String,String>> fileList = new ArrayList<>();
-			// file ������ġ ����
-			String filePath = "C:\\Projects\\MVCShop\\src\\main\\webapp\\views\\images\\uploadFiles";
+				List<Map<String,String>> fileList = new ArrayList<>();
+				// file ������ġ ����
+				String filePath = "C:\\Projects\\MVCShop\\src\\main\\webapp\\views\\images\\uploadFiles";
 
-			for(int i = 0; i<uploadFiles.size(); i++) {
+				for(int i = 0; i<uploadFiles.size(); i++) {
 
-			// getOriginalFilename => form���� ���� ������ ���ϸ� return
-			String originalFileName = uploadFiles.get(i).getOriginalFilename();
-			// file Ȯ���ڸ� ���ϴ��۾�
-			String ext = FilenameUtils.getExtension(originalFileName);
-			// UUID ���ϴ��۾�(����id)
+					// getOriginalFilename => form���� ���� ������ ���ϸ� return
+					String originalFileName = uploadFiles.get(i).getOriginalFilename();
+					// file Ȯ���ڸ� ���ϴ��۾�
+					String ext = FilenameUtils.getExtension(originalFileName);
+					// UUID ���ϴ��۾�(����id)
 //			UUID uuid = UUID.randomUUID();
-			// �����̸� = ����id.Ȯ����
+					// �����̸� = ����id.Ȯ����
 //			fileName = uuid.toString()+"."+ext;
-			fileName = UUID.randomUUID().toString()+"."+ext;
-			//����id.Ȯ���� map���� �ֱ�
-			Map<String,String> map = new HashMap<>();
-			map.put("fileName", fileName);
-			fileList.add(map);
-			}
-			//transferTo => ���ε� �� ���� data�� ������ ���Ͽ� �����Ѵ�.
-			for (int i = 0; i<uploadFiles.size(); i++) {
+					fileName = UUID.randomUUID().toString()+"."+ext;
+					//����id.Ȯ���� map���� �ֱ�
+					Map<String,String> map = new HashMap<>();
+					map.put("fileName", fileName);
+					fileList.add(map);
+				}
+				//transferTo => ���ε� �� ���� data�� ������ ���Ͽ� �����Ѵ�.
+				for (int i = 0; i<uploadFiles.size(); i++) {
 
-				uploadFiles.get(i).transferTo(new File(filePath+"\\"+fileList.get(i).get("fileName")));
+					uploadFiles.get(i).transferTo(new File(filePath+"\\"+fileList.get(i).get("fileName")));
+				}
+
+			} else {
+				System.out.println("이미지파일 미삽입시 실행");
+				fileName = null;
 			}
 		}
+
 		product.setFileName(fileName);
 
 		//Business Logic

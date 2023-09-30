@@ -271,26 +271,47 @@
 
 				// 각각의 데이터 항목을 반복하여 처리
 				$.each(data, function(index, productData) {
-					// 새로운 상품 아이템을 생성
+					// 새로운 상품 아이템을 생성합니다
 					let productItem = $('<div class="product-item" style="flex: 0 1 calc(33.33% - 10px); margin: 5px; max-width: 100%;"></div>');
 
-					// 상품 이미지를 생성하고 설정
+					// 상품 정보 컨테이너를 생성합니다
+					let productInfoContainer = $('<div style="box-sizing: border-box; text-align: center;"></div>');
+
+					// 상품 이미지를 생성하고 설정합니다
 					let productImage = $('<div style="max-width: 100%; height: 200px; overflow: hidden;"></div>');
-					let img = $('<img src="/views/images/uploadFiles/' + productData.fileName + '" style="width: 100%; height: 100%; object-fit: contain;">');
+
+					console.log("파일이름 = "+productData.fileName);
+					let img = $('<img style="width: 100%; height: 100%; object-fit: contain;">');
+
+					if (!productData.fileName) {
+						img.attr('src', '/views/images/no-image.png');
+					} else {
+						img.attr('src', '/views/images/uploadFiles/' + productData.fileName);
+					}
 					productImage.append(img);
 
-					// 상품 정보를 생성하고 설정
-					let productInfo = $('<div></div>');
-					productInfo.append('<div>상품이름: ' + productData.prodName + '</div>');
-					productInfo.append('<div>상품가격: ' + productData.price + '원</div>');
+					// 상품 정보를 생성하고 설정합니다
+					let productName = $('<div>상품이름: ' + productData.prodName + '</div>');
+					let productPrice = $('<div>상품가격: ' + productData.price + '원</div>');
 
-					// 상품 이미지와 정보를 상품 아이템에 추가
-					productItem.append(productImage);
-					productItem.append(productInfo);
+					// 상품 이미지와 정보를 상품 정보 컨테이너에 추가합니다
+					productInfoContainer.append(productImage);
+					productInfoContainer.append(productName);
+					productInfoContainer.append(productPrice);
 
-					// 상품 아이템을 product-container에 추가
+					// 상품 정보 컨테이너를 상품 아이템에 추가합니다
+					productItem.append(productInfoContainer);
+
+					// 상품 아이템을 product-container에 추가합니다
 					$("#product-container").append(productItem);
-				})
+
+					if ((index + 1) % 3 !== 0 && index === data.length - 1) {
+						for (let i = 0; i < 3 - (index + 1) % 3; i++) {
+							let emptyDiv = $('<div style="flex: 0 1 calc(33.33% - 10px); margin: 5px; max-width: 100%;"></div>');
+							$("#product-container").append(emptyDiv);
+						}
+					}
+				});
 			},
 			error : function() {
 				alert("error");
@@ -442,7 +463,12 @@
 			<div class="product-item" style="flex: 0 1 calc(33.33% - 10px); margin: 5px; max-width: 100%;">
 				<div style=" box-sizing: border-box; text-align: center;">
 					<div style="max-width: 100%; height: 200px; overflow: hidden;">
-						<img src="/views/images/uploadFiles/${product.fileName}" style="width: 100%; height: 100%; object-fit: contain;">
+						<c:if test="${product.fileName eq null || product.fileName eq ''}">
+                            <img src="/views/images/no-image.png" style="width: 100%; height: 100%; object-fit: contain;" id="fileImg">
+						</c:if>
+						<c:if test="${not empty product.fileName}">
+                        <img src="/views/images/uploadFiles/${product.fileName}" style="width: 100%; height: 100%; object-fit: contain;" id="fileImg">
+						</c:if>
 					</div>
 					<div>상품이름: ${product.prodName}</div>
 					<div>상품가격: ${product.price}원</div>

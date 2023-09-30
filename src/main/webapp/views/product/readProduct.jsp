@@ -17,7 +17,7 @@
 	<title>상품등록</title>
 
 
-	<link rel="stylesheet" href="/css/admin.css" type="text/css">
+	<link rel="stylesheet" href="/views/css/admin.css" type="text/css">
 
 	<!-- CDN(Content Delivery Network) 호스트 사용 -->
 	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -133,7 +133,12 @@
 			<table border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td height="26">
+						<c:if test = "${product.fileName eq null}">
+						등록된 이미지가 없습니다.
+						</c:if>
+						<c:if test = "${not empty product.fileName}">
 						<img src="/views/images/uploadFiles/${product.fileName}" width="100" height="100"/>
+						</c:if>
 					</td>
 				<%--<td class="ct_write01"><%= vo.getFileName() %></td> --%>
 					<td class="ct_write01">${product.fileName}</td>

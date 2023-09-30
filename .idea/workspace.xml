@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2d0bda2-333f-4a0d-8f3f-7ef6b0f153b9" name="Changes" comment="23.09.28 Product 게시판 형식 변경 및 무한스크롤 적용">
-      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/ProductController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/product/listProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/product/listProduct.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/product/readProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/product/readProduct.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,6 +185,7 @@
     <MESSAGE value="23.09.12 first commit" />
     <MESSAGE value="23.09.17 addProduct 검토중" />
     <MESSAGE value="23.09.24 admin 검토 완료 / user 검토중 (AutoComplete 완료)" />
-    <option name="LAST_COMMIT_MESSAGE" value="23.09.24 admin 검토 완료 / user 검토중 (AutoComplete 완료)" />
+    <MESSAGE value="23.09.30 Product 무한스크롤 수정, 상품등록 이미지업로드 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="23.09.30 Product 무한스크롤 수정, 상품등록 이미지업로드 수정" />
   </component>
 </project>

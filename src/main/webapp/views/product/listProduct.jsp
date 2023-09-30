@@ -108,7 +108,8 @@
 			//==> prodName LINK Event 연결처리
 			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
 			//==> 3 과 1 방법 조합 : $(".className tagName:filter함수") 사용함.
-			$( ".ct_list_pop td:nth-child(3)" ).on("click", function() {
+			$( ".product-item" ).on("click", function() {
+				console.log("product-item 클릭됨.");
 				//Debug..
 				//console.log( $(this) ); // <== 이 값을 이용해서, 자식에게 접근?
 										  // <== this로 접근하는게 아닌, 해당 태그로 바로
@@ -133,10 +134,14 @@
 						var menu = $($(this).children('input')[1]).val();
 						var prodName = $($(this).children('input')[2]).val();
 
-						//alert
 
-							self.location ="/product/updateProduct?prodNo="+$(this).children('input').val()+"&menu="+$($(this).children('input')[1]).val()
+						//alert
+						if (clickedElement.is('#prodElement')) {
+							console.log("product-item에서 prodElement 찾음 ");
+
+							self.location = "/product/updateProduct?prodNo=" + prodNo + "&menu=" + menu
 							console.log($($(this).children('input')[1]).val());
+						}
 
 						// 	$.ajax(
 						// 			{
@@ -277,11 +282,21 @@
 					// 상품 정보 컨테이너를 생성합니다
 					let productInfoContainer = $('<div style="box-sizing: border-box; text-align: center;"></div>');
 
+					// input 요소를 생성하고 설정합니다
+					let prodNoInput = $('<input type="hidden" id="prodNo" name="product" value="' + productData.prodNo + '">');
+					let menuInput = $('<input type="hidden" id="menu" name="menu" value="' + param.menu + '">');
+					let prodNameInput = $('<input type="hidden" id="prodName" name="product" value="' + productData.prodName + '">');
+
+					// 상품 정보 컨테이너에 input 요소를 추가합니다
+					productInfoContainer.append(prodNoInput);
+					productInfoContainer.append(menuInput);
+					productInfoContainer.append(prodNameInput);
+
 					// 상품 이미지를 생성하고 설정합니다
 					let productImage = $('<div style="max-width: 100%; height: 200px; overflow: hidden;"></div>');
 
 					console.log("파일이름 = "+productData.fileName);
-					let img = $('<img style="width: 100%; height: 100%; object-fit: contain;">');
+					let img = $('<img style="width: 100%; height: 100%; object-fit: contain;" id="imgFile">');
 
 					if (!productData.fileName) {
 						img.attr('src', '/views/images/no-image.png');
@@ -294,7 +309,10 @@
 					let productName = $('<div>상품이름: ' + productData.prodName + '</div>');
 					let productPrice = $('<div>상품가격: ' + productData.price + '원</div>');
 
-					// 상품 이미지와 정보를 상품 정보 컨테이너에 추가합니다
+					// 인풋 요소와 상품 이미지와 정보를 상품 정보 컨테이너에 추가합니다
+					productInfoContainer.append(prodNoInput);
+					productInfoContainer.append(menuInput);
+					productInfoContainer.append(prodNameInput);
 					productInfoContainer.append(productImage);
 					productInfoContainer.append(productName);
 					productInfoContainer.append(productPrice);
@@ -462,12 +480,17 @@
 		<c:forEach var="product" items="${list}" varStatus="loopStatus">
 			<div class="product-item" style="flex: 0 1 calc(33.33% - 10px); margin: 5px; max-width: 100%;">
 				<div style=" box-sizing: border-box; text-align: center;">
+
+					<input type="hidden" id="prodNo" name="product" value="${product.prodNo}"/>
+					<input type="hidden" id="menu" name="menu" value="${param.menu}"/>
+					<input type="hidden" id="prodName" name="product" value="${product.prodName}"/>
+
 					<div style="max-width: 100%; height: 200px; overflow: hidden;">
 						<c:if test="${product.fileName eq null || product.fileName eq ''}">
-                            <img src="/views/images/no-image.png" style="width: 100%; height: 100%; object-fit: contain;" id="fileImg">
+                            <img src="/views/images/no-image.png" style="width: 100%; height: 100%; object-fit: contain;" id="imgFile">
 						</c:if>
 						<c:if test="${not empty product.fileName}">
-                        <img src="/views/images/uploadFiles/${product.fileName}" style="width: 100%; height: 100%; object-fit: contain;" id="fileImg">
+                        <img src="/views/images/uploadFiles/${product.fileName}" style="width: 100%; height: 100%; object-fit: contain;" id="imgFile">
 						</c:if>
 					</div>
 					<div>상품이름: ${product.prodName}</div>

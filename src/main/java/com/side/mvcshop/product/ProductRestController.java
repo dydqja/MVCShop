@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -81,9 +83,10 @@ public class ProductRestController {
 
 	//InfiniteScroll 추가
 	@RequestMapping( value="/json/listProduct", method=RequestMethod.GET)
-	public List<Product> listProduct( @ModelAttribute("currentPage") int currentPage, Search search, Model model) throws Exception {
+	public List<Object> listProduct( @ModelAttribute("currentPage") int currentPage, Search search, Model model, HttpServletRequest request) throws Exception {
 		System.out.println("/product/json/listProduct :: GET");
 		System.out.println("currentPage 값은? [ "+currentPage+" ]");
+		String menu = request.getParameter("menu");
 
 		if(currentPage == 0) {
 			System.out.println("currentPage 값이 0이라 1로 바꿈.");
@@ -94,6 +97,11 @@ public class ProductRestController {
 
 		//Business logic
 		Map<String, Object> map = productService.getList(search);
+		System.out.println("map 안에 key값들 = "+map.keySet());
+		List<Object> prodmenu = new ArrayList<>();
+		prodmenu.add(map.get("list"));
+		prodmenu.add(menu);
+
 
 		Page resultPage	= new Page( search.getCurrentPage(), (Integer) map.get("totalPage"), ((Integer)map.get("totalCount")).intValue(), pageUnit, pageSize);
 		System.out.println(resultPage);
@@ -103,7 +111,7 @@ public class ProductRestController {
 		model.addAttribute("resultPage", resultPage);
 		model.addAttribute("search", search);
 
-		return (List<Product>) map.get("list");
+		return prodmenu;
 
 	}
 

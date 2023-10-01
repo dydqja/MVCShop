@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d0bda2-333f-4a0d-8f3f-7ef6b0f153b9" name="Changes" comment="23.09.28 Product 게시판 형식 변경 및 무한스크롤 적용">
+    <list default="true" id="b2d0bda2-333f-4a0d-8f3f-7ef6b0f153b9" name="Changes" comment="23.09.30 Product 상품 연결 이벤트 수정중 (클릭이벤트에서 imgFile 형제요소중 input[0],[1],[2] 찾는것부터 이어서 ㄱㄱ">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/ProductRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/ProductRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/product/listProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/product/listProduct.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -144,6 +145,7 @@
       <workItem from="1696060629183" duration="7051000" />
       <workItem from="1696068088090" duration="2053000" />
       <workItem from="1696070157929" duration="2341000" />
+      <workItem from="1696132267614" duration="7381000" />
     </task>
     <task id="LOCAL-00001" summary="23.09.12 first commit">
       <created>1694498002655</created>
@@ -152,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694498002655</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="23.09.30 Product 상품 연결 이벤트 수정중 (클릭이벤트에서 imgFile 형제요소중 input[0],[1],[2] 찾는것부터 이어서 ㄱㄱ">
+      <created>1696078918332</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1696078918332</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,7 +178,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="yongbeom" />
                       </list>
                     </value>
                   </entry>

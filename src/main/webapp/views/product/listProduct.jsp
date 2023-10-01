@@ -108,8 +108,8 @@
 			//==> prodName LINK Event 연결처리
 			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
 			//==> 3 과 1 방법 조합 : $(".className tagName:filter함수") 사용함.
-			$( ".product-item" ).on("click", function() {
-				console.log("product-item 클릭됨.");
+			$( ".imgFile" ).on("click", function() {
+				console.log("imgFile 클릭됨.");
 				//Debug..
 				//console.log( $(this) ); // <== 이 값을 이용해서, 자식에게 접근?
 										  // <== this로 접근하는게 아닌, 해당 태그로 바로
@@ -130,18 +130,26 @@
 			});
 						*/
 
-						var prodNo = $(this).children('input').val();
-						var menu = $($(this).children('input')[1]).val();
-						var prodName = $($(this).children('input')[2]).val();
+						let parentDiv = $(this).closest('.product-item');
+
+
+						let prodNo = parentDiv.find('.inputClassNo').val();
+						// let menu = parentDiv.find('#menu').val();
+						// let prodName = parentDiv.find('#prodName').val();
+
+
+						console.log("11111"+prodNo);
+						// var menu = parentDiv.find('input').eq(1).val();
+						// var prodName = parentDiv.find('input').eq(2).val();
+						// console.log(parentDiv.find('input').eq(0).val()+","+parentDiv.find('input').eq(1).val()+","+parentDiv.find('input').eq(3).val());
 
 
 						//alert
-						if (clickedElement.is('#prodElement')) {
-							console.log("product-item에서 prodElement 찾음 ");
 
-							self.location = "/product/updateProduct?prodNo=" + prodNo + "&menu=" + menu
-							console.log($($(this).children('input')[1]).val());
-						}
+
+						// self.location = "/product/updateProduct?prodNo=" + $(this).attr('prodNo') + "&menu=" + menu
+						console.log($($(this).siblings('input')[1]).val());
+
 
 						// 	$.ajax(
 						// 			{
@@ -264,18 +272,18 @@
 		console.log("getListAjax 실행됨. currentPage = [ "+currentPage+" ]");
 		$.ajax({
 			type: "get",
-			url: "/product/json/listProduct",
+			url: "/product/json/listProduct?menu=${menu}",
 			data: {
 				"currentPage" : currentPage
 			},
 			success : function(data) {
-				console.log(data);
+				// console.log("11111" +data[1]);
 				// $("#product-container").append(data)
 				// $("#loading").hide() // 로딩바 숨기기
 				// loading = false; // 로딩상태 false
 
 				// 각각의 데이터 항목을 반복하여 처리
-				$.each(data, function(index, productData) {
+				$.each(data[0], function(index, productData) {
 					// 새로운 상품 아이템을 생성합니다
 					let productItem = $('<div class="product-item" style="flex: 0 1 calc(33.33% - 10px); margin: 5px; max-width: 100%;"></div>');
 
@@ -284,13 +292,8 @@
 
 					// input 요소를 생성하고 설정합니다
 					let prodNoInput = $('<input type="hidden" id="prodNo" name="product" value="' + productData.prodNo + '">');
-					let menuInput = $('<input type="hidden" id="menu" name="menu" value="' + param.menu + '">');
+					let menuInput = $('<input type="hidden" id="menu" name="menu" value="' + data[1] + '">');
 					let prodNameInput = $('<input type="hidden" id="prodName" name="product" value="' + productData.prodName + '">');
-
-					// 상품 정보 컨테이너에 input 요소를 추가합니다
-					productInfoContainer.append(prodNoInput);
-					productInfoContainer.append(menuInput);
-					productInfoContainer.append(prodNameInput);
 
 					// 상품 이미지를 생성하고 설정합니다
 					let productImage = $('<div style="max-width: 100%; height: 200px; overflow: hidden;"></div>');
@@ -481,16 +484,17 @@
 			<div class="product-item" style="flex: 0 1 calc(33.33% - 10px); margin: 5px; max-width: 100%;">
 				<div style=" box-sizing: border-box; text-align: center;">
 
-					<input type="hidden" id="prodNo" name="product" value="${product.prodNo}"/>
+					<input type="hidden" id="prodNo" name="product" value="${product.prodNo}" class="inputClassNo"/>
 					<input type="hidden" id="menu" name="menu" value="${param.menu}"/>
 					<input type="hidden" id="prodName" name="product" value="${product.prodName}"/>
 
 					<div style="max-width: 100%; height: 200px; overflow: hidden;">
 						<c:if test="${product.fileName eq null || product.fileName eq ''}">
-                            <img src="/views/images/no-image.png" style="width: 100%; height: 100%; object-fit: contain;" id="imgFile">
+                            <img src="/views/images/no-image.png" style="width: 100%; height: 100%; object-fit: contain;" class="imgFile">
 						</c:if>
 						<c:if test="${not empty product.fileName}">
-                        <img src="/views/images/uploadFiles/${product.fileName}" style="width: 100%; height: 100%; object-fit: contain;" id="imgFile">
+                        <img src="/views/images/uploadFiles/${product.fileName}" style="width: 100%; height: 100%; object-fit: contain;" class="imgFile">
+							$(this).parent
 						</c:if>
 					</div>
 					<div>상품이름: ${product.prodName}</div>

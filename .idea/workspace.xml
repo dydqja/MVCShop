@@ -4,10 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d0bda2-333f-4a0d-8f3f-7ef6b0f153b9" name="Changes" comment="23.09.30 Product 상품 연결 이벤트 수정중 (클릭이벤트에서 imgFile 형제요소중 input[0],[1],[2] 찾는것부터 이어서 ㄱㄱ">
+    <list default="true" id="b2d0bda2-333f-4a0d-8f3f-7ef6b0f153b9" name="Changes" comment="23.09.30 Product 상품 연결 인풋요소 넘기기 ok, 상세보기 화면 구성하고 구매버튼 추가하여 purchase 들어가기">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/Purchase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/PurchaseMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/purchase/addPurchaseView.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/ProductRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/product/ProductRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/layout/toolbar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/layout/toolbar.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/product/listProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/product/listProduct.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/product/updateProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/product/updateProduct.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +25,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Jsp File" />
         <option value="Class" />
+        <option value="spring-beans.schema" />
       </list>
     </option>
   </component>
@@ -146,6 +156,8 @@
       <workItem from="1696068088090" duration="2053000" />
       <workItem from="1696070157929" duration="2341000" />
       <workItem from="1696132267614" duration="7381000" />
+      <workItem from="1696148156256" duration="4314000" />
+      <workItem from="1696233730651" duration="10072000" />
     </task>
     <task id="LOCAL-00001" summary="23.09.12 first commit">
       <created>1694498002655</created>
@@ -195,6 +207,7 @@
     <MESSAGE value="23.09.17 addProduct 검토중" />
     <MESSAGE value="23.09.24 admin 검토 완료 / user 검토중 (AutoComplete 완료)" />
     <MESSAGE value="23.09.30 Product 무한스크롤 수정, 상품등록 이미지업로드 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="23.09.30 Product 무한스크롤 수정, 상품등록 이미지업로드 수정" />
+    <MESSAGE value="23.09.30 Product 상품 연결 인풋요소 넘기기 ok, 상세보기 화면 구성하고 구매버튼 추가하여 purchase 들어가기" />
+    <option name="LAST_COMMIT_MESSAGE" value="23.09.30 Product 상품 연결 인풋요소 넘기기 ok, 상세보기 화면 구성하고 구매버튼 추가하여 purchase 들어가기" />
   </component>
 </project>

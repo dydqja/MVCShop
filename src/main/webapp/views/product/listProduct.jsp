@@ -108,7 +108,7 @@
 			//==> prodName LINK Event 연결처리
 			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
 			//==> 3 과 1 방법 조합 : $(".className tagName:filter함수") 사용함.
-			$( ".imgFile" ).on("click", function() {
+		 		$("#product-container").on("click", ".imgFile", function() {
 				console.log("imgFile 클릭됨.");
 				//Debug..
 				//console.log( $(this) ); // <== 이 값을 이용해서, 자식에게 접근?
@@ -132,13 +132,13 @@
 
 						let parentDiv = $(this).closest('.product-item');
 
-
 						let prodNo = parentDiv.find('.inputClassNo').val();
-						// let menu = parentDiv.find('#menu').val();
-						// let prodName = parentDiv.find('#prodName').val();
+						let menu = parentDiv.find('.inputClassMenu').val();
+						let prodName = parentDiv.find('.inputClassName').val();
 
 
-						console.log("11111"+prodNo);
+
+
 						// var menu = parentDiv.find('input').eq(1).val();
 						// var prodName = parentDiv.find('input').eq(2).val();
 						// console.log(parentDiv.find('input').eq(0).val()+","+parentDiv.find('input').eq(1).val()+","+parentDiv.find('input').eq(3).val());
@@ -147,8 +147,8 @@
 						//alert
 
 
-						// self.location = "/product/updateProduct?prodNo=" + $(this).attr('prodNo') + "&menu=" + menu
-						console.log($($(this).siblings('input')[1]).val());
+						self.location = "/product/updateProduct?prodNo="+prodNo+"&menu="+menu
+
 
 
 						// 	$.ajax(
@@ -291,15 +291,15 @@
 					let productInfoContainer = $('<div style="box-sizing: border-box; text-align: center;"></div>');
 
 					// input 요소를 생성하고 설정합니다
-					let prodNoInput = $('<input type="hidden" id="prodNo" name="product" value="' + productData.prodNo + '">');
-					let menuInput = $('<input type="hidden" id="menu" name="menu" value="' + data[1] + '">');
-					let prodNameInput = $('<input type="hidden" id="prodName" name="product" value="' + productData.prodName + '">');
+					let prodNoInput = $('<input type="hidden" id="prodNo" name="product" value="' + productData.prodNo + '" class="inputClassNo">');
+					let menuInput = $('<input type="hidden" id="menu" name="menu" value="' + data[1] + '" class="inputClassMenu">');
+					let prodNameInput = $('<input type="hidden" id="prodName" name="product" value="' + productData.prodName + '" class="inputClassName">');
 
 					// 상품 이미지를 생성하고 설정합니다
 					let productImage = $('<div style="max-width: 100%; height: 200px; overflow: hidden;"></div>');
 
 					console.log("파일이름 = "+productData.fileName);
-					let img = $('<img style="width: 100%; height: 100%; object-fit: contain;" id="imgFile">');
+					let img = $('<img style="width: 100%; height: 100%; object-fit: contain;" class="imgFile">');
 
 					if (!productData.fileName) {
 						img.attr('src', '/views/images/no-image.png');
@@ -485,8 +485,8 @@
 				<div style=" box-sizing: border-box; text-align: center;">
 
 					<input type="hidden" id="prodNo" name="product" value="${product.prodNo}" class="inputClassNo"/>
-					<input type="hidden" id="menu" name="menu" value="${param.menu}"/>
-					<input type="hidden" id="prodName" name="product" value="${product.prodName}"/>
+					<input type="hidden" id="menu" name="menu" value="${param.menu}" class="inputClassMenu"/>
+					<input type="hidden" id="prodName" name="product" value="${product.prodName}" class="inputClassName"/>
 
 					<div style="max-width: 100%; height: 200px; overflow: hidden;">
 						<c:if test="${product.fileName eq null || product.fileName eq ''}">
@@ -494,7 +494,6 @@
 						</c:if>
 						<c:if test="${not empty product.fileName}">
                         <img src="/views/images/uploadFiles/${product.fileName}" style="width: 100%; height: 100%; object-fit: contain;" class="imgFile">
-							$(this).parent
 						</c:if>
 					</div>
 					<div>상품이름: ${product.prodName}</div>

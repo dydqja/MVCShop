@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.side.mvcshop.product.ProductDao">
+
+    <resultMap id="purchaseSelectMap" type="com.side.mvcshop.purchase.Purchase">
+        <result property="tranNo"         column="tran_no"           jdbcType="integer" />
+        <result property="purchaseProd"   column="prod_no"           jdbcType="integer" />
+        <result property="buyer"          column="buyer_id"          jdbcType="varchar" />
+        <result property="paymentOption"  column="payment_option"    jdbcType="char" />
+        <result property="receiverName"   column="receiver_name"     jdbcType="varchar" />
+        <result property="receiverPhone"  column="receiver_phone"    jdbcType="varchar" />
+        <result property="dlvyAddr"       column="dlvy_addr"         jdbcType="varchar" />
+        <result property="dlvyRequest"    column="dlvy_request"      jdbcType="varchar" />
+        <result property="tranCode"       column="tran_status_code"  jdbcType="char" />
+        <result property="orderDate"      column="order_date"        jdbcType="date" />
+        <result property="dlvyDate"       column="dlvy_date"         jdbcType="varchar" />
+    </resultMap>
+
+    <insert id="addPurchase" parameterType="com.side.mvcshop.purchase.Purchase">
+        INSERT
+        INTO transaction ( prod_no, buyer_id, payment_option, receiver_name, receiver_phone,
+                           dlvy_addr, dlvy_request, tran_status_code, order_date, dlvy_date )
+        VALUES           ( #{purchaseProd.prodNo}, #{buyer.userId}, #{paymentOption}, #{receiverName}, #{receiverPhone},
+                           #{dlvyAddr}, #{dlvyRequest}, #{tranCode}, #{orderDate}, #{dlvyDate} )
+    </insert>
+
+</mapper>

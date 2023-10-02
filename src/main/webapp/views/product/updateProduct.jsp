@@ -36,7 +36,7 @@
 		 	$( "td.ct_btn01:contains('구매')" ).on("click" , function() {
 				//Debug..
 				//alert(  $( "td.ct_btn01:contains('구매')" ).html() );
-				self.location ="#/purchase/buyPurchaseo"; //구매페이지 만들면 구매페이지로 연결
+				self.location ="/purchase/addPurchase?prodNo=${product.prodNo}"; //구매페이지 만들면 구매페이지로 연결
 			});
 
 		 	$( "td.ct_btn01:contains('이전')" ).on("click" , function() {
@@ -110,7 +110,14 @@
 		<td bgcolor="D6D6D6" width="1"></td>
 	<%--<td class="ct_write01"><%=vo.getFileName() %></td> --%>
 		<td>
-		<img src="/views/images/uploadFiles/${product.fileName}" width="100" height="100"/>
+			<div style="max-width: 100%; height: 200px; overflow: hidden;">
+			<c:if test="${product.fileName eq null || product.fileName eq ''}">
+				<img src="/views/images/no-image.png" style="width: 100%; height: 100%; object-fit: contain; " class="imgFile">
+			</c:if>
+			<c:if test="${not empty product.fileName}">
+				<img src="/views/images/uploadFiles/${product.fileName}" style="width: 100%; height: 100%; object-fit: contain; " class="imgFile">
+			</c:if>
+			</div>
 		</td>
 	</tr>
 	<tr>

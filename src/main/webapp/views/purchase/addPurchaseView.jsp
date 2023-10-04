@@ -60,7 +60,7 @@
 </head>
 <body>
 
-<form name="detailForm" method="post">
+<form name="addPurchaseForm">
 
     <div class="container">
 
@@ -140,7 +140,7 @@
         <div class="row">
             <div class="col-xs-4 col-md-2"><strong>구매방법</strong></div>
             <div class="col-xs-8 col-md-4">
-                <select id="paymentOption">
+                <select id="paymentOption" name="paymentOption">
                     <option value="selectPayment">::선택::</option>
                     <option value="bankTransfer">무통장입금</option>
                     <option value="cardPayment">카드</option>
@@ -187,22 +187,85 @@
 
         <hr/>
 
-        <div class="form-group ct_write manuDate">
-            <label>제조일자 &nbsp;<img src="/views/images/ct_icon_date.gif" width="15" height="15"
-                                   onclick="show_calendar('document.detailForm.manuDate', document.detailForm.manuDate.value)"/>&nbsp;
-                <img src="/views/images/ct_icon_red.gif">
-            </label>
-            <input type="text" class="form-control ct_input_g" id="manuDate" name="manuDate" placeholder="달력을 클릭해 입력.." readonly>
+        <div class="row">
+            <div class="col-xs-4 col-md-2"><strong>배송희망일자</strong></div>
+            <div class="col-xs-8 col-md-4">
+                <input type="text" id="dlvyDate" name="dlvyDate" readonly>
+                <img src="/views/images/ct_icon_date.gif" width="15" height="15"
+                     onclick="show_calendar('document.addPurchaseForm.dlvyDate', document.addPurchaseForm.dlvyDate.value)"
+                />
+            </div>
         </div>
 
+        <hr/>
 
     </div>
 
 </form>
 
+<div style="text-align: center">
+    <button class="btn btn-primary submit" >구매</button>
+    <button class="btn btn-danger cancel" >취소</button>
+</div>
+
 <script type="text/javascript" src="../views/javascript/calendar.js"></script>
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+
+<script type="text/javascript">
+
+    function fncAddPurchase() {
+        let paymentOption = $("#paymentOption").val();
+        let receiverName = $("#receiverName").val();
+        let receiverPhone = $("#receiverPhone").val();
+        let dlvyAddr = $("#dlvyAddr").val();
+
+        if(paymentOption == null || paymentOption == "selectPayment" ) {
+            alert("구매방법을 선택해주세요.");
+            return;
+        }
+
+        if(receiverName == null || receiverName.length<1) {
+            alert("구매자이름을 입력해주세요.");
+            return;
+        }
+
+        //나중에 휴대번호 인증으로 변경하기
+        if(receiverPhone == null || receiverPhone.length<11) {
+            alert("구매자연락처를 정확히 입력해주세요.");
+            return;
+        }
+
+        //나중에 주소찾기 api 추가할것
+        if(dlvyAddr == null || dlvyAddr.length<1) {
+            alert("구매자주소를 입력해주세요.");
+            return;
+        }
+
+        $("form").attr("method","POST").attr("action","/purchase/addPurchase").submit();
+
+
+    }
+
+    //구매 event
+    $(function () {
+
+        $(".submit").on("click", function () {
+
+            fncAddPurchase();
+        })
+    })
+
+        //취소 event
+        $(function () {
+
+            $(".cancel").on("click", function (){
+
+                window.location.href = "/product/listProduct?menu=search"
+            })
+        })
+
+</script>
 
 </body>
 </html>

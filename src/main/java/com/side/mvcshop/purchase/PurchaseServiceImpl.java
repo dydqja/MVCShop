@@ -22,7 +22,17 @@ public class PurchaseServiceImpl implements PurchaseService{
     public void addPurchase(Purchase purchase) throws Exception {
         System.out.println("PurchaseServiceImpl에서 addPurchase 실행됨");
 
+        String date = purchase.getDlvyDate();
+        purchase.setDlvyAddr(removeHyphen(date));
+
+
         purchaseDao.addPurchase(purchase);
 
+    }
+
+    //dlvyDate '-' 빼기
+    public String removeHyphen(String date) throws Exception {
+
+        return date.replace("-","");
     }
 }

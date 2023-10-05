@@ -47,9 +47,23 @@
     <insert id="addPurchase" parameterType="com.side.mvcshop.purchase.Purchase">
         INSERT
         INTO transaction ( prod_no, buyer_id, payment_option, receiver_name, receiver_phone,
-                           dlvy_addr, dlvy_request, tran_status_code, order_date, dlvy_date )
+                           dlvy_addr, dlvy_request, tran_status_code, dlvy_date )
         VALUES           ( #{purchaseProd.prodNo}, #{buyer.userId}, #{paymentOption}, #{receiverName}, #{receiverPhone},
-                           #{dlvyAddr}, #{dlvyRequest}, #{tranCode}, #{orderDate}, #{dlvyDate} )
+                           #{dlvyAddr}, #{dlvyRequest}, #{tranCode}, #{dlvyDate} )
     </insert>
+
+    <select id="getList" parameterType="com.side.mvcshop.common.Search" resultType="purchaseSelectMap">
+        SELECT buyer_id, receiver_name, receiver_phone, tran_status_code
+        FROM transaction
+        ORDER BY tran_no limit #{startNum},#{endNum};
+    </select>
+
+    <select id="getTotalCount" parameterType="com.side.mvcshop.common.Search" resultType="int">
+        SELECT COUNT(*)
+        FROM ( SELECT buyer_id, receiver_name, receiver_phone, tran_status_code
+               FROM transaction
+             ) countTable
+    </select>
+
 
 </mapper>

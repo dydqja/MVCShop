@@ -1,7 +1,13 @@
 package com.side.mvcshop.purchase;
 
+import com.side.mvcshop.common.Search;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service("purchaseServiceImpl")
 public class PurchaseServiceImpl implements PurchaseService{
@@ -23,11 +29,27 @@ public class PurchaseServiceImpl implements PurchaseService{
         System.out.println("PurchaseServiceImpl에서 addPurchase 실행됨");
 
         String date = purchase.getDlvyDate();
-        purchase.setDlvyAddr(removeHyphen(date));
+        String updateDate = removeHyphen(date);
+        System.out.println(updateDate);
+        purchase.setDlvyDate(updateDate);
 
 
         purchaseDao.addPurchase(purchase);
 
+    }
+
+    @Override
+    public Map<String, Object> getList(Search search) throws Exception {
+        System.out.println("PurchaseServiceImpl에서 getList 실행됨");
+
+        List<Purchase> list = purchaseDao.getList(search);
+        int totalCount = purchaseDao.getTotalCount(search);
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("list", list);
+        map.put("totalCount", totalCount);
+
+        return map;
     }
 
     //dlvyDate '-' 빼기

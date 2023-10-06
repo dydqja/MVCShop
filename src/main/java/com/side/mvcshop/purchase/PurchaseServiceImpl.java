@@ -2,6 +2,7 @@ package com.side.mvcshop.purchase;
 
 import com.side.mvcshop.common.Search;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -22,6 +23,9 @@ public class PurchaseServiceImpl implements PurchaseService{
 
         this.purchaseDao = purchaseDao;
     }
+
+    @Value("${pageSize}")
+    int pageSize;
 
     //Method
     @Override
@@ -45,9 +49,16 @@ public class PurchaseServiceImpl implements PurchaseService{
         List<Purchase> list = purchaseDao.getList(search);
         int totalCount = purchaseDao.getTotalCount(search);
 
+        int totalPage = totalCount / pageSize;
+
+        if(totalCount%9 != 0) {
+            totalPage++;
+        }
+
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("list", list);
         map.put("totalCount", totalCount);
+        map.put("totalPage", totalPage);
 
         return map;
     }

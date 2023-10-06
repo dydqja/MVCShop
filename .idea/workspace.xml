@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d0bda2-333f-4a0d-8f3f-7ef6b0f153b9" name="Changes" comment="23.10.04 Purchase 구매화면 작성 완료 / addPurchase B/L 점검하고 시작 ㄱㄱ">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/purchase/listPurchaseView.jsp" afterDir="false" />
+    <list default="true" id="b2d0bda2-333f-4a0d-8f3f-7ef6b0f153b9" name="Changes" comment="23.10.04 Purchase 구매기능, 구매목록 B/L 완료/ 구매목록 화면 작성하기 ㄱㄱ">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/purchase/listPurchase.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/PurchaseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/PurchaseMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/layout/toolbar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/layout/toolbar.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,34 +42,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Projects/MVCShop/src/main/webapp/views/purchase",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
-    "spring.configuration.checksum": "78d0632202a47e174b396425b109b1f7",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Projects/MVCShop/src/main/webapp/views/purchase&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;78d0632202a47e174b396425b109b1f7&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Projects\MVCShop\src\main\webapp\views\purchase" />
@@ -159,6 +158,8 @@
       <workItem from="1696398503989" duration="14899000" />
       <workItem from="1696485173719" duration="7108000" />
       <workItem from="1696495698093" duration="6666000" />
+      <workItem from="1696575232938" duration="5455000" />
+      <workItem from="1696581642989" duration="6388000" />
     </task>
     <task id="LOCAL-00001" summary="23.09.12 first commit">
       <created>1694498002655</created>
@@ -210,6 +211,7 @@
     <MESSAGE value="23.09.30 Product 무한스크롤 수정, 상품등록 이미지업로드 수정" />
     <MESSAGE value="23.09.30 Product 상품 연결 인풋요소 넘기기 ok, 상세보기 화면 구성하고 구매버튼 추가하여 purchase 들어가기" />
     <MESSAGE value="23.10.03 Purchase Mapper 수정완료 / 상품구매화면 만들기부터" />
-    <option name="LAST_COMMIT_MESSAGE" value="23.10.03 Purchase Mapper 수정완료 / 상품구매화면 만들기부터" />
+    <MESSAGE value="23.10.04 Purchase 구매기능, 구매목록 B/L 완료/ 구매목록 화면 작성하기 ㄱㄱ" />
+    <option name="LAST_COMMIT_MESSAGE" value="23.10.04 Purchase 구매기능, 구매목록 B/L 완료/ 구매목록 화면 작성하기 ㄱㄱ" />
   </component>
 </project>

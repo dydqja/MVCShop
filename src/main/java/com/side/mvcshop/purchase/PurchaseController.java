@@ -92,6 +92,7 @@ public class PurchaseController {
         search.setPageSize(pageSize);
 
         Map<String, Object> map = purchaseService.getList(search);
+        System.out.println(map.get("list"));
 
         Page resultPage = new Page( search.getCurrentPage(), (Integer)map.get("totalPage"), ((Integer)map.get("totalCount")).intValue(), pageUnit, pageSize);
 

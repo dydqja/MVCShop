@@ -63,6 +63,27 @@ public class PurchaseServiceImpl implements PurchaseService{
         return map;
     }
 
+    @Override
+    public Map<String, Object> getSaleList(Search search) throws Exception {
+        System.out.println("PurchaseServiceImpl에서 getSaleList 실행됨");
+
+        List<Purchase> list = purchaseDao.getSaleList(search);
+        int totalCount = purchaseDao.getTotalCount(search);
+
+        int totalPage = totalCount / pageSize;
+
+        if(totalCount%9 != 0) {
+            totalPage++;
+        }
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("list", list);
+        map.put("totalCount", totalCount);
+        map.put("totalPage", totalPage);
+
+        return map;
+    }
+
     //dlvyDate '-' 빼기
     public String removeHyphen(String date) throws Exception {
 

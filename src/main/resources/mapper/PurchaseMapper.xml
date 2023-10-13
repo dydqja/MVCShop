@@ -59,5 +59,23 @@
              ) countTable
     </select>
 
+    <select id="getSaleList" parameterType="com.side.mvcshop.common.Search" resultMap="purchaseSelectMap">
+        SELECT product.prod_no, tran_status_code
+        FROM product
+        LEFT JOIN transaction on product.prod_no = transaction.prod_no
+        <if test="searchCondition != null">
+            <where>
+                <if test="searchCondition == 0 and searchKeyword !='' ">
+                    prod_name like CONCAT('%', #{searchKeyword}, '%')
+                </if>
+                <if test="searchCondition == 1 and searchKeyword !='' ">
+                    tran_status_code like CONCAT('%', #{searchKeyword}, '%')
+                </if>
+            </where>
+        </if>
+        ORDER BY product.prod_no limit #{startNum},#{endNum};
+
+    </select>
+
 
 </mapper>

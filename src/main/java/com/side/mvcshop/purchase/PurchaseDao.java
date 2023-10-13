@@ -14,4 +14,7 @@ public interface PurchaseDao {
     public List<Purchase> getList(Search search) throws Exception;
 
     public int getTotalCount(Search search) throws Exception;
+
+    public List<Purchase> getSaleList(Search search) throws Exception;
+
 }

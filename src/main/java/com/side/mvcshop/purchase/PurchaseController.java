@@ -103,5 +103,27 @@ public class PurchaseController {
         return "/purchase/listPurchase.jsp";
     }
 
+    @RequestMapping(value = "listSale")
+    public String listSale(@ModelAttribute("search") Search search, Model model) throws Exception {
+        System.out.println("/purchase/listSale :: GET/POST");
+
+        if(search.getCurrentPage() == 0) {
+            search.setCurrentPage(1);
+        }
+
+        search.setPageSize(pageSize);
+
+        Map<String, Object> map = purchaseService.getSaleList(search);
+        System.out.println(map.get("list"));
+
+        Page resultPage = new Page( search.getCurrentPage(), (Integer)map.get("totalPage"), ((Integer)map.get("totalCount")).intValue(), pageUnit, pageSize);
+
+        model.addAttribute("list", map.get("list"));
+        model.addAttribute("resultPage", resultPage);
+        model.addAttribute("search", search);
+
+        return "/purchase/listSale.jsp";
+    }
+
 
 }

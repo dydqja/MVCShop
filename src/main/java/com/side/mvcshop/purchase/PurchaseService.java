@@ -11,4 +11,6 @@ public interface PurchaseService {
 
     //구매리스트
     public Map<String, Object> getList(Search search) throws Exception;
+
+    public Map<String, Object> getSaleList(Search search) throws Exception;
 }

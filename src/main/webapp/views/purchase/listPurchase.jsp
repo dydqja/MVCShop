@@ -19,6 +19,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
     <style>
         body > div.container{
@@ -102,7 +103,9 @@
 </head>
 <body>
 
-<form name="addPurchaseForm">
+<jsp:include page="/views/layout/toolbar.jsp" />
+
+<form name="addPurchaseForm" style="margin-top: 5%;">
 
     <div class="container">
 
@@ -134,7 +137,8 @@
                         <div class="post-meta">
                             수취인: ${purchase.receiverName} | 전화번호: ${purchase.receiverPhone} | 배송현황: ${purchase.tranCode}
                         </div>
-                        <a href="#" class="btn">자세히 보기</a>
+<%--                        후에 상품갯수까지 추가되면 구매상품정보 바로가기 만들기--%>
+                        <a href="#" class="btn">바로 가기</a>
                     </div>
 
 
@@ -149,14 +153,12 @@
 
 </form>
 
-<div style="text-align: center">
-    <button class="btn btn-primary submit" >구매</button>
-    <button class="btn btn-danger cancel" >취소</button>
-</div>
+
 
 <script type="text/javascript" src="../views/javascript/calendar.js"></script>
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+
 
 <script type="text/javascript">
 

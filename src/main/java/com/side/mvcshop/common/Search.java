@@ -1,6 +1,8 @@
 package com.side.mvcshop.common;
 
 
+import org.springframework.beans.factory.annotation.Value;
+
 //==>����Ʈȭ���� �𵨸�(�߻�ȭ/ĸ��ȭ)�� Bean
 public class Search {
 
@@ -9,6 +11,8 @@ public class Search {
 	private int totalPage; // 무한스크롤로 인한 추가
 	private String searchCondition;
 	private String searchKeyword;
+
+	@Value("${pageSize}")
 	private int pageSize;
 	//==> ����Ʈȭ�� currentPage�� �ش��ϴ� ȸ�������� ROWNUM ��� SELECT ���� �߰��� Field
 	//==> UserMapper.xml ��
@@ -72,7 +76,7 @@ public class Search {
 		return (getCurrentPage()*5-5);
 	}
 	public int getEndNum() {
-		return (getStartNum()+5);
+		return (pageSize);
 	}
 
 	@Override

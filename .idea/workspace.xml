@@ -4,16 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d0bda2-333f-4a0d-8f3f-7ef6b0f153b9" name="Changes" comment="23.10.06 Purchase Mapper.xml 수정, 화면에 상품정보 구성 완료 / 페이지구성하기 ㄱㄱ">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/purchase/listSale.jsp" afterDir="false" />
+    <list default="true" id="b2d0bda2-333f-4a0d-8f3f-7ef6b0f153b9" name="Changes" comment="23.10.06 Purchase getListSale 매퍼작성 완료 / listSale 페이지 구성 ㄱㄱ">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/common/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/common/Page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/common/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/common/Search.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/PurchaseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/PurchaseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/layout/toolbar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/layout/toolbar.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/purchase/listPurchase.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/purchase/listPurchase.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/common/pageNavigator_new.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/common/pageNavigator_new.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/purchase/listSale.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/purchase/listSale.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/user/listUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/listUser.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,6 +166,7 @@
       <workItem from="1696746999550" duration="2626000" />
       <workItem from="1697010512671" duration="154000" />
       <workItem from="1697181075026" duration="10369000" />
+      <workItem from="1697261900395" duration="16854000" />
     </task>
     <task id="LOCAL-00001" summary="23.09.12 first commit">
       <created>1694498002655</created>
@@ -218,6 +219,7 @@
     <MESSAGE value="23.09.30 Product 상품 연결 인풋요소 넘기기 ok, 상세보기 화면 구성하고 구매버튼 추가하여 purchase 들어가기" />
     <MESSAGE value="23.10.03 Purchase Mapper 수정완료 / 상품구매화면 만들기부터" />
     <MESSAGE value="23.10.04 Purchase 구매기능, 구매목록 B/L 완료/ 구매목록 화면 작성하기 ㄱㄱ" />
-    <option name="LAST_COMMIT_MESSAGE" value="23.10.04 Purchase 구매기능, 구매목록 B/L 완료/ 구매목록 화면 작성하기 ㄱㄱ" />
+    <MESSAGE value="23.10.06 Purchase getListSale 매퍼작성 완료 / listSale 페이지 구성 ㄱㄱ" />
+    <option name="LAST_COMMIT_MESSAGE" value="23.10.06 Purchase getListSale 매퍼작성 완료 / listSale 페이지 구성 ㄱㄱ" />
   </component>
 </project>

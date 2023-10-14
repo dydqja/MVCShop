@@ -1,6 +1,7 @@
 package com.side.mvcshop.purchase;
 
 import com.side.mvcshop.common.Search;
+import com.side.mvcshop.product.ProductDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -15,13 +16,15 @@ public class PurchaseServiceImpl implements PurchaseService{
 
     //Field
     private PurchaseDao purchaseDao;
+    private ProductDao productDao;
 
     //Constructor
     @Autowired
-    public PurchaseServiceImpl(PurchaseDao purchaseDao) {
+    public PurchaseServiceImpl(PurchaseDao purchaseDao, ProductDao productDao) {
         System.out.println(this.getClass());
 
         this.purchaseDao = purchaseDao;
+        this.productDao = productDao;
     }
 
     @Value("${pageSize}")
@@ -68,7 +71,7 @@ public class PurchaseServiceImpl implements PurchaseService{
         System.out.println("PurchaseServiceImpl에서 getSaleList 실행됨");
 
         List<Purchase> list = purchaseDao.getSaleList(search);
-        int totalCount = purchaseDao.getTotalCount(search);
+        int totalCount = productDao.getTotalCount(search);
 
         int totalPage = totalCount / pageSize;
 

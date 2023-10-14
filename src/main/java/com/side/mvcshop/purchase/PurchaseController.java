@@ -115,8 +115,11 @@ public class PurchaseController {
 
         Map<String, Object> map = purchaseService.getSaleList(search);
         System.out.println(map.get("list"));
+        System.out.println("totalCount = "+ map.get("totalCount"));
+
 
         Page resultPage = new Page( search.getCurrentPage(), (Integer)map.get("totalPage"), ((Integer)map.get("totalCount")).intValue(), pageUnit, pageSize);
+        System.out.println(resultPage.getEndUnitPage());
 
         model.addAttribute("list", map.get("list"));
         model.addAttribute("resultPage", resultPage);
@@ -124,6 +127,8 @@ public class PurchaseController {
 
         return "/purchase/listSale.jsp";
     }
+
+
 
 
 }

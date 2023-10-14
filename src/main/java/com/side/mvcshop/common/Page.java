@@ -22,7 +22,10 @@ public class Page {
 		this.totalCount = totalCount;
 		this.pageUnit = pageUnit;
 		this.pageSize = pageSize;
-
+		System.out.println("totalpage"+totalPage);
+		System.out.println("totalct"+totalCount);
+		System.out.println("pageunit"+pageUnit);
+		System.out.println("pagesize"+pageSize);
 		this.maxPage = (pageSize == 0) ? totalCount :  (totalCount-1)/pageSize +1;
 		this.currentPage = ( currentPage > maxPage) ? maxPage : currentPage;
 

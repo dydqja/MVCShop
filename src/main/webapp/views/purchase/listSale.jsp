@@ -26,7 +26,7 @@
    <link href="/views/css/animate.min.css" rel="stylesheet">
    <link href="/views/css/bootstrap-dropdownhover.min.css" rel="stylesheet">
     <!-- Bootstrap Dropdown Hover JS -->
-   <script src="/javascript/bootstrap-dropdownhover.min.js"></script>
+   <script src="/views/javascript/bootstrap-dropdownhover.min.js"></script>
 
 
    <!-- jQuery UI toolTip 사용 CSS-->
@@ -47,7 +47,7 @@
 		//=============    검색 / page 두가지 경우 모두  Event  처리 =============
 		function fncGetList(currentPage) {
 			$("#currentPage").val(currentPage)
-			$("form").attr("method" , "POST").attr("action" , "/user/listUser").submit();
+			$("form").attr("method" , "POST").attr("action" , "/purchase/listSale").submit();
 		}
 
 
@@ -89,37 +89,6 @@
 		//============= userId 에 회원정보보기  Event  처리 (double Click)=============
 		 $(function() {
 
-			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-			$(  "td:nth-child(5) > i" ).on("click" , function() {
-
-					var userId = $(this).next().val();
-
-					$.ajax(
-							{
-								url : "/user/json/getUser/"+userId ,
-								method : "GET" ,
-								dataType : "json" ,
-								headers : {
-									"Accept" : "application/json",
-									"Content-Type" : "application/json"
-								},
-								success : function(JSONData , status) {
-
-									var displayValue = "<h6>"
-																+"아이디 : "+JSONData.userId+"<br/>"
-																+"이  름 : "+JSONData.userName+"<br/>"
-																+"이메일 : "+JSONData.email+"<br/>"
-																+"ROLE : "+JSONData.role+"<br/>"
-																+"등록일 : "+JSONData.regDateString+"<br/>"
-																+"</h6>";
-									$("h6").remove();
-									$( "#"+userId+"" ).html(displayValue);
-								}
-						});
-						////////////////////////////////////////////////////////////////////////////////////////////
-
-			});
-
 			//==> userId LINK Event End User 에게 보일수 있도록
 			$( ".ct_list_pop td:nth-child(3)" ).css("color" , "red");
 			$("h7").css("color" , "red");
@@ -127,6 +96,32 @@
 			//==> 아래와 같이 정의한 이유는 ??
 			$(".ct_list_pop:nth-child(4n+6)" ).css("background-color" , "whitesmoke");
 		});
+
+		$(function() {
+			//배송하기 버튼 Event
+			$("#dlvy").on("click", function () {
+
+				let dlvyProdNo = $(this).find(".inputClassNo").val();
+
+				$.ajax({
+					url: "/purchase/json/updateTranCode",
+					type: "POST",
+					contentType: "application/json; charset=utf-8",
+					data: JSON.stringify({
+						prodNo: "${dlvyprodNo}"
+					}),
+					dataType: "text",
+					success: function(response) {
+
+					},
+					error: function(error) {
+						alert("ajax 에러");
+					}
+				});
+				// self.location = "/purchase/updateTranCode?prodNo="+dlvyProdNo;
+			})
+		})
+
 
 	</script>
 
@@ -202,14 +197,20 @@
 			<c:set var="i" value="${ i+1 }" />
 			<tr>
 			  <td align="left">${ i }</td>
-			  <td align="left"  title="Click : 상품 수정">${purchase.purchaseProd.prodName}</td>
+			  <td align="left">${purchase.purchaseProd.prodName}</td>
 			  <td align="left">${purchase.purchaseProd.price}</td>
 			  <td align="left">${purchase.purchaseProd.regDate}</td>
 			  <c:if test="${purchase.tranCode == null}"	>
 			  <td align="left">판매중</td>
 			  </c:if>
 			  <c:if test="${purchase.tranCode != null}">
-			  <td align="left">${purchase.tranCode}</td>
+			  <td align="left">${purchase.tranCode}
+				  <c:if test="${purchase.tranCode eq '배송전'}">
+					  <input type="button" id="dlvy" value="배송하기">
+					  <input type="hidden" id="prodNo" value="${purchase.purchaseProd.prodNo}" class="inputClassNo"/>
+				  </c:if>
+			  </td>
+
 			  </c:if>
 			</tr>
           </c:forEach>

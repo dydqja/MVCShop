@@ -2,6 +2,7 @@ package com.side.mvcshop.purchase;
 
 import com.side.mvcshop.common.Search;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public interface PurchaseService {
@@ -13,4 +14,6 @@ public interface PurchaseService {
     public Map<String, Object> getList(Search search) throws Exception;
 
     public Map<String, Object> getSaleList(Search search) throws Exception;
+
+    public Purchase updateTranCode(Map<String,Object> map) throws Exception;
 }

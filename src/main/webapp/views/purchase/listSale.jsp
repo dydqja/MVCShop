@@ -99,19 +99,27 @@
 
 		$(function() {
 			//배송하기 버튼 Event
-			$("#dlvy").on("click", function () {
+			$(".dlvy").on("click", function () {
 
-				let dlvyProdNo = $(this).find(".inputClassNo").val();
+				// let dlvyProdNo = parseInt($(this).find(".inputClassNo").val());
+				// let tranCode = $(this).find(".inputTranCode").val();
+				let dlvyProdNo = parseInt($(this).closest("tr").find(".inputClassNo").val());
+				let tranCode = $(this).closest("tr").find(".inputTranCode").val();
+				console.log(dlvyProdNo);
+				console.log(tranCode);
+
 
 				$.ajax({
 					url: "/purchase/json/updateTranCode",
 					type: "POST",
 					contentType: "application/json; charset=utf-8",
 					data: JSON.stringify({
-						prodNo: "${dlvyprodNo}"
+						prodNo: dlvyProdNo,
+						tranCode: tranCode
 					}),
 					dataType: "text",
 					success: function(response) {
+						console.log(response.tranCode.val());
 
 					},
 					error: function(error) {
@@ -206,8 +214,9 @@
 			  <c:if test="${purchase.tranCode != null}">
 			  <td align="left">${purchase.tranCode}
 				  <c:if test="${purchase.tranCode eq '배송전'}">
-					  <input type="button" id="dlvy" value="배송하기">
+					  <input type="button" class="dlvy" value="배송하기">
 					  <input type="hidden" id="prodNo" value="${purchase.purchaseProd.prodNo}" class="inputClassNo"/>
+					  <input type="hidden" id="tranCode" value="${purchase.tranCode}" class="inputTranCode"/>
 				  </c:if>
 			  </td>
 

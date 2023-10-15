@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d0bda2-333f-4a0d-8f3f-7ef6b0f153b9" name="Changes" comment="23.10.06 Purchase getListSale 매퍼작성 완료 / listSale 페이지 구성 ㄱㄱ">
+    <list default="true" id="b2d0bda2-333f-4a0d-8f3f-7ef6b0f153b9" name="Changes" comment="23.10.06 Purchase listSale 페이지구성 및 페이징 완료 / 배송버튼 Event 연결 ㄱㄱ">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/common/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/common/Page.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/common/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/common/Search.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/side/mvcshop/purchase/PurchaseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/common/pageNavigator_new.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/common/pageNavigator_new.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/PurchaseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/PurchaseMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/purchase/listSale.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/purchase/listSale.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/user/listUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/user/listUser.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +23,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Jsp File" />
-        <option value="Class" />
         <option value="spring-beans.schema" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -167,6 +166,7 @@
       <workItem from="1697010512671" duration="154000" />
       <workItem from="1697181075026" duration="10369000" />
       <workItem from="1697261900395" duration="16854000" />
+      <workItem from="1697345843648" duration="9815000" />
     </task>
     <task id="LOCAL-00001" summary="23.09.12 first commit">
       <created>1694498002655</created>

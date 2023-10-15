@@ -87,6 +87,18 @@ public class PurchaseServiceImpl implements PurchaseService{
         return map;
     }
 
+    @Override
+    public Purchase updateTranCode(Map<String,Object> map) throws Exception {
+
+        //TranCode 변경
+        purchaseDao.updateTranCode(map);
+        //TranCode 변경한 구매정보 가져오기
+        Purchase getProd = purchaseDao.getPurchase((Integer)map.get("prodNo"));
+
+        return getProd;
+
+    }
+
     //dlvyDate '-' 빼기
     public String removeHyphen(String date) throws Exception {
 

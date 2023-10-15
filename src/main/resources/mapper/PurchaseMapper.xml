@@ -77,5 +77,26 @@
 
     </select>
 
+    <update id="updateTranCode" parameterType="java.util.Map">
+        <choose>
+            <when test="tranCode == '배송전'">
+                UPDATE transaction
+                SET tran_status_code = '배송중'
+                WHERE prod_no = #{prodNo}
+            </when>
+            <when test="tranCode == '배송중'">
+                UPDATE transaction
+                SET tran_status_code = '배송완'
+                WHERE prod_no = #{prodNo}
+            </when>
+        </choose>
+    </update>
+
+    <select id="getPurchase" parameterType="int" resultMap="purchaseSelectMap">
+        SELECT *
+        FROM transaction
+        WHERE prod_no = #{prodNo}
+    </select>
+
 
 </mapper>
